@@ -1,0 +1,32 @@
+\nomenclatureentry{gA/C@[{A/C}]\begingroup Aircraft\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gILS@[{ILS}]\begingroup Instrument Landing System\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gFIP@[{FIP}]\begingroup Flare Initial Point\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gSC@[{SC}]\begingroup Soft Computing\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gHIS@[{HIS}]\begingroup Hybrid Intelligent System\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gANFIS@[{ANFIS}]\begingroup Adaptive Neuro Inference System\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gANN@[{ANN}]\begingroup Artificial Neural Network\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gAP@[{AP}]\begingroup Autopilot\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gLSE@[{LSE}]\begingroup Least Squares Estimation\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gOSMA@[{OSMA}]\begingroup Outil De Simulation Mouvement Avion \nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gGDE@[{GDE}]\begingroup Gradient Descent Method\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{gRA@[{RA}]\begingroup Radio Altimeter\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$v_{z,IMP}$@[{$v_{z,IMP}$}]\begingroup vertical velocity of an aircraft at touchdown [$\frac{ft}{sec}$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$v_{z,IMP,0}$@[{$v_{z,IMP,0}$}]\begingroup estimated vertical touchdown velocity based on deterministic parameters [$\frac{ft}{sec}$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$v_{z,IMP,0,analytical}$@[{$v_{z,IMP,0,analytical}$}]\begingroup $v_{z,IMP,0}$ estimated using an analytical formula [$\frac{ft}{sec}$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$v_{z,IMP,0,FIS}$@[{$v_{z,IMP,0,FIS}$}]\begingroup $v_{z,IMP,0}$ estimated using a FIS [$\frac{ft}{sec}$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$\gamma_{FIP}$@[{$\gamma_{FIP}$}]\begingroup flight path angle at FIP [°]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$\gamma_{rwy}$@[{$\gamma_{rwy}$}]\begingroup inclination of the runway [\%]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{am@[{m}]\begingroup aircraft mass [kg]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aT@[{T}]\begingroup thrust [N]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$c_{g}$@[{$c_{g}$}]\begingroup center of gravity in the longitudinal axis (x) [$\%$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$c_{L}$@[{$c_{L}$}]\begingroup lift coefficient [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$c_{D}$@[{$c_{D}$}]\begingroup drag coefficient [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$\Delta v_{z,crit}$@[{$\Delta v_{z,crit}$}]\begingroup buffer in the vertical touchdown velocity between an expectation superior to -10 [$\frac{ft}{sec}$] and -10 [$\frac{ft}{sec}$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$\sigma_{est}$@[{$\sigma_{est}$}]\begingroup estimated turbulence intesity [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$v_{w}$@[{$v_{w}$}]\begingroup vertical wind velocity [$\frac{m}{sec}$]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$n_{z,tu}$@[{$n_{z,tu}$}]\begingroup turbulence load factor [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$n_{z,fi}$@[{$n_{z,fi}$}]\begingroup fictitious load factor [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$n_{z,tr}$@[{$n_{z,tr}$}]\begingroup true load factor [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$n_{z,c}$@[{$n_{z,c}$}]\begingroup commanded load factor [-]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aL@[{L}]\begingroup lift [N]\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$t_{flare}$@[{$t_{flare}$}]\begingroup flare duration [sec]\nomeqref {0}|nompageref}{1}

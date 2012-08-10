@@ -1,0 +1,52 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Brockhaus}{Brockhaus}{2001}]{Brockhaus2001}
+Brockhaus, R. (2001).
+\newblock {\em Flugregelung\/} (2 ed.).
+\newblock Springer-Verlag Berlin Heidelberg New York.
+
+\bibitem[\protect\citeauthoryear{Mackall, Nelson, and Schumann}{Mackall
+  et~al.}{2002}]{Mackall2002}
+Mackall, D., S.~Nelson, and J.~Schumann (2002, July).
+\newblock Verfification and validation of neural networks for aerospace
+  systems.
+\newblock Technical report, NASA, Ames Research Center.
+
+\bibitem[\protect\citeauthoryear{Negnevitsky}{Negnevitsky}{2005}]{Negnevitsky2%
+005}
+Negnevitsky, M. (2005).
+\newblock {\em Artificial Intelligence A Guide to Intelligent Systems\/} (2
+  ed.).
+\newblock Pearson Education Limited.
+
+\bibitem[\protect\citeauthoryear{Pototzky}{Pototzky}{1989}]{Anthony1989}
+Pototzky, A.~S. (1989, April).
+\newblock Time-correlated gust loads using mathed-filter theory and
+  random-process theory - a new way of looking at things.
+\newblock Technical report, NASA, Langely Research Center, D.C.
+
+\bibitem[\protect\citeauthoryear{Roskam}{Roskam}{1995}]{Roskam1995}
+Roskam, J. (1995).
+\newblock {\em Airplane Flight Dynamics And Automatic Flight Control\/} (1
+  ed.).
+\newblock DAR corporation.
+
+\bibitem[\protect\citeauthoryear{Seckel}{Seckel}{1975}]{Seckel1975}
+Seckel, E. (1975, May).
+\newblock The landing flare: An analysis and flight-test investigation.
+\newblock Technical report, NASA, Washington, D.C.
+
+\bibitem[\protect\citeauthoryear{Shing and Jang}{Shing and
+  Jang}{1996}]{Jang1996}
+Shing, J. and R.~Jang (1996, September).
+\newblock Input selection for anfis learning.
+\newblock In {\em Transactions on Systems Man and Cybernetics}, pp.\
+  1493--1499.
+
+\bibitem[\protect\citeauthoryear{Stewart}{Stewart}{2003}]{Stewart2003}
+Stewart, E.~C. (2003, December).
+\newblock Description of a normal-force in-situ turbulence algorithm for
+  airplanes.
+\newblock Technical report, NASA, Langley Research Center, Hampton, Virginia.
+
+\end{thebibliography}

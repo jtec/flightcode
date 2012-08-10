@@ -1,0 +1,34 @@
+\select@language {english}
+\contentsline {chapter}{List of Figures}{4}
+\contentsline {chapter}{\numberline {1}Introduction}{8}
+\contentsline {section}{\numberline {1.1}Motivation}{8}
+\contentsline {chapter}{\numberline {2}Theoretical Foundations}{11}
+\contentsline {section}{\numberline {2.1}The Automatic Flare Maneuver}{11}
+\contentsline {section}{\numberline {2.2}Influencing Parameters}{15}
+\contentsline {subsection}{\numberline {2.2.1}Initial flight path angle and ground velocity}{15}
+\contentsline {subsection}{\numberline {2.2.2}Runway Slope}{16}
+\contentsline {subsection}{\numberline {2.2.3}Pilot Induced Load}{17}
+\contentsline {subsection}{\numberline {2.2.4}Vertical Turbulences}{18}
+\contentsline {section}{\numberline {2.3}Mathematical System Modeling}{19}
+\contentsline {subsection}{\numberline {2.3.1}Fuzzy Logic}{19}
+\contentsline {subsubsection}{Fuzzy Inference Systems:}{20}
+\contentsline {subsection}{\numberline {2.3.2}Neural Networks}{23}
+\contentsline {subsection}{\numberline {2.3.3}Adaptive Neuro Fuzzy Inference System}{24}
+\contentsline {subsubsection}{Assembly of ANFIS}{24}
+\contentsline {subsubsection}{Modes of ANFIS}{25}
+\contentsline {chapter}{\numberline {3}Algorithm Design}{29}
+\contentsline {section}{\numberline {3.1}Global Architecture}{29}
+\contentsline {section}{\numberline {3.2}Deterministic Part}{32}
+\contentsline {subsection}{\numberline {3.2.1}Analytical method}{33}
+\contentsline {subsection}{\numberline {3.2.2}Fuzzy ANFIS method}{35}
+\contentsline {subsection}{\numberline {3.2.3}Filtering Pilot Induced Loads}{37}
+\contentsline {section}{\numberline {3.3}Stochastical Part}{38}
+\contentsline {section}{\numberline {3.4}Merging both Branches}{39}
+\contentsline {subsection}{\numberline {3.4.1}Probability Calculation}{39}
+\contentsline {subsection}{\numberline {3.4.2}The Predictor's Trigger}{42}
+\contentsline {chapter}{\numberline {4}Assessment}{43}
+\contentsline {section}{\numberline {4.1}Performance of the deterministic estimation}{43}
+\contentsline {section}{\numberline {4.2}Turbulence estimation performance}{48}
+\contentsline {section}{\numberline {4.3}Global performance}{49}
+\contentsline {chapter}{\numberline {5}Summary}{51}
+\contentsline {chapter}{Bibliography}{53}
