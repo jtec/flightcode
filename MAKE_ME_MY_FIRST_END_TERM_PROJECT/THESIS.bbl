@@ -12,8 +12,7 @@ Mackall, D., S.~Nelson, and J.~Schumann (2002, July).
   systems.
 \newblock Technical report, NASA, Ames Research Center.
 
-\bibitem[\protect\citeauthoryear{Negnevitsky}{Negnevitsky}{2005}]{Negnevitsky2%
-005}
+\bibitem[\protect\citeauthoryear{Negnevitsky}{Negnevitsky}{2005}]{Negnevitsky2005}
 Negnevitsky, M. (2005).
 \newblock {\em Artificial Intelligence A Guide to Intelligent Systems\/} (2
   ed.).
@@ -42,6 +41,12 @@ Shing, J. and R.~Jang (1996, September).
 \newblock Input selection for anfis learning.
 \newblock In {\em Transactions on Systems Man and Cybernetics}, pp.\
   1493--1499.
+
+\bibitem[\protect\citeauthoryear{Slawinski}{Slawinski}{1999}]{Slawinski1999}
+Slawinski, T. (1999).
+\newblock A hybrid evolutionary search concept for data-based generation of
+  relevant fuzzy rules in high dimensional spaces.
+\newblock In {\em Fuzzy Systems Conference Proceedings}, pp.\  1432--1437.
 
 \bibitem[\protect\citeauthoryear{Stewart}{Stewart}{2003}]{Stewart2003}
 Stewart, E.~C. (2003, December).
