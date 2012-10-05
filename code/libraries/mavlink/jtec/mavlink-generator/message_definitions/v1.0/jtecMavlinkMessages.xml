@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<mavlink>
+     <version>3</version>
+     <messages>
+          <message id="200" name="ACTUATOR_COMMANDS">
+               <description>Message for 10 servo commands. Interval [-1, 1]</description>
+               <field type="float[10]" name="servoCommands">10 Servo commands [-1000,1000] </field>
+          </message>
+     </messages>
+</mavlink>
