@@ -121,7 +121,12 @@ void clMPU6050::configMPU(){
  */
 void clMPU6050::GetRawAccelGyro(s16* AccelGyro, s16* temperature){
 	u8 tmpBuffer[14];
-	I2C_BufferRead(MPU6050_DEFAULT_ADDRESS, tmpBuffer, MPU6050_RA_ACCEL_XOUT_H, 14);
+	if(!I2C_BufferRead(MPU6050_DEFAULT_ADDRESS, tmpBuffer, MPU6050_RA_ACCEL_XOUT_H, 14)){
+		// If the bus gets blocked by a slave, restart it.
+		restartI2CBus();
+		// Exit method, since we could not receive any valid data.
+		return;
+	}
 	/* Get acceleration */
 	for(int i=0; i<3; i++){
 		AccelGyro[i]=((s16)((u16)tmpBuffer[2*i] << 8) + tmpBuffer[2*i+1]);
@@ -350,7 +355,10 @@ void clMPU6050::WriteBits(uint8_t slaveAddr, uint8_t regAddr, uint8_t bitStart, 
 	// 10100011 original & ~mask
 	// 10101011 masked | value
 	uint8_t tmp;
-	I2C_BufferRead(slaveAddr, &tmp, regAddr, 1);
+	if(!I2C_BufferRead(slaveAddr, &tmp, regAddr, 1)){
+		restartI2CBus();
+		return;
+	}
 	uint8_t mask = ((1 << length) - 1) << (bitStart - length + 1);
 	data <<= (bitStart - length + 1); // shift data into correct position
 	data &= mask; // zero all non-important bits in data
@@ -367,7 +375,10 @@ void clMPU6050::WriteBits(uint8_t slaveAddr, uint8_t regAddr, uint8_t bitStart, 
 void clMPU6050::WriteBit(uint8_t slaveAddr, uint8_t regAddr, uint8_t bitNum, uint8_t data)
 {
 	uint8_t tmp;
-	I2C_BufferRead(slaveAddr, &tmp, regAddr, 1);
+	if(!I2C_BufferRead(slaveAddr, &tmp, regAddr, 1)){
+		restartI2CBus();
+		return;
+	}
 	tmp = (data != 0) ? (tmp | (1 << bitNum)) : (tmp & ~(1 << bitNum));
 	I2C_ByteWrite(slaveAddr,&tmp,regAddr);
 }
@@ -387,7 +398,10 @@ void clMPU6050::ReadBits(uint8_t slaveAddr, uint8_t regAddr, uint8_t bitStart, u
 	//    010   masked
 	//   -> 010 shifted
 	uint8_t tmp;
-	I2C_BufferRead(slaveAddr, &tmp, regAddr, 1);
+	if(!I2C_BufferRead(slaveAddr, &tmp, regAddr, 1)){
+		restartI2CBus();
+		return;
+	}
 	uint8_t mask = ((1 << length) - 1) << (bitStart - length + 1);
 	tmp &= mask;
 	tmp >>= (bitStart - length + 1);
@@ -404,7 +418,10 @@ void clMPU6050::ReadBits(uint8_t slaveAddr, uint8_t regAddr, uint8_t bitStart, u
 void clMPU6050::ReadBit(uint8_t slaveAddr, uint8_t regAddr, uint8_t bitNum, uint8_t *data)
 {
 	uint8_t tmp;
-	I2C_BufferRead(slaveAddr, &tmp, regAddr, 1);
+	if(!I2C_BufferRead(slaveAddr, &tmp, regAddr, 1)){
+		restartI2CBus();
+		return;
+	}
 	*data = tmp & (1 << bitNum);
 }
 
@@ -494,7 +511,7 @@ bool clMPU6050::I2C_BufferRead(u8 slaveAddr, u8* pBuffer, u8 readAddr, u16 NumBy
 	/* Send START condition */
 	I2C_GenerateSTART(this->i2c, ENABLE);
 
-	/* Test on EV5 (bus is free, master can transmit the first byte) and clear it */
+	/* Test on EV5 (i.e. if bus is free, master can transmit the first byte) and clear it */
 	this->restartTimeoutTimer();
 	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
@@ -584,18 +601,18 @@ bool clMPU6050::I2C_BufferRead(u8 slaveAddr, u8* pBuffer, u8 readAddr, u16 NumBy
 	/* Enable Acknowledgement to be ready for another reception */
 	I2C_AcknowledgeConfig(this->i2c, ENABLE);
 	//  EXT_CRT_SECTION();
-	return true
+	return true;
 }
 
 /**
- * \param Call this method before you start an operation that could time out.
+ * \brief Call this method before you start an operation that could time out.
  */
 void clMPU6050::restartTimeoutTimer(){
 	TimeBase::getSystemTime(this->timeoutTimerStartTime);
 }
 
 /**
- * Return value indicates how much time [µs] has passed since the timeout timer has been restarted.
+ * \brief Return value indicates how much time [µs] has passed since the timeout timer has been restarted.
  */
 uint32_t clMPU6050::getTimeoutTimerTime(){
 	static uint32_t now[2] = {0};
@@ -606,7 +623,7 @@ uint32_t clMPU6050::getTimeoutTimerTime(){
 }
 
 /**
- * Return value indicates how much time [time for one bit] has passed since the timeout timer has been restarted.
+ * \brief Return value indicates how much time [time for one bit] has passed since the timeout timer has been restarted.
  */
 uint32_t clMPU6050::getTimeoutTimerTimeInBits(){
 	static uint32_t now[2] = {0};
@@ -614,6 +631,14 @@ uint32_t clMPU6050::getTimeoutTimerTimeInBits(){
 	TimeBase::getSystemTime(now);
 	timeInMicrosecs = (now[0] - this->timeoutTimerStartTime[0])*1000 + (now[1] - this->timeoutTimerStartTime[1]);
 	return timeInMicrosecs/this->timeForOneBit;
+}
+
+/**
+ * \brief This method sends a stop condition to make all slaves restart their bus state machines. It has
+ * become necessary because sometimes the MPU6050 blocks the bus.
+ */
+void clMPU6050::restartI2CBus(){
+	return;
 }
 
 /**

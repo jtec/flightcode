@@ -1,0 +1,36 @@
+CC     = "D:\Matlab\R2012a\sys\lcc\bin\lcc.exe"
+LD     = "D:\Matlab\R2012a\sys\lcc\bin\lcclnk.exe"
+LIBCMD = "D:\Matlab\R2012a\sys\lcc\bin\lcclib.exe"
+CFLAGS = -c -Zp8 -DMATLAB_MEX_FILE -noregistrylookup
+LDFLAGS = -s -dll -L"D:\Matlab\R2012a\sys\lcc\lib"
+LIBFLAGS = 
+
+OBJECTS = \
+	"simulink2CRRCSim_sfun.obj"\
+	"simulink2CRRCSim_sfun_registry.obj"\
+	"c2_simulink2CRRCSim.obj"\
+	"lccstub.obj"\
+	"D:\Matlab\R2012a\sys\lcc\mex\lccdef.def"\
+	"D:\Matlab\R2012a\stateflow\c\debugger\lib\win32\sfc_debuglcc.lib"\
+	"D:\Matlab\R2012a\stateflow\c\mex\lib\win32\sfc_mexlcc.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libmex.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libmx.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libfixedpoint.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libut.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libmwmathutil.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libemlrt.lib"\
+	"D:\Matlab\R2012a\extern\lib\win32\lcc\libmwblascompat32.lib"\
+
+INCLUDE_PATH= -I"D:\Matlab\R2012a\sys\lcc\include"  -I"D:\Matlab\R2012a\extern\include"  -I"D:\Matlab\R2012a\simulink\include"  -I"D:\Matlab\R2012a\stateflow\c\mex\include"  -I"D:\Matlab\R2012a\stateflow\c\debugger\include" 
+ 
+
+simulink2CRRCSim_sfun.mexw32 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o simulink2CRRCSim_sfun.mexw32 @simulink2CRRCSim_sfun.lmko
+simulink2CRRCSim_sfun.obj :	"simulink2CRRCSim_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "simulink2CRRCSim_sfun.c"
+simulink2CRRCSim_sfun_registry.obj :	"simulink2CRRCSim_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "simulink2CRRCSim_sfun_registry.c"
+c2_simulink2CRRCSim.obj :	"c2_simulink2CRRCSim.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_simulink2CRRCSim.c"
+lccstub.obj :	"D:\Matlab\R2012a\sys\lcc\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "D:\Matlab\R2012a\sys\lcc\mex\lccstub.c"

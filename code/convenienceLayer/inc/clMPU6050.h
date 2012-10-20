@@ -55,6 +55,7 @@ private:
 	bool I2C_BufferRead(u8 slaveAddr, u8* pBuffer, u8 readAddr, u16 NumByteToRead);
 	bool I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr);
 	void restartTimeoutTimer();
+	void restartI2CBus();
 	uint32_t getTimeoutTimerTime();
 	uint32_t getTimeoutTimerTimeInBits();
 	I2C_TypeDef* i2c;
