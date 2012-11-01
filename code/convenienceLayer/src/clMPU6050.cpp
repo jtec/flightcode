@@ -3,7 +3,6 @@
  *\brief This Device driver uses an I2C interface to get rotation rate and
  *		 acceleration measurements data from an IMU chip MPU6050 (by Invensense).
  *\author Jan
- * TODO Remove while loops that potentially stall the whole program if the IMU does not answer, e.g. use timeouts or interrupts.
  */
 
 #include "../inc/clMPU6050.h"
@@ -42,7 +41,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
 	GPIO_Init(this->sck_port, &GPIO_InitStructure);
 
-	/*!< Configure sEE_I2C pins: SDA */
+	/*!< Configure pins SDA pin*/
 	GPIO_InitStructure.GPIO_Pin = this->sda_pin;
 	GPIO_Init(this->sda_port, &GPIO_InitStructure);
 
@@ -55,6 +54,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	I2C_InitStructure.I2C_ClockSpeed = I2CSpeed;
 
 	this->timeForOneBit = 1000000/I2CSpeed;	//  Compute time of one bit [µs], useful for timeouts.
+													// FIXME I2C Slaves can stretch the clock, so time for one bit cannot be predicted by the master.
 	this->timeForOneByte = 10*this->timeForOneBit;
 	this->timeoutTimerStartTime[0] = 0;
 	this->timeoutTimerStartTime[1] = 0;
@@ -74,7 +74,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	this->sensors.temperatureScaleFactor = 340;
 	this->sensors.temperatureBias = 36.5323529;
 	// Configure measurement ranges etc.
-	this->configMPU();
+	 this->configMPU();
 }//eof
 
 /**
@@ -86,22 +86,26 @@ clMPU6050::~clMPU6050()
 }//eof
 
 /**
- *	\brief Puts the current raw (= no temperature compensation) measurements (accelerations, angular velocities,
+ *	\brief Puts the current raw (= no temperature/bias/nonlinearity compensation) measurements (accelerations, angular velocities,
  *	see definition of mpu6050Output structure for units) into a structure you
  *	provide as a pointer.
- *	\param[in] output - Tointer to a structure to copy the data to.
+ *	\param[in] output - Pointer to a structure to copy the data to.
  */
 void clMPU6050::getRawMeasurements(mpu6050Output* output){
 	static int16_t unscaledMeasurements[6] = {0};
 	static int16_t unscaledTemperature = 0;
 	// Get unscaled data, i.e. in LSBs.
-	this->GetRawAccelGyro(unscaledMeasurements, &unscaledTemperature);
+	//this->GetRawAccelGyro(unscaledMeasurements, &unscaledTemperature);
+	output->rawGyro[0] = this->GetDeviceID();
+	/*
 	// Multiply with scale factors:
 	for(int32_t i=0; i<3; i++){
 		output->rawAcc[i] = this->sensors.accelerometerBias[i] + ((float)unscaledMeasurements[i])/this->sensors.accelerometerScaleFactor ;
 		output->rawGyro[i] = this->sensors.gyroBias[i] + ((float)unscaledMeasurements[3 + i])/this->sensors.gyroScaleFactor;
 	}
 	output->temp = this->sensors.temperatureBias + ((float)unscaledTemperature) / this->sensors.temperatureScaleFactor;
+	*/
+	output->rawGyro[1] = 33;
 }
 
 /**
@@ -120,7 +124,7 @@ void clMPU6050::configMPU(){
  * @see MPU6050_RA_ACCEL_XOUT_H
  */
 void clMPU6050::GetRawAccelGyro(s16* AccelGyro, s16* temperature){
-	u8 tmpBuffer[14];
+	static u8 tmpBuffer[14];
 	if(!I2C_BufferRead(MPU6050_DEFAULT_ADDRESS, tmpBuffer, MPU6050_RA_ACCEL_XOUT_H, 14)){
 		// If the bus gets blocked by a slave, restart it.
 		restartI2CBus();
@@ -441,7 +445,7 @@ bool clMPU6050::I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr)
 
 	/* Test on EV5 (Indicates that the bus is free) and clear it */
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT)) == SUCCESS){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
@@ -452,7 +456,7 @@ bool clMPU6050::I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr)
 
 	/* Test on EV6 and clear it */
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
@@ -463,7 +467,7 @@ bool clMPU6050::I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr)
 
 	/* Test on EV8 and clear it */
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_TRANSMITTED)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_TRANSMITTED) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
@@ -474,7 +478,7 @@ bool clMPU6050::I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr)
 
 	/* Test on EV8 and clear it */
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_TRANSMITTED)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_TRANSMITTED) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
@@ -488,19 +492,17 @@ bool clMPU6050::I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr)
 }
 
 /**
- * @brief  Reads a block of data from the MPU6050.
- * @param  slaveAddr  : slave address MPU6050_DEFAULT_ADDRESS
+ * @brief  Reads a block of bytes from the MPU6050.
+ * @param  slaveAddr  : slave address
  * @param  pBuffer : pointer to the buffer that receives the data read from the MPU6050.
  * @param  readAddr : MPU6050's internal address to read from.
- * @param  NumByteToRead : number of bytes to read from the MPU6050 ( NumByteToRead >1  only for the Mgnetometer readinf).
- * @return true, if the data could be read- false, if reading data failed, e.g. because the MPU6050 die not answer.
+ * @param  NumByteToRead : number of bytes to read from the MPU6050 ( NumByteToRead >1  only for the Magnetometer readinf).
+ * @return true, if the data could be read- false, if reading data failed, e.g. because the MPU6050 did not answer.
  */
 
 bool clMPU6050::I2C_BufferRead(u8 slaveAddr, u8* pBuffer, u8 readAddr, u16 NumByteToRead)
 {
-	// ENTR_CRT_SECTION();
-
-	/* While the bus is busy */
+	// Wait while the bus is busy
 	this->restartTimeoutTimer();
 	while(I2C_GetFlagStatus(this->i2c, I2C_FLAG_BUSY)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
@@ -508,100 +510,102 @@ bool clMPU6050::I2C_BufferRead(u8 slaveAddr, u8* pBuffer, u8 readAddr, u16 NumBy
 		}
 	}
 
-	/* Send START condition */
+	// Send START condition
 	I2C_GenerateSTART(this->i2c, ENABLE);
 
-	/* Test on EV5 (i.e. if bus is free, master can transmit the first byte) and clear it */
+	// Test on EV5 (i.e. if bus is free, master can transmit the first byte) and clear it
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
 	}
 
-	/* Send MPU6050 address for write */
+	// Send MPU6050 address for write
 	I2C_Send7bitAddress(this->i2c, slaveAddr, I2C_Direction_Transmitter);
 
-	/* Test on EV6 and clear it */
+	// Test on EV6 (slave has acknowledged address) and clear it
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
 	}
 
-	/* Clear EV6 by setting again the PE bit */
+	// Clear EV6 by setting again the PE bit
 	I2C_Cmd(this->i2c, ENABLE);
 
-	/* Send the MPU6050's internal address to write to */
+	// Send the MPU6050's internal address to read from
 	I2C_SendData(this->i2c, readAddr);
 
-	/* Test on EV8 and clear it */
+	// Test on EV8_2 and clear it
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_TRANSMITTED)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_TRANSMITTED) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
 	}
 
-	/* Send START condition a second time */
+	// Send START condition a second time
 	I2C_GenerateSTART(this->i2c, ENABLE);
 
-	/* Test on EV5 and clear it */
+	// Test on EV5 and clear it
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_MODE_SELECT) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
 	}
 
-	/* Send MPU6050 address for read */
+	// Send MPU6050 address for read
 	I2C_Send7bitAddress(this->i2c, slaveAddr, I2C_Direction_Receiver);
 
-	/* Test on EV6 and clear it */
+	// Test on EV6 and clear it
 	this->restartTimeoutTimer();
-	while(!I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED)){
+	while(!(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED) == SUCCESS)){
 		if(this->getTimeoutTimerTime() > 20*this->timeForOneByte){
 			return false;
 		}
 	}
 
-	/* While there is data to be read */
+	uint32_t timeoutTime = 20* NumByteToRead * this->timeForOneByte;
 	this->restartTimeoutTimer();
+	// While there is data to be read:
 	while(NumByteToRead > 0)
 	{
 
-		if(this->getTimeoutTimerTime() > (20* NumByteToRead * this->timeForOneByte)){
+		if(this->getTimeoutTimerTime() > timeoutTime){
 			return false;
 		}
 
 		if(NumByteToRead == 1)
 		{
-			/* Disable Acknowledgement */
+			// Disable Acknowledgement
 			I2C_AcknowledgeConfig(this->i2c, DISABLE);
 
-			/* Send STOP Condition */
+			// Send STOP Condition
 			I2C_GenerateSTOP(this->i2c, ENABLE);
 		}
 
-		/* Test on EV7 and clear it */
-		if(I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_RECEIVED))
+		// Test on EV7 and clear it
+		if((I2C_CheckEvent(this->i2c, I2C_EVENT_MASTER_BYTE_RECEIVED) == SUCCESS))
 		{
-			/* Read a byte from the MPU6050 */
+			// Read a byte from the MPU6050
 			*pBuffer = I2C_ReceiveData(this->i2c);
 
-			/* Point to the next location where the byte read will be saved */
+			// Point to the location where the next byte will be saved.
 			pBuffer++;
 
-			/* Decrement the read bytes counter */
+			// Decrement the read bytes counter.
 			NumByteToRead--;
 		}
 	}
 
-	/* Enable Acknowledgement to be ready for another reception */
+	// Enable Acknowledgement to be ready for another reception
 	I2C_AcknowledgeConfig(this->i2c, ENABLE);
-	//  EXT_CRT_SECTION();
+*/
 	return true;
+
 }
 
 /**
@@ -638,6 +642,22 @@ uint32_t clMPU6050::getTimeoutTimerTimeInBits(){
  * become necessary because sometimes the MPU6050 blocks the bus.
  */
 void clMPU6050::restartI2CBus(){
+	/*
+	// Configure SDA and SDL as GPIOs t be able to senda STOP condition manually.
+	static GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitStructure.GPIO_Pin = this->sck_pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+	GPIO_Init(this->sck_port, &GPIO_InitStructure);
+
+	GPIO_InitStructure.GPIO_Pin = this->sda_pin;
+	GPIO_Init(this->sda_port, &GPIO_InitStructure);
+	*/
+	// Send STOP condition to reset slaves.
+	//I2C_GenerateSTOP(this->i2c, ENABLE);
+
 	return;
 }
 

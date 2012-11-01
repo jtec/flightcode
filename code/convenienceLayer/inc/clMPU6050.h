@@ -63,7 +63,7 @@ private:
 	uint16_t sck_pin;
 	GPIO_TypeDef* sda_port;
 	uint16_t sda_pin;
-	static const uint32_t I2CSpeed = 100000;	// 100 kHz
+	static const uint32_t I2CSpeed = 400000;	// 400 kHz
 	struct MPU6050Sensors sensors;
 	uint32_t timeForOneBit;					// Time it takes to transmit one bit [µs]
 	uint32_t timeForOneByte;				// Time it takes to transmit one byte, generously estimated to 10 bit [µs]

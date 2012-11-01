@@ -83,7 +83,6 @@ void alStandaloneNode::runloop(){
 	float rcInputs[8] = {0};
 	float motorOutputs[8] = {-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0,};
 	struct controlOutputQuadrocopter controlOutput;
-	float timestep = 10;	// [ms]
 	float bias = 0;
 	bool isLocked = true;
 
@@ -102,6 +101,7 @@ void alStandaloneNode::runloop(){
 		// Keep ground link running:
 		this->groundLink->tick();
 		// Do all the control stuff:
+		const float timestep = 100;	// [ms]
 		if(controlTimer->getTime() >= timestep){
 			// Don't forget to restart timer:
 			controlTimer->restart();
@@ -198,7 +198,7 @@ void alStandaloneNode::estimateAttitude(mpu6050Output* measurements, float times
 		NaNValueRoll = rollAcc;
 	}
 
-	// Combine angles derived from rotation rates and those calculated from accelerarations in a complementary manner:
+	// Combine angles derived from rotation rates and those calculated from accelerations in a complementary manner:
 	euler->euler[0] += 0.01 * (rollAcc - euler->euler[0]);
 	euler->euler[1] += 0.01 * (pitchAcc - euler->euler[1]);
 }
