@@ -87,8 +87,7 @@ clMPU6050::~clMPU6050()
 
 /**
  *	\brief Puts the current raw (= no temperature/bias/nonlinearity compensation) measurements (accelerations, angular velocities,
- *	see definition of mpu6050Output structure for units) into a structure you
- *	provide as a pointer.
+ *	see definition of mpu6050Output structure for units) into a structure you                              provide as a pointer.
  *	\param[in] output - Pointer to a structure to copy the data to.
  */
 void clMPU6050::getRawMeasurements(mpu6050Output* output){
@@ -523,7 +522,7 @@ bool clMPU6050::I2C_BufferRead(u8 slaveAddr, u8* pBuffer, u8 readAddr, u16 NumBy
 			this->restartTimeoutTimer();
 			while(this->getTimeoutTimerTime() < this->timeForOneByte){
 			}
-
+			break;
 			//return false;
 		}
 	}
