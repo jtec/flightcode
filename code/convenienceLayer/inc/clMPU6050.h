@@ -56,14 +56,17 @@ private:
 	bool I2C_ByteWrite(u8 slaveAddr, u8* pBuffer, u8 writeAddr);
 	void restartTimeoutTimer();
 	void restartI2CBus();
+	void writeByte(uint8_t byte);
+	void waitBitTimes(uint8_t bitTimes);
 	uint32_t getTimeoutTimerTime();
 	uint32_t getTimeoutTimerTimeInBits();
 	I2C_TypeDef* i2c;
+	I2C_InitTypeDef i2cConfiguration;
 	GPIO_TypeDef* sck_port;
 	uint16_t sck_pin;
 	GPIO_TypeDef* sda_port;
 	uint16_t sda_pin;
-	static const uint32_t I2CSpeed = 400000;	// 400 kHz
+	static const uint32_t I2CSpeed = 200000;	// 400 kHz
 	struct MPU6050Sensors sensors;
 	uint32_t timeForOneBit;					// Time it takes to transmit one bit [µs]
 	uint32_t timeForOneByte;				// Time it takes to transmit one byte, generously estimated to 10 bit [µs]
