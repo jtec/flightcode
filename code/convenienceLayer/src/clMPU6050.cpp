@@ -72,10 +72,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	this->sensors.temperatureScaleFactor = 340;
 	this->sensors.temperatureBias = 36.5323529;
 
-	// Restart bus by a STOP condition.
-	I2C_GenerateSTOP(this->i2c, ENABLE);
-	TimeBase::waitMicrosec(this->timeForOneByte);
-	I2C_GenerateSTOP(this->i2c, DISABLE);
+	this->restartI2CBus();
 	// Configure measurement ranges etc.
 	this->configMPU();
 }//eof
@@ -106,7 +103,8 @@ void clMPU6050::getRawMeasurements(mpu6050Output* output){
 		output->rawGyro[i] = this->sensors.gyroBias[i] + ((float)unscaledMeasurements[3 + i])/this->sensors.gyroScaleFactor;
 	}
 	output->temp = this->sensors.temperatureBias + ((float)unscaledTemperature) / this->sensors.temperatureScaleFactor;
-
+	this->restartI2CBus();
+	TimeBase::waitMicrosec(1000);
 	output->rawGyro[0] = this->GetDeviceID();
 	output->rawGyro[2] = 1;
 }
@@ -685,28 +683,14 @@ void clMPU6050::writeByte(uint8_t byte){
 }
 
 /**
- * Blocks for the given time in bits.
- * \param[in] bitTimes - If this parameter is e.g. 2, the method waits for the span of time of 2 bits.
- */
-void clMPU6050::waitBitTimes(uint8_t bitTimes){
-	static uint32_t start[2] = {0};
-	static uint32_t now[2] = {0};
-	TimeBase::getSystemTime(start);
-	while(true){
-		TimeBase::getSystemTime(now);
-		uint32_t timeThatHasPassed = (now[0] - start[0])*1000 + (now[1] - start[1]);
-		if(timeThatHasPassed){
-
-		}
-	}
-}
-
-/**
  * \brief This method sends a stop condition to make all slaves restart their bus state machines. It has
  * become necessary because sometimes the MPU6050 blocks the bus.
  */
 void clMPU6050::restartI2CBus(){
-	/*
+
+	//Disable I2C
+	I2C_Cmd(this->i2c, DISABLE);
+
 	// Configure SDA and SDL as GPIOs t be able to send a STOP condition manually.
 	static GPIO_InitTypeDef GPIO_InitStructure;
 	GPIO_InitStructure.GPIO_Pin = this->sck_pin;
@@ -718,23 +702,41 @@ void clMPU6050::restartI2CBus(){
 
 	GPIO_InitStructure.GPIO_Pin = this->sda_pin;
 	GPIO_Init(this->sda_port, &GPIO_InitStructure);
-	 */
-/*
+
+	/*
 	// Reset and restart I2C peripheral
 	I2C_SoftwareResetCmd(this->i2c, ENABLE);
 	this->restartTimeoutTimer();
 	while(this->getTimeoutTimerTime() < this->timeForOneByte){
 	}
 	I2C_SoftwareResetCmd(this->i2c, DISABLE);
+	 */
 
-	I2C_Init(this->i2c, &(this->i2cConfiguration));
-	I2C_Cmd(this->i2c, ENABLE);
-*/
 	// Generate STOP condition to reset slave I2C interfaces.
-	I2C_GenerateSTOP(this->i2c, ENABLE);
-	this->restartTimeoutTimer();
-	while(this->getTimeoutTimerTime() < this->timeForOneByte){
-	}
+	GPIO_ResetBits(this->sda_port, this->sda_pin);
+	TimeBase::waitMicrosec(this->timeForOneBit);
+	GPIO_SetBits(this->sck_port, this->sck_pin);
+	TimeBase::waitMicrosec(this->timeForOneBit);
+	GPIO_SetBits(this->sda_port, this->sda_pin);
+	TimeBase::waitMicrosec(this->timeForOneBit);
+	GPIO_ResetBits(this->sck_port, this->sck_pin);
+	TimeBase::waitMicrosec(this->timeForOneBit);
+	GPIO_ResetBits(this->sda_port, this->sda_pin);
+
+	// Reconfigure pins for I2C:
+	GPIO_InitStructure.GPIO_Pin = this->sck_pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+	GPIO_Init(this->sck_port, &GPIO_InitStructure);
+
+	/*!< Configure pins SDA pin*/
+	GPIO_InitStructure.GPIO_Pin = this->sda_pin;
+	GPIO_Init(this->sda_port, &GPIO_InitStructure);
+
+	// Re-enable I2c peripheral.
+	I2C_Cmd(this->i2c, ENABLE);
 
 	return;
 }

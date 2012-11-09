@@ -96,12 +96,13 @@ void alStandaloneNode::runloop(){
 	this->parameterGuy->checkInFloat(&this->gains.pitch_P, "ctrl_yaw_i", 10);
 	this->parameterGuy->checkInFloat(&this->gains.pitch_P, "ctrl_yaw_d", 10);
 
+	TimeBase::waitMicrosec(500000);
 
 	while(true){
 		// Keep ground link running:
 		this->groundLink->tick();
 		// Do all the control stuff:
-		const float timestep = 100;	// [ms]
+		const float timestep = 10;	// [ms]
 		if(controlTimer->getTime() >= timestep){
 			// Don't forget to restart timer:
 			controlTimer->restart();
