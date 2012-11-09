@@ -17,13 +17,14 @@ public:
 	~clGPIOPin(void);									//destructor
 	void toggle();
 	void set(bool newState);
-	static const bool Pinstate_HIGH = true;
-	static const bool Pinstate_LOW = false;
-	clGPIOPin();
+	static const bool HIGH = true;
+	static const bool LOW = false;
 protected:
 	bool status;					// Indicates if the Pin currently is high or low.
 	GPIO_TypeDef* GPIOPort;				// GPIO port.
 	uint16_t GPIOPin;					// GPIO pin.
+private:
+	clGPIOPin();
 };//eoc
 
 

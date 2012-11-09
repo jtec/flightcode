@@ -37,7 +37,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
-	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
 	GPIO_Init(this->sck_port, &GPIO_InitStructure);
 
 	/*!< Configure pins SDA pin*/
@@ -47,7 +47,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	/* I2C configuration */
 	this->i2cConfiguration.I2C_Mode = I2C_Mode_I2C;
 	this->i2cConfiguration.I2C_DutyCycle = I2C_DutyCycle_2;
-	this->i2cConfiguration.I2C_OwnAddress1 = MPU6050_DEFAULT_ADDRESS; // MPU6050 7-bit adress = 0x68, 8-bit adress = 0xD0;
+	this->i2cConfiguration.I2C_OwnAddress1 = 0x0; // MPU6050 7-bit adress = 0x68, 8-bit adress = 0xD0;
 	this->i2cConfiguration.I2C_Ack = I2C_Ack_Disable;
 	this->i2cConfiguration.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
 	this->i2cConfiguration.I2C_ClockSpeed = I2CSpeed;
@@ -75,6 +75,7 @@ clMPU6050::clMPU6050(I2C_TypeDef* I2CToUse, GPIO_TypeDef* gpio_scl, uint16_t pin
 	this->restartI2CBus();
 	// Configure measurement ranges etc.
 	this->configMPU();
+	this->restartI2CBus();
 }//eof
 
 /**
@@ -94,7 +95,7 @@ void clMPU6050::getRawMeasurements(mpu6050Output* output){
 	static int16_t unscaledMeasurements[6] = {0};
 	static int16_t unscaledTemperature = 0;
 	// Get unscaled data, i.e. in LSBs.
-	//this->GetRawAccelGyro(unscaledMeasurements, &unscaledTemperature);
+	this->GetRawAccelGyro(unscaledMeasurements, &unscaledTemperature);
 	//this->configMPU();
 
 	// Multiply with scale factors:
@@ -103,9 +104,7 @@ void clMPU6050::getRawMeasurements(mpu6050Output* output){
 		output->rawGyro[i] = this->sensors.gyroBias[i] + ((float)unscaledMeasurements[3 + i])/this->sensors.gyroScaleFactor;
 	}
 	output->temp = this->sensors.temperatureBias + ((float)unscaledTemperature) / this->sensors.temperatureScaleFactor;
-	this->restartI2CBus();
-	TimeBase::waitMicrosec(1000);
-	output->rawGyro[0] = this->GetDeviceID();
+	//output->rawGyro[0] = this->GetDeviceID();
 	output->rawGyro[2] = 1;
 }
 
@@ -125,7 +124,7 @@ void clMPU6050::configMPU(){
  * @see MPU6050_RA_ACCEL_XOUT_H
  */
 void clMPU6050::GetRawAccelGyro(s16* AccelGyro, s16* temperature){
-	static u8 tmpBuffer[14];
+	u8 tmpBuffer[14] = {0};
 	if(!I2C_BufferRead(MPU6050_DEFAULT_ADDRESS, tmpBuffer, MPU6050_RA_ACCEL_XOUT_H, 14)){
 		// If the bus gets blocked by a slave, restart it.
 		restartI2CBus();
@@ -165,7 +164,7 @@ bool clMPU6050::TestConnection(){
  */
 uint8_t clMPU6050::GetDeviceID()
 {
-	uint8_t tmp;
+	uint8_t tmp = 0;
 	ReadBits(MPU6050_DEFAULT_ADDRESS, MPU6050_RA_WHO_AM_I, MPU6050_WHO_AM_I_BIT, MPU6050_WHO_AM_I_LENGTH, &tmp);
 	return tmp;
 }
@@ -703,18 +702,9 @@ void clMPU6050::restartI2CBus(){
 	GPIO_InitStructure.GPIO_Pin = this->sda_pin;
 	GPIO_Init(this->sda_port, &GPIO_InitStructure);
 
-	/*
-	// Reset and restart I2C peripheral
-	I2C_SoftwareResetCmd(this->i2c, ENABLE);
-	this->restartTimeoutTimer();
-	while(this->getTimeoutTimerTime() < this->timeForOneByte){
-	}
-	I2C_SoftwareResetCmd(this->i2c, DISABLE);
-	 */
-
 	// Generate STOP condition to reset slave I2C interfaces.
-	GPIO_ResetBits(this->sda_port, this->sda_pin);
-	TimeBase::waitMicrosec(this->timeForOneBit);
+//	GPIO_ResetBits(this->sda_port, this->sda_pin);
+//	TimeBase::waitMicrosec(this->timeForOneBit);
 	GPIO_SetBits(this->sck_port, this->sck_pin);
 	TimeBase::waitMicrosec(this->timeForOneBit);
 	GPIO_SetBits(this->sda_port, this->sda_pin);
@@ -722,16 +712,18 @@ void clMPU6050::restartI2CBus(){
 	GPIO_ResetBits(this->sck_port, this->sck_pin);
 	TimeBase::waitMicrosec(this->timeForOneBit);
 	GPIO_ResetBits(this->sda_port, this->sda_pin);
+	TimeBase::waitMicrosec(this->timeForOneBit);
+	GPIO_SetBits(this->sck_port, this->sck_pin);
 
 	// Reconfigure pins for I2C:
 	GPIO_InitStructure.GPIO_Pin = this->sck_pin;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
-	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
 	GPIO_Init(this->sck_port, &GPIO_InitStructure);
 
-	/*!< Configure pins SDA pin*/
+	// Configure pins SDA pin
 	GPIO_InitStructure.GPIO_Pin = this->sda_pin;
 	GPIO_Init(this->sda_port, &GPIO_InitStructure);
 

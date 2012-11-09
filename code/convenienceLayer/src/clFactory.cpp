@@ -65,7 +65,7 @@ clFactory* clFactory::buildForServoNode(){
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_TIM3);
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource0, GPIO_AF_TIM5);
 
-	fact->statusLED = new clLED(GPIOD, GPIO_Pin_12, clGPIOPin::Pinstate_HIGH);
+	fact->statusLED = new clLED(GPIOD, GPIO_Pin_12, clGPIOPin::HIGH);
 
 	fact->SerialPortBus = new clSerialPort(USART2, 2500000, GPIOA, GPIOA, GPIO_Pin_2, GPIO_Pin_3);
 

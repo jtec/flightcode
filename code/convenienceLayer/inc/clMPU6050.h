@@ -57,9 +57,14 @@ private:
 	void restartTimeoutTimer();
 	void restartI2CBus();
 	void writeByte(uint8_t byte);
+	void doSTOP();
+	void doSTART();
+
 	void waitBitTimes(uint8_t bitTimes);
 	uint32_t getTimeoutTimerTime();
 	uint32_t getTimeoutTimerTimeInBits();
+	clGPIOPin* sckLevel;
+	clGPIOPin* sdaLevel;
 	I2C_TypeDef* i2c;
 	I2C_InitTypeDef i2cConfiguration;
 	GPIO_TypeDef* sck_port;

@@ -13,8 +13,8 @@
  * TODO: Make Pins and ports constructor parameters.
  */
 clHVD78::clHVD78() {
-	this->driverEnablePin = new clGPIOPin(GPIOC, GPIO_Pin_2, clGPIOPin::Pinstate_HIGH);
-	this->receiverEnablePin = new clGPIOPin(GPIOC, GPIO_Pin_3, clGPIOPin::Pinstate_LOW);
+	this->driverEnablePin = new clGPIOPin(GPIOC, GPIO_Pin_2, clGPIOPin::HIGH);
+	this->receiverEnablePin = new clGPIOPin(GPIOC, GPIO_Pin_3, clGPIOPin::LOW);
 	// TODO Auto-generated constructor stub
 }
 
@@ -29,14 +29,14 @@ clHVD78::~clHVD78() {
  * \brief Enables the transceiver's driver stage.
  */
 void clHVD78::enableDriver(){
-	this->driverEnablePin->set(clGPIOPin::Pinstate_HIGH);
+	this->driverEnablePin->set(clGPIOPin::HIGH);
 }
 
 /**
  * \brief Disables the transceiver's driver stage.
  */
 void clHVD78::disableDriver(){
-	this->driverEnablePin->set(clGPIOPin::Pinstate_LOW);
+	this->driverEnablePin->set(clGPIOPin::LOW);
 
 }
 
@@ -44,7 +44,7 @@ void clHVD78::disableDriver(){
  * \brief Enables the transceiver's revceiver stage.
  */
 void clHVD78::enableReceiver(){
-	this->receiverEnablePin->set(clGPIOPin::Pinstate_LOW);
+	this->receiverEnablePin->set(clGPIOPin::LOW);
 
 }
 
@@ -52,5 +52,5 @@ void clHVD78::enableReceiver(){
  * \brief Disables the transceiver's receiver stage.
  */
 void clHVD78::disableReceiver(){
-	this->receiverEnablePin->set(clGPIOPin::Pinstate_HIGH);
+	this->receiverEnablePin->set(clGPIOPin::HIGH);
 }

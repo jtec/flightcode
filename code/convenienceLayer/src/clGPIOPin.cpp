@@ -53,15 +53,15 @@ void clGPIOPin::toggle(){
  */
 void clGPIOPin::set(bool state)
 {
-	if (state==clGPIOPin::Pinstate_HIGH)
+	if (state==clGPIOPin::HIGH)
 	{
 		this->GPIOPort->BSRRL |= this->GPIOPin;
-		this->status = clGPIOPin::Pinstate_HIGH;
+		this->status = clGPIOPin::HIGH;
 	}
 	else
 	{
 		this->GPIOPort->BSRRH |= this->GPIOPin;
-		this->status = clGPIOPin::Pinstate_LOW;
+		this->status = clGPIOPin::LOW;
 	}
 	return;
 }//eof
