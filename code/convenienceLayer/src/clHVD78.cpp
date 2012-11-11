@@ -10,7 +10,7 @@
 
 /**
  * \brief Constructor.
- * TODO: Make Pins and ports constructor parameters.
+ * FIXME: Make Pins and ports constructor parameters.
  */
 clHVD78::clHVD78() {
 	this->driverEnablePin = new clGPIOPin(GPIOC, GPIO_Pin_2, clGPIOPin::HIGH);
@@ -41,7 +41,7 @@ void clHVD78::disableDriver(){
 }
 
 /**
- * \brief Enables the transceiver's revceiver stage.
+ * \brief Enables the transceiver's receiver stage.
  */
 void clHVD78::enableReceiver(){
 	this->receiverEnablePin->set(clGPIOPin::LOW);

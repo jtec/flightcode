@@ -74,7 +74,7 @@ clFactory* clFactory::buildForServoNode(){
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);
 
-	fact->SerialPortXBee = new clSerialPort(USART3, 57600, GPIOB, GPIOB, GPIO_Pin_10, GPIO_Pin_11);
+	fact->SerialPortXBee = new clSerialPort(USART3, 111111, GPIOB, GPIOB, GPIO_Pin_10, GPIO_Pin_11);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource10, GPIO_AF_USART3);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource11, GPIO_AF_USART3);
 

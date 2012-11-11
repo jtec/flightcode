@@ -16,6 +16,7 @@ struct mpu6050Output
 	float rawGyro[3];	// [degrees/s]
 	float rawAcc[3];	// [m/s²]
 	float temp;			// [°C]
+	float rawMagneticField[3];	// [Gauss]
 };
 
 struct MPU6050Sensors	// TODO Find better name for structure.
@@ -60,6 +61,8 @@ private:
 	void doSTOP();
 	void doSTART();
 
+	bool readHMC5883L(float* xyz);
+
 	void waitBitTimes(uint8_t bitTimes);
 	uint32_t getTimeoutTimerTime();
 	uint32_t getTimeoutTimerTimeInBits();
@@ -71,7 +74,7 @@ private:
 	uint16_t sck_pin;
 	GPIO_TypeDef* sda_port;
 	uint16_t sda_pin;
-	static const uint32_t I2CSpeed = 200000;	// 200 kHz
+	static const uint32_t I2CSpeed = 400000;	// 400 kHz
 	struct MPU6050Sensors sensors;
 	uint32_t timeForOneBit;					// Time it takes to transmit one bit [µs]
 	uint32_t timeForOneByte;				// Time it takes to transmit one byte, generously estimated to 10 bit [µs]

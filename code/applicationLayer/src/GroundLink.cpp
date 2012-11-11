@@ -60,7 +60,7 @@ void GroundLink::tick(){
 		// after each timeout event, the timer has to be reset to avoid incrementing 'this->numberOfConnectionTimeouts'
 		// each time this method is called after the first timeout occurred.
 	}
-	if((TimeBase::getSystemTimeMs() - timeOfLastSend) > 50){
+	if((TimeBase::getSystemTimeMs() - timeOfLastSend) > 1000){
 		timeOfLastSend = TimeBase::getSystemTimeMs();
 		uint8_t mavlinkSystemState = MAV_STATE_UNINIT;
 		// Send a heartbeat message to show that the system works at all.

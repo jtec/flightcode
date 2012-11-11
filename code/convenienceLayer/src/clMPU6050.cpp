@@ -105,8 +105,11 @@ void clMPU6050::getRawMeasurements(mpu6050Output* output){
 	}
 	output->temp = this->sensors.temperatureBias + ((float)unscaledTemperature) / this->sensors.temperatureScaleFactor;
 	//output->rawGyro[0] = this->GetDeviceID();
-	output->rawGyro[2] = 1;
+
+	// Read magnetometer output:
+
 }
+
 
 /**
  * \brief Configures the MPU6050 sensor.
@@ -743,4 +746,146 @@ void clMPU6050::initStructure(mpu6050Output* s){
 		s->rawGyro[i] = 0;
 	}
 	s->temp = 0;
+}
+
+/**
+ * \brief Reads the output of the HMC5883L magnetometer.
+ */
+
+bool clMPU6050::readHMC5883L(float* xyz)
+{
+	static float pBuffer[6] = {0};
+	static uint8_t address = 0x3C<<1;
+	// Disable automatic generation of STOP condition.
+	I2C_GenerateSTOP(this->i2c, DISABLE);
+
+	// Wait while the bus is busy
+	this->restartTimeoutTimer();
+	while(I2C_GetFlagStatus(this->i2c, I2C_FLAG_BUSY)){
+		if(this->getTimeoutTimerTime() > this->timeForOneByte){
+			return false;
+		}
+	}
+
+	// Send START condition
+	I2C_GenerateSTART(this->i2c, ENABLE);
+
+	// Check if START condition has been sent by checking the SB bit in SR 1,
+	// this flag is cleared by reading SR1 and writing to DR, this will be done when sending the slave address.
+	bool startConditionSent = false;
+	this->restartTimeoutTimer();
+	while(!startConditionSent){
+		startConditionSent = (this->i2c->SR1 & BIT0) > 0;
+		if(this->getTimeoutTimerTime() > this->timeForOneByte){
+			return false;
+		}
+	}
+
+	// Send address for write
+	I2C_Send7bitAddress(this->i2c, address, I2C_Direction_Transmitter);
+
+	// Wait until the slave has acknowledged the address. To do this, we check the ADDR bit
+	// in SR1. This bit is cleared by subsequently reading SR1 and SR2.
+	this->restartTimeoutTimer();
+	bool addressHasBeenReceived = false;
+	while(!addressHasBeenReceived){
+		addressHasBeenReceived = (this->i2c->SR1 & BIT1) > 0;
+		if(this->getTimeoutTimerTime() > 2*this->timeForOneByte){
+			return false;
+		}
+	}
+	// Clear ADDR flag by reading SR2; variable is declared as volatile to keep the compiler from optimizing it away.
+	volatile uint16_t tmp = this->i2c->SR2;
+
+	I2C_GenerateSTOP(this->i2c, ENABLE);
+	// Move the sensor's read pointer to the first data output register.
+	I2C_SendData(this->i2c, 3);
+
+	// Wait until the byte transfer has been finished by checking on the BTF bit in SR1. It will
+	// be cleared by the next read operation of the DR register.
+	this->restartTimeoutTimer();
+	bool byteHasBeenTransmitted = false;
+	while(!byteHasBeenTransmitted){
+		byteHasBeenTransmitted = (this->i2c->SR1 & BIT2) > 0;
+		if(this->getTimeoutTimerTime() > 2*this->timeForOneByte){
+			return false;
+		}
+	}
+
+	// Send START condition a second time
+	I2C_GenerateSTART(this->i2c, ENABLE);
+
+	// Check if START condition has been sent by checking the SB bit in SR1,
+	// this flag is cleared by reading SR1 and writing to DR, this will be done when sending the slave address.
+	startConditionSent = false;
+	this->restartTimeoutTimer();
+	while(!startConditionSent){
+		startConditionSent = (this->i2c->SR1 & BIT0) > 0;
+		if(this->getTimeoutTimerTime() > this->timeForOneByte){
+			return false;
+		}
+	}
+
+	// Send address for read
+	I2C_Send7bitAddress(this->i2c, address, I2C_Direction_Receiver);
+
+	// Wait until the slave has acknowledged the address. To do this, we check the ADDR bit
+	// in SR1. This bit is cleared by subsequently reading SR1 and SR2.
+	this->restartTimeoutTimer();
+	addressHasBeenReceived = false;
+	while(!addressHasBeenReceived){
+		addressHasBeenReceived = (this->i2c->SR1 & BIT1) > 0;
+		if(this->getTimeoutTimerTime() > 2*this->timeForOneByte){
+			return false;
+		}
+	}
+	// Clear ADDR flag by reading SR2:
+	tmp = this->i2c->SR2;
+
+	// Read in bytes sent by the slave:
+	// If we are about to receive 1 single byte, there is no need to acknowledge it, since the last byte
+	// is not acknowledged. If we will receive more than one byte, every byte except the last one has to be acknowledged
+	// by the master.
+	I2C_AcknowledgeConfig(this->i2c, ENABLE);
+	uint8_t NumByteToRead = 6;
+	uint8_t i = 0;
+	if(NumByteToRead == 1){
+		I2C_AcknowledgeConfig(this->i2c, DISABLE);
+	}
+	// While there is data to be read:
+	uint32_t timeoutTime = 2* NumByteToRead * this->timeForOneByte;
+	this->restartTimeoutTimer();
+	while(NumByteToRead > 0)
+	{
+		// Check for timeout:
+		if(this->getTimeoutTimerTime() > timeoutTime){
+			return false;
+		}
+
+		// When we are about to receive the last byte:
+		if(NumByteToRead == 1)
+		{
+			// Disable Acknowledgement:
+			I2C_AcknowledgeConfig(this->i2c, DISABLE);
+		}
+
+		// Check whether a byte has been received:
+		bool newByteReceived = (this->i2c->SR1 & BIT6) > 0;
+		if(newByteReceived)
+		{
+			newByteReceived = false;
+			// Read a byte from the MPU6050
+			pBuffer[i] = this->i2c->DR;
+
+			// Point to the location where the next byte will be saved.
+			i++;
+
+			// Decrement the read bytes counter.
+			NumByteToRead--;
+		}
+	}
+	// We have received all bytes, send STOP condition.
+	I2C_GenerateSTOP(this->i2c, ENABLE);
+
+	return true;
 }

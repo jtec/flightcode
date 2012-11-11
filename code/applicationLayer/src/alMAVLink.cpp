@@ -136,8 +136,8 @@ void alMAVLink::sendAttitude(measurementsInertial* a)
 			(uint16_t)(a->gyro[1]*1000.0),
 			(uint16_t)(a->gyro[2]*1000.0),
 			(uint16_t)a->magField[0],		// keeps its unit: [milliTesla]
-			                         		                    (uint16_t)a->magField[1],
-			                         		                    (uint16_t)a->magField[2]
+			(uint16_t)a->magField[1],
+			(uint16_t)a->magField[2]
 	);
 
 	alMAVLink::sendMessage(&msg);
@@ -210,6 +210,23 @@ void alMAVLink::sendFloat(float value, char* name){
 			&msg,
 			time,
 			name,
+			value);
+
+	alMAVLink::sendMessage(&msg);
+}
+
+/*
+ * \brief Sends a float value and an index to discriminate between values.
+ */
+void alMAVLink::sendFloat(float value, uint8_t index){
+	static mavlink_message_t msg;
+	// Pack the message
+	uint32_t time = TimeBase::getSystemTimeMs();
+	uint16_t length = mavlink_msg_debug_pack(this->mavlink_system.sysid,
+			this->mavlink_system.compid,
+			&msg,
+			time,
+			index,
 			value);
 
 	alMAVLink::sendMessage(&msg);
@@ -437,12 +454,12 @@ bool alMAVLink::isTransmitting(){
 }
 
 /**
-* \brief Checks wether a given ID is the ID of this MAVLinkMAVion.
-* \param[in] idToCheck - The ID to be checked for identity with this MAVLinkMAVion'S ID.
-* \return boolean, true if the given ID is the ID of this MAVLinkMAVion, false if not.
-*/
+ * \brief Checks wether a given ID is the ID of this MAVLinkMAVion.
+ * \param[in] idToCheck - The ID to be checked for identity with this MAVLinkMAVion'S ID.
+ * \return boolean, true if the given ID is the ID of this MAVLinkMAVion, false if not.
+ */
 bool alMAVLink::isMySystemID(uint8_t idToCheck){
-  return idToCheck == this->mavlink_system.sysid;
+	return idToCheck == this->mavlink_system.sysid;
 }
 
 /**

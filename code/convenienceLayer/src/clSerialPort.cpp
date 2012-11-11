@@ -280,6 +280,7 @@ void clSerialPort::writeArray(uint8_t* array, uint16_t length){
 	// The DMA possibly is still busy transmitting a byte, so wait for it to finish the last transaction.
 	bool isENBitSet = ((this->dmaStream_tx->CR & BIT0) > 0);
 	while(isENBitSet){
+		// FIXME Add timeout.
 		isENBitSet = ((this->dmaStream_tx->CR & BIT0) > 0);
 	}
 	// Get the number of remaining bytes to transfer by the DMA:

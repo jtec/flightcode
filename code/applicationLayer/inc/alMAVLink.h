@@ -62,6 +62,7 @@ public :
   void sendActuatorCommands(float* commands);
   void sendInt32(int32_t value, char* name);
   void sendFloat(float value, char* name);
+  void sendFloat(float value, uint8_t index);
   void sendRequestServoCommands(uint8_t targetID);
   void sendMessage(mavlink_message_t* msg);
   void sendFloatParameter(float value, uint16_t totalNumberOfParameters, uint16_t indexOfParameter, char* paramID, uint8_t parameterType);

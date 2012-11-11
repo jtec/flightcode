@@ -1,14 +1,2153 @@
-[0.289]  STM32_AppReset():  NVIC_DFSR_REG	= 0x00000009
-[0.297]  STM32_AppReset():  NVIC_CFGFSR_REG	= 0x00000000
-[0.303]  STM32_InitDevice():  ST_LINK Major version =2 Jtag version =15
-[0.303]  STM32_InitDevice():  ST_LINK VID=1155 PID=14152
-[0.305]  STM32_InitDevice():  ST_LINK device status: HALT_MODE
-[0.329]  stm32_reset_hw_wtchpt_module():  Hardware watchpoint supported by the target 
-[0.361]  create_stm32_flash_device():  FuncEntry
-[0.365]  create_stm32_flash_device():  STM32 device: id =10016413 
-[0.369]  create_stm32_flash_device():  STM32 device: Flash size =1024
-[0.369]  create_stm32_flash_device():  FuncExit
-[0.369]  read_f2_option_bytes():  FuncEntry
-[0.385]  read_f2_option_bytes():  FuncExit
-[0.385]  main():  Start Logging
-[0.395]  Socket_WaitForNewConnection():  Waiting for client to connect on port 61234 ...
+[0.358]  STM32_AppReset():  NVIC_DFSR_REG	= 0x00000009
+[0.374]  STM32_AppReset():  NVIC_CFGFSR_REG	= 0x00000000
+[0.374]  STM32_InitDevice():  ST_LINK Major version =2 Jtag version =15
+[0.374]  STM32_InitDevice():  ST_LINK VID=1155 PID=14152
+[0.390]  STM32_InitDevice():  ST_LINK device status: HALT_MODE
+[0.421]  stm32_reset_hw_wtchpt_module():  Hardware watchpoint supported by the target 
+[0.468]  create_stm32_flash_device():  FuncEntry
+[0.483]  create_stm32_flash_device():  STM32 device: id =10016413 
+[0.483]  create_stm32_flash_device():  STM32 device: Flash size =1024
+[0.483]  create_stm32_flash_device():  FuncExit
+[0.483]  read_f2_option_bytes():  FuncEntry
+[0.499]  read_f2_option_bytes():  FuncExit
+[0.499]  main():  Start Logging
+[0.514]  Socket_WaitForNewConnection():  Waiting for client to connect on port 61234 ...
+[6.364]  Socket_WaitForNewConnection():  Client connected.
+[6.364]  Socket_WaitForNewConnection():  Receive buffer size set to 65536 bytes.
+[6.364]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[6.364]  Socket_Read():  Rx: +$qSupported:qRelocInsn+#9a
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $PacketSize=c00;qXfer:memory-map:read+;qXfer:features:read-;QStartNoAckMode+;multiprocess-#f8
+[6.474]  Socket_Read():  Rx: +
+[6.474]  Socket_Read():  Rx: $QStartNoAckMode#b0
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $OK#9a#00
+[6.474]  Socket_Read():  Rx: +
+[6.474]  Socket_Read():  Rx: $Hg0#df
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $#00
+[6.474]  Socket_Read():  Rx: $?#3f
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $S02#b5
+[6.474]  Socket_Read():  Rx: $Hc-1#09
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $#00
+[6.474]  Socket_Read():  Rx: $qC#b4
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $#00
+[6.474]  Socket_Read():  Rx: $qAttached#8f
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $#00
+[6.474]  Socket_Read():  Rx: $qOffsets#4b
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $#00
+[6.474]  Socket_Read():  Rx: $g#67
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f8bf0120ffffffff132300080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000001#6d
+[6.474]  Socket_Read():  Rx: $qXfer:memory-map:read::0,bfb#14
+[6.474]  Socket_Write():  Tx: +
+[6.474]  Socket_Write():  Tx: $l<memory-map>
+<memory type="ram" start="0x0" length="0x8000000"/>
+<memory type="flash" start="0x8000000" length="0x100000">
+<property name="blocksize">0x4000</property>
+</memory>
+<memory type="ram" start="0x8100000" length="0xf7f00000"/>
+</memory-map>#17
+[6.489]  Socket_Read():  Rx: $m8002312,4#2d
+[6.489]  Socket_Write():  Tx: +
+[6.489]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8002312 
+[6.489]  Socket_Write():  Tx: $82b000af#23
+[6.489]  Socket_Read():  Rx: $qTStatus#49
+[6.489]  Socket_Write():  Tx: +
+[6.489]  Socket_Write():  Tx: $#00
+[6.505]  Socket_Read():  Rx: $vFlashErase:08000000,0000c000#f5
+[6.505]  Socket_Write():  Tx: +
+[6.505]  stm32_f2_flash_page_erase():  FuncEntry
+[6.505]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[6.505]  flash_f2_wait_for_last_operation():  FuncEntry
+[6.505]  flash_f2_get_busy_status():  FuncEntry
+[6.505]  flash_f2_get_busy_status():  FuncExit
+[6.505]  flash_f2_wait_for_last_operation():  FuncExit
+[6.536]  flash_f2_wait_for_last_operation():  FuncEntry
+[6.536]  flash_f2_get_busy_status():  FuncEntry
+[6.536]  flash_f2_get_busy_status():  FuncExit
+[6.536]  flash_f2_wait_for_last_operation():  FuncExit
+[6.552]  get_f2_flash_error_status():  FuncEntry
+[6.552]  flash_f2_wait_for_last_operation():  FuncEntry
+[6.552]  flash_f2_get_busy_status():  FuncEntry
+[6.552]  flash_f2_get_busy_status():  FuncExit
+[6.552]  flash_f2_wait_for_last_operation():  FuncExit
+[6.567]  get_f2_flash_error_status():  FuncExit
+[6.567]  flash_f2_wait_for_last_operation():  FuncEntry
+[6.567]  flash_f2_get_busy_status():  FuncEntry
+[6.583]  flash_f2_get_busy_status():  FuncExit
+[6.583]  flash_f2_wait_for_last_operation():  FuncExit
+[6.598]  flash_f2_wait_for_last_operation():  FuncEntry
+[6.598]  flash_f2_get_busy_status():  FuncEntry
+[6.614]  flash_f2_get_busy_status():  FuncExit
+[6.614]  flash_f2_get_busy_status():  FuncEntry
+[6.614]  flash_f2_get_busy_status():  FuncExit
+[6.614]  flash_f2_get_busy_status():  FuncEntry
+[6.614]  flash_f2_get_busy_status():  FuncExit
+[6.614]  flash_f2_get_busy_status():  FuncEntry
+[6.630]  flash_f2_get_busy_status():  FuncExit
+[6.630]  flash_f2_get_busy_status():  FuncEntry
+[6.630]  flash_f2_get_busy_status():  FuncExit
+[6.630]  flash_f2_get_busy_status():  FuncEntry
+[6.630]  flash_f2_get_busy_status():  FuncExit
+[6.630]  flash_f2_get_busy_status():  FuncEntry
+[6.645]  flash_f2_get_busy_status():  FuncExit
+[6.645]  flash_f2_get_busy_status():  FuncEntry
+[6.645]  flash_f2_get_busy_status():  FuncExit
+[6.645]  flash_f2_get_busy_status():  FuncEntry
+[6.661]  flash_f2_get_busy_status():  FuncExit
+[6.661]  flash_f2_get_busy_status():  FuncEntry
+[6.661]  flash_f2_get_busy_status():  FuncExit
+[6.661]  flash_f2_get_busy_status():  FuncEntry
+[6.661]  flash_f2_get_busy_status():  FuncExit
+[6.661]  flash_f2_get_busy_status():  FuncEntry
+[6.676]  flash_f2_get_busy_status():  FuncExit
+[6.676]  flash_f2_get_busy_status():  FuncEntry
+[6.676]  flash_f2_get_busy_status():  FuncExit
+[6.676]  flash_f2_get_busy_status():  FuncEntry
+[6.692]  flash_f2_get_busy_status():  FuncExit
+[6.692]  flash_f2_get_busy_status():  FuncEntry
+[6.692]  flash_f2_get_busy_status():  FuncExit
+[6.692]  flash_f2_get_busy_status():  FuncEntry
+[6.692]  flash_f2_get_busy_status():  FuncExit
+[6.692]  flash_f2_get_busy_status():  FuncEntry
+[6.708]  flash_f2_get_busy_status():  FuncExit
+[6.708]  flash_f2_get_busy_status():  FuncEntry
+[6.708]  flash_f2_get_busy_status():  FuncExit
+[6.708]  flash_f2_get_busy_status():  FuncEntry
+[6.708]  flash_f2_get_busy_status():  FuncExit
+[6.708]  flash_f2_get_busy_status():  FuncEntry
+[6.723]  flash_f2_get_busy_status():  FuncExit
+[6.723]  flash_f2_get_busy_status():  FuncEntry
+[6.723]  flash_f2_get_busy_status():  FuncExit
+[6.723]  flash_f2_get_busy_status():  FuncEntry
+[6.739]  flash_f2_get_busy_status():  FuncExit
+[6.739]  flash_f2_get_busy_status():  FuncEntry
+[6.739]  flash_f2_get_busy_status():  FuncExit
+[6.739]  flash_f2_get_busy_status():  FuncEntry
+[6.739]  flash_f2_get_busy_status():  FuncExit
+[6.739]  flash_f2_get_busy_status():  FuncEntry
+[6.754]  flash_f2_get_busy_status():  FuncExit
+[6.754]  flash_f2_get_busy_status():  FuncEntry
+[6.754]  flash_f2_get_busy_status():  FuncExit
+[6.754]  flash_f2_get_busy_status():  FuncEntry
+[6.770]  flash_f2_get_busy_status():  FuncExit
+[6.770]  flash_f2_get_busy_status():  FuncEntry
+[6.770]  flash_f2_get_busy_status():  FuncExit
+[6.770]  flash_f2_get_busy_status():  FuncEntry
+[6.770]  flash_f2_get_busy_status():  FuncExit
+[6.770]  flash_f2_get_busy_status():  FuncEntry
+[6.786]  flash_f2_get_busy_status():  FuncExit
+[6.786]  flash_f2_get_busy_status():  FuncEntry
+[6.786]  flash_f2_get_busy_status():  FuncExit
+[6.786]  flash_f2_get_busy_status():  FuncEntry
+[6.786]  flash_f2_get_busy_status():  FuncExit
+[6.786]  flash_f2_get_busy_status():  FuncEntry
+[6.801]  flash_f2_get_busy_status():  FuncExit
+[6.801]  flash_f2_get_busy_status():  FuncEntry
+[6.801]  flash_f2_get_busy_status():  FuncExit
+[6.801]  flash_f2_get_busy_status():  FuncEntry
+[6.817]  flash_f2_get_busy_status():  FuncExit
+[6.817]  flash_f2_get_busy_status():  FuncEntry
+[6.817]  flash_f2_get_busy_status():  FuncExit
+[6.817]  flash_f2_get_busy_status():  FuncEntry
+[6.817]  flash_f2_get_busy_status():  FuncExit
+[6.817]  flash_f2_get_busy_status():  FuncEntry
+[6.832]  flash_f2_get_busy_status():  FuncExit
+[6.832]  flash_f2_get_busy_status():  FuncEntry
+[6.832]  flash_f2_get_busy_status():  FuncExit
+[6.832]  flash_f2_get_busy_status():  FuncEntry
+[6.848]  flash_f2_get_busy_status():  FuncExit
+[6.848]  flash_f2_get_busy_status():  FuncEntry
+[6.848]  flash_f2_get_busy_status():  FuncExit
+[6.848]  flash_f2_get_busy_status():  FuncEntry
+[6.848]  flash_f2_get_busy_status():  FuncExit
+[6.848]  flash_f2_get_busy_status():  FuncEntry
+[6.864]  flash_f2_get_busy_status():  FuncExit
+[6.864]  flash_f2_get_busy_status():  FuncEntry
+[6.864]  flash_f2_get_busy_status():  FuncExit
+[6.864]  flash_f2_get_busy_status():  FuncEntry
+[6.864]  flash_f2_get_busy_status():  FuncExit
+[6.864]  flash_f2_get_busy_status():  FuncEntry
+[6.879]  flash_f2_get_busy_status():  FuncExit
+[6.879]  flash_f2_get_busy_status():  FuncEntry
+[6.879]  flash_f2_get_busy_status():  FuncExit
+[6.879]  flash_f2_get_busy_status():  FuncEntry
+[6.895]  flash_f2_get_busy_status():  FuncExit
+[6.895]  flash_f2_get_busy_status():  FuncEntry
+[6.895]  flash_f2_get_busy_status():  FuncExit
+[6.895]  flash_f2_get_busy_status():  FuncEntry
+[6.895]  flash_f2_get_busy_status():  FuncExit
+[6.895]  flash_f2_get_busy_status():  FuncEntry
+[6.910]  flash_f2_get_busy_status():  FuncExit
+[6.910]  flash_f2_get_busy_status():  FuncEntry
+[6.910]  flash_f2_get_busy_status():  FuncExit
+[6.910]  flash_f2_get_busy_status():  FuncEntry
+[6.926]  flash_f2_get_busy_status():  FuncExit
+[6.926]  flash_f2_get_busy_status():  FuncEntry
+[6.926]  flash_f2_get_busy_status():  FuncExit
+[6.926]  flash_f2_get_busy_status():  FuncEntry
+[6.926]  flash_f2_get_busy_status():  FuncExit
+[6.926]  flash_f2_get_busy_status():  FuncEntry
+[6.942]  flash_f2_get_busy_status():  FuncExit
+[6.942]  flash_f2_get_busy_status():  FuncEntry
+[6.942]  flash_f2_get_busy_status():  FuncExit
+[6.942]  flash_f2_get_busy_status():  FuncEntry
+[6.942]  flash_f2_get_busy_status():  FuncExit
+[6.942]  flash_f2_get_busy_status():  FuncEntry
+[6.957]  flash_f2_get_busy_status():  FuncExit
+[6.957]  flash_f2_get_busy_status():  FuncEntry
+[6.957]  flash_f2_get_busy_status():  FuncExit
+[6.957]  flash_f2_get_busy_status():  FuncEntry
+[6.973]  flash_f2_get_busy_status():  FuncExit
+[6.973]  flash_f2_get_busy_status():  FuncEntry
+[6.973]  flash_f2_get_busy_status():  FuncExit
+[6.973]  flash_f2_get_busy_status():  FuncEntry
+[6.973]  flash_f2_get_busy_status():  FuncExit
+[6.973]  flash_f2_wait_for_last_operation():  FuncExit
+[6.988]  get_f2_flash_error_status():  FuncEntry
+[6.988]  flash_f2_wait_for_last_operation():  FuncEntry
+[6.988]  flash_f2_get_busy_status():  FuncEntry
+[7.004]  flash_f2_get_busy_status():  FuncExit
+[7.004]  flash_f2_wait_for_last_operation():  FuncExit
+[7.004]  get_f2_flash_error_status():  FuncExit
+[7.004]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.004]  flash_f2_get_busy_status():  FuncEntry
+[7.020]  flash_f2_get_busy_status():  FuncExit
+[7.020]  flash_f2_wait_for_last_operation():  FuncExit
+[7.051]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.051]  flash_f2_get_busy_status():  FuncEntry
+[7.051]  flash_f2_get_busy_status():  FuncExit
+[7.051]  flash_f2_get_busy_status():  FuncEntry
+[7.051]  flash_f2_get_busy_status():  FuncExit
+[7.051]  flash_f2_get_busy_status():  FuncEntry
+[7.066]  flash_f2_get_busy_status():  FuncExit
+[7.066]  flash_f2_get_busy_status():  FuncEntry
+[7.066]  flash_f2_get_busy_status():  FuncExit
+[7.066]  flash_f2_get_busy_status():  FuncEntry
+[7.066]  flash_f2_get_busy_status():  FuncExit
+[7.066]  flash_f2_get_busy_status():  FuncEntry
+[7.082]  flash_f2_get_busy_status():  FuncExit
+[7.082]  flash_f2_get_busy_status():  FuncEntry
+[7.082]  flash_f2_get_busy_status():  FuncExit
+[7.082]  flash_f2_get_busy_status():  FuncEntry
+[7.098]  flash_f2_get_busy_status():  FuncExit
+[7.098]  flash_f2_get_busy_status():  FuncEntry
+[7.098]  flash_f2_get_busy_status():  FuncExit
+[7.098]  flash_f2_get_busy_status():  FuncEntry
+[7.098]  flash_f2_get_busy_status():  FuncExit
+[7.098]  flash_f2_get_busy_status():  FuncEntry
+[7.113]  flash_f2_get_busy_status():  FuncExit
+[7.113]  flash_f2_get_busy_status():  FuncEntry
+[7.113]  flash_f2_get_busy_status():  FuncExit
+[7.113]  flash_f2_get_busy_status():  FuncEntry
+[7.129]  flash_f2_get_busy_status():  FuncExit
+[7.129]  flash_f2_get_busy_status():  FuncEntry
+[7.129]  flash_f2_get_busy_status():  FuncExit
+[7.129]  flash_f2_get_busy_status():  FuncEntry
+[7.129]  flash_f2_get_busy_status():  FuncExit
+[7.129]  flash_f2_get_busy_status():  FuncEntry
+[7.144]  flash_f2_get_busy_status():  FuncExit
+[7.144]  flash_f2_get_busy_status():  FuncEntry
+[7.144]  flash_f2_get_busy_status():  FuncExit
+[7.144]  flash_f2_get_busy_status():  FuncEntry
+[7.144]  flash_f2_get_busy_status():  FuncExit
+[7.144]  flash_f2_get_busy_status():  FuncEntry
+[7.160]  flash_f2_get_busy_status():  FuncExit
+[7.160]  flash_f2_get_busy_status():  FuncEntry
+[7.160]  flash_f2_get_busy_status():  FuncExit
+[7.160]  flash_f2_get_busy_status():  FuncEntry
+[7.176]  flash_f2_get_busy_status():  FuncExit
+[7.176]  flash_f2_get_busy_status():  FuncEntry
+[7.176]  flash_f2_get_busy_status():  FuncExit
+[7.176]  flash_f2_get_busy_status():  FuncEntry
+[7.176]  flash_f2_get_busy_status():  FuncExit
+[7.176]  flash_f2_get_busy_status():  FuncEntry
+[7.191]  flash_f2_get_busy_status():  FuncExit
+[7.191]  flash_f2_get_busy_status():  FuncEntry
+[7.191]  flash_f2_get_busy_status():  FuncExit
+[7.191]  flash_f2_get_busy_status():  FuncEntry
+[7.207]  flash_f2_get_busy_status():  FuncExit
+[7.207]  flash_f2_get_busy_status():  FuncEntry
+[7.207]  flash_f2_get_busy_status():  FuncExit
+[7.207]  flash_f2_get_busy_status():  FuncEntry
+[7.207]  flash_f2_get_busy_status():  FuncExit
+[7.207]  flash_f2_get_busy_status():  FuncEntry
+[7.222]  flash_f2_get_busy_status():  FuncExit
+[7.222]  flash_f2_get_busy_status():  FuncEntry
+[7.222]  flash_f2_get_busy_status():  FuncExit
+[7.222]  flash_f2_get_busy_status():  FuncEntry
+[7.222]  flash_f2_get_busy_status():  FuncExit
+[7.222]  flash_f2_get_busy_status():  FuncEntry
+[7.238]  flash_f2_get_busy_status():  FuncExit
+[7.238]  flash_f2_get_busy_status():  FuncEntry
+[7.238]  flash_f2_get_busy_status():  FuncExit
+[7.238]  flash_f2_get_busy_status():  FuncEntry
+[7.254]  flash_f2_get_busy_status():  FuncExit
+[7.254]  flash_f2_get_busy_status():  FuncEntry
+[7.254]  flash_f2_get_busy_status():  FuncExit
+[7.254]  flash_f2_get_busy_status():  FuncEntry
+[7.254]  flash_f2_get_busy_status():  FuncExit
+[7.254]  flash_f2_get_busy_status():  FuncEntry
+[7.269]  flash_f2_get_busy_status():  FuncExit
+[7.269]  flash_f2_get_busy_status():  FuncEntry
+[7.269]  flash_f2_get_busy_status():  FuncExit
+[7.269]  flash_f2_get_busy_status():  FuncEntry
+[7.285]  flash_f2_get_busy_status():  FuncExit
+[7.285]  flash_f2_get_busy_status():  FuncEntry
+[7.285]  flash_f2_get_busy_status():  FuncExit
+[7.285]  flash_f2_get_busy_status():  FuncEntry
+[7.285]  flash_f2_get_busy_status():  FuncExit
+[7.285]  flash_f2_get_busy_status():  FuncEntry
+[7.300]  flash_f2_get_busy_status():  FuncExit
+[7.300]  flash_f2_get_busy_status():  FuncEntry
+[7.300]  flash_f2_get_busy_status():  FuncExit
+[7.300]  flash_f2_get_busy_status():  FuncEntry
+[7.300]  flash_f2_get_busy_status():  FuncExit
+[7.300]  flash_f2_get_busy_status():  FuncEntry
+[7.316]  flash_f2_get_busy_status():  FuncExit
+[7.316]  flash_f2_get_busy_status():  FuncEntry
+[7.316]  flash_f2_get_busy_status():  FuncExit
+[7.316]  flash_f2_get_busy_status():  FuncEntry
+[7.332]  flash_f2_get_busy_status():  FuncExit
+[7.332]  flash_f2_get_busy_status():  FuncEntry
+[7.332]  flash_f2_get_busy_status():  FuncExit
+[7.332]  flash_f2_get_busy_status():  FuncEntry
+[7.332]  flash_f2_get_busy_status():  FuncExit
+[7.332]  flash_f2_get_busy_status():  FuncEntry
+[7.347]  flash_f2_get_busy_status():  FuncExit
+[7.347]  flash_f2_get_busy_status():  FuncEntry
+[7.347]  flash_f2_get_busy_status():  FuncExit
+[7.347]  flash_f2_get_busy_status():  FuncEntry
+[7.363]  flash_f2_get_busy_status():  FuncExit
+[7.363]  flash_f2_get_busy_status():  FuncEntry
+[7.363]  flash_f2_get_busy_status():  FuncExit
+[7.363]  flash_f2_get_busy_status():  FuncEntry
+[7.363]  flash_f2_get_busy_status():  FuncExit
+[7.363]  flash_f2_get_busy_status():  FuncEntry
+[7.378]  flash_f2_get_busy_status():  FuncExit
+[7.378]  flash_f2_get_busy_status():  FuncEntry
+[7.378]  flash_f2_get_busy_status():  FuncExit
+[7.378]  flash_f2_get_busy_status():  FuncEntry
+[7.394]  flash_f2_get_busy_status():  FuncExit
+[7.394]  flash_f2_get_busy_status():  FuncEntry
+[7.394]  flash_f2_get_busy_status():  FuncExit
+[7.394]  flash_f2_get_busy_status():  FuncEntry
+[7.394]  flash_f2_get_busy_status():  FuncExit
+[7.394]  flash_f2_get_busy_status():  FuncEntry
+[7.410]  flash_f2_get_busy_status():  FuncExit
+[7.410]  flash_f2_get_busy_status():  FuncEntry
+[7.410]  flash_f2_get_busy_status():  FuncExit
+[7.410]  flash_f2_get_busy_status():  FuncEntry
+[7.410]  flash_f2_get_busy_status():  FuncExit
+[7.410]  flash_f2_get_busy_status():  FuncEntry
+[7.425]  flash_f2_get_busy_status():  FuncExit
+[7.425]  flash_f2_get_busy_status():  FuncEntry
+[7.425]  flash_f2_get_busy_status():  FuncExit
+[7.425]  flash_f2_get_busy_status():  FuncEntry
+[7.441]  flash_f2_get_busy_status():  FuncExit
+[7.441]  flash_f2_wait_for_last_operation():  FuncExit
+[7.441]  get_f2_flash_error_status():  FuncEntry
+[7.441]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.441]  flash_f2_get_busy_status():  FuncEntry
+[7.456]  flash_f2_get_busy_status():  FuncExit
+[7.456]  flash_f2_wait_for_last_operation():  FuncExit
+[7.472]  get_f2_flash_error_status():  FuncExit
+[7.472]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.472]  flash_f2_get_busy_status():  FuncEntry
+[7.472]  flash_f2_get_busy_status():  FuncExit
+[7.472]  flash_f2_wait_for_last_operation():  FuncExit
+[7.503]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.503]  flash_f2_get_busy_status():  FuncEntry
+[7.503]  flash_f2_get_busy_status():  FuncExit
+[7.503]  flash_f2_get_busy_status():  FuncEntry
+[7.519]  flash_f2_get_busy_status():  FuncExit
+[7.519]  flash_f2_get_busy_status():  FuncEntry
+[7.519]  flash_f2_get_busy_status():  FuncExit
+[7.519]  flash_f2_get_busy_status():  FuncEntry
+[7.519]  flash_f2_get_busy_status():  FuncExit
+[7.519]  flash_f2_get_busy_status():  FuncEntry
+[7.534]  flash_f2_get_busy_status():  FuncExit
+[7.534]  flash_f2_get_busy_status():  FuncEntry
+[7.534]  flash_f2_get_busy_status():  FuncExit
+[7.534]  flash_f2_get_busy_status():  FuncEntry
+[7.534]  flash_f2_get_busy_status():  FuncExit
+[7.534]  flash_f2_get_busy_status():  FuncEntry
+[7.550]  flash_f2_get_busy_status():  FuncExit
+[7.550]  flash_f2_get_busy_status():  FuncEntry
+[7.550]  flash_f2_get_busy_status():  FuncExit
+[7.550]  flash_f2_get_busy_status():  FuncEntry
+[7.566]  flash_f2_get_busy_status():  FuncExit
+[7.566]  flash_f2_get_busy_status():  FuncEntry
+[7.566]  flash_f2_get_busy_status():  FuncExit
+[7.566]  flash_f2_get_busy_status():  FuncEntry
+[7.566]  flash_f2_get_busy_status():  FuncExit
+[7.566]  flash_f2_get_busy_status():  FuncEntry
+[7.581]  flash_f2_get_busy_status():  FuncExit
+[7.581]  flash_f2_get_busy_status():  FuncEntry
+[7.581]  flash_f2_get_busy_status():  FuncExit
+[7.581]  flash_f2_get_busy_status():  FuncEntry
+[7.597]  flash_f2_get_busy_status():  FuncExit
+[7.597]  flash_f2_get_busy_status():  FuncEntry
+[7.597]  flash_f2_get_busy_status():  FuncExit
+[7.597]  flash_f2_get_busy_status():  FuncEntry
+[7.597]  flash_f2_get_busy_status():  FuncExit
+[7.597]  flash_f2_get_busy_status():  FuncEntry
+[7.612]  flash_f2_get_busy_status():  FuncExit
+[7.612]  flash_f2_get_busy_status():  FuncEntry
+[7.612]  flash_f2_get_busy_status():  FuncExit
+[7.612]  flash_f2_get_busy_status():  FuncEntry
+[7.612]  flash_f2_get_busy_status():  FuncExit
+[7.612]  flash_f2_get_busy_status():  FuncEntry
+[7.628]  flash_f2_get_busy_status():  FuncExit
+[7.628]  flash_f2_get_busy_status():  FuncEntry
+[7.628]  flash_f2_get_busy_status():  FuncExit
+[7.628]  flash_f2_get_busy_status():  FuncEntry
+[7.644]  flash_f2_get_busy_status():  FuncExit
+[7.644]  flash_f2_get_busy_status():  FuncEntry
+[7.644]  flash_f2_get_busy_status():  FuncExit
+[7.644]  flash_f2_get_busy_status():  FuncEntry
+[7.644]  flash_f2_get_busy_status():  FuncExit
+[7.644]  flash_f2_get_busy_status():  FuncEntry
+[7.659]  flash_f2_get_busy_status():  FuncExit
+[7.659]  flash_f2_get_busy_status():  FuncEntry
+[7.659]  flash_f2_get_busy_status():  FuncExit
+[7.659]  flash_f2_get_busy_status():  FuncEntry
+[7.675]  flash_f2_get_busy_status():  FuncExit
+[7.675]  flash_f2_get_busy_status():  FuncEntry
+[7.675]  flash_f2_get_busy_status():  FuncExit
+[7.675]  flash_f2_get_busy_status():  FuncEntry
+[7.675]  flash_f2_get_busy_status():  FuncExit
+[7.675]  flash_f2_get_busy_status():  FuncEntry
+[7.690]  flash_f2_get_busy_status():  FuncExit
+[7.690]  flash_f2_get_busy_status():  FuncEntry
+[7.690]  flash_f2_get_busy_status():  FuncExit
+[7.690]  flash_f2_get_busy_status():  FuncEntry
+[7.690]  flash_f2_get_busy_status():  FuncExit
+[7.690]  flash_f2_get_busy_status():  FuncEntry
+[7.706]  flash_f2_get_busy_status():  FuncExit
+[7.706]  flash_f2_get_busy_status():  FuncEntry
+[7.706]  flash_f2_get_busy_status():  FuncExit
+[7.706]  flash_f2_get_busy_status():  FuncEntry
+[7.722]  flash_f2_get_busy_status():  FuncExit
+[7.722]  flash_f2_get_busy_status():  FuncEntry
+[7.722]  flash_f2_get_busy_status():  FuncExit
+[7.722]  flash_f2_get_busy_status():  FuncEntry
+[7.722]  flash_f2_get_busy_status():  FuncExit
+[7.722]  flash_f2_get_busy_status():  FuncEntry
+[7.737]  flash_f2_get_busy_status():  FuncExit
+[7.737]  flash_f2_get_busy_status():  FuncEntry
+[7.737]  flash_f2_get_busy_status():  FuncExit
+[7.737]  flash_f2_get_busy_status():  FuncEntry
+[7.753]  flash_f2_get_busy_status():  FuncExit
+[7.753]  flash_f2_get_busy_status():  FuncEntry
+[7.753]  flash_f2_get_busy_status():  FuncExit
+[7.753]  flash_f2_get_busy_status():  FuncEntry
+[7.753]  flash_f2_get_busy_status():  FuncExit
+[7.753]  flash_f2_get_busy_status():  FuncEntry
+[7.768]  flash_f2_get_busy_status():  FuncExit
+[7.768]  flash_f2_get_busy_status():  FuncEntry
+[7.768]  flash_f2_get_busy_status():  FuncExit
+[7.768]  flash_f2_get_busy_status():  FuncEntry
+[7.768]  flash_f2_get_busy_status():  FuncExit
+[7.768]  flash_f2_get_busy_status():  FuncEntry
+[7.784]  flash_f2_get_busy_status():  FuncExit
+[7.784]  flash_f2_get_busy_status():  FuncEntry
+[7.784]  flash_f2_get_busy_status():  FuncExit
+[7.784]  flash_f2_get_busy_status():  FuncEntry
+[7.800]  flash_f2_get_busy_status():  FuncExit
+[7.800]  flash_f2_get_busy_status():  FuncEntry
+[7.800]  flash_f2_get_busy_status():  FuncExit
+[7.800]  flash_f2_get_busy_status():  FuncEntry
+[7.800]  flash_f2_get_busy_status():  FuncExit
+[7.800]  flash_f2_get_busy_status():  FuncEntry
+[7.815]  flash_f2_get_busy_status():  FuncExit
+[7.815]  flash_f2_get_busy_status():  FuncEntry
+[7.815]  flash_f2_get_busy_status():  FuncExit
+[7.815]  flash_f2_get_busy_status():  FuncEntry
+[7.831]  flash_f2_get_busy_status():  FuncExit
+[7.831]  flash_f2_get_busy_status():  FuncEntry
+[7.831]  flash_f2_get_busy_status():  FuncExit
+[7.831]  flash_f2_get_busy_status():  FuncEntry
+[7.831]  flash_f2_get_busy_status():  FuncExit
+[7.831]  flash_f2_get_busy_status():  FuncEntry
+[7.846]  flash_f2_get_busy_status():  FuncExit
+[7.846]  flash_f2_get_busy_status():  FuncEntry
+[7.846]  flash_f2_get_busy_status():  FuncExit
+[7.846]  flash_f2_get_busy_status():  FuncEntry
+[7.846]  flash_f2_get_busy_status():  FuncExit
+[7.846]  flash_f2_get_busy_status():  FuncEntry
+[7.862]  flash_f2_get_busy_status():  FuncExit
+[7.862]  flash_f2_get_busy_status():  FuncEntry
+[7.862]  flash_f2_get_busy_status():  FuncExit
+[7.862]  flash_f2_get_busy_status():  FuncEntry
+[7.878]  flash_f2_get_busy_status():  FuncExit
+[7.878]  flash_f2_wait_for_last_operation():  FuncExit
+[7.878]  get_f2_flash_error_status():  FuncEntry
+[7.878]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.878]  flash_f2_get_busy_status():  FuncEntry
+[7.893]  flash_f2_get_busy_status():  FuncExit
+[7.893]  flash_f2_wait_for_last_operation():  FuncExit
+[7.909]  get_f2_flash_error_status():  FuncExit
+[7.909]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[7.909]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.909]  flash_f2_get_busy_status():  FuncEntry
+[7.909]  flash_f2_get_busy_status():  FuncExit
+[7.909]  flash_f2_wait_for_last_operation():  FuncExit
+[7.940]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[7.940]  Socket_Write():  Tx: $OK#9a#00
+[7.940]  Socket_Read():  Rx: $vFlashWrite:8000000:
+[7.940]  Socket_Write():  Tx: +
+[7.940]  stm32_f2_program_flash_memory():  FuncEntry
+[7.940]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[7.940]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.940]  flash_f2_get_busy_status():  FuncEntry
+[7.940]  flash_f2_get_busy_status():  FuncExit
+[7.940]  flash_f2_wait_for_last_operation():  FuncExit
+[7.971]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.971]  flash_f2_get_busy_status():  FuncEntry
+[7.971]  flash_f2_get_busy_status():  FuncExit
+[7.971]  flash_f2_wait_for_last_operation():  FuncExit
+[7.987]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[7.987]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[7.987]  flash_f2_wait_for_last_operation():  FuncEntry
+[7.987]  flash_f2_get_busy_status():  FuncEntry
+[7.987]  flash_f2_get_busy_status():  FuncExit
+[7.987]  flash_f2_wait_for_last_operation():  FuncExit
+[8.002]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[8.002]  flash_f2_wait_for_last_operation():  FuncEntry
+[8.002]  flash_f2_get_busy_status():  FuncEntry
+[8.002]  flash_f2_get_busy_status():  FuncExit
+[8.002]  flash_f2_wait_for_last_operation():  FuncExit
+[8.002]  flash_f2_wait_for_last_operation():  FuncEntry
+[8.002]  flash_f2_get_busy_status():  FuncEntry
+[8.018]  flash_f2_get_busy_status():  FuncExit
+[8.018]  flash_f2_wait_for_last_operation():  FuncExit
+[8.049]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000000
+[8.065]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000040
+[8.081]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000080
+[8.097]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80000c0
+[8.113]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000100
+[8.144]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000140
+[8.160]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000180
+[8.175]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80001c0
+[8.191]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000200
+[8.222]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000240
+[8.238]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000280
+[8.253]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80002c0
+[8.269]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000300
+[8.284]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000340
+[8.316]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000380
+[8.331]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80003c0
+[8.347]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000400
+[8.362]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000440
+[8.378]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000480
+[8.409]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80004c0
+[8.425]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000500
+[8.440]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000540
+[8.456]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000580
+[8.487]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80005c0
+[8.503]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000600
+[8.518]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000640
+[8.534]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000680
+[8.550]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80006c0
+[8.581]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000700
+[8.596]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000740
+[8.612]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000780
+[8.628]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80007c0
+[8.659]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000800
+[8.674]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000840
+[8.690]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000880
+[8.706]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80008c0
+[8.721]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000900
+[8.752]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000940
+[8.768]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000980
+[8.784]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80009c0
+[8.799]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000a00
+[8.815]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000a40
+[8.846]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000a80
+[8.862]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000ac0
+[8.877]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000b00
+[8.893]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000b40
+[8.924]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[8.924]  flash_f2_wait_for_last_operation():  FuncEntry
+[8.924]  flash_f2_get_busy_status():  FuncEntry
+[8.940]  flash_f2_get_busy_status():  FuncExit
+[8.940]  flash_f2_wait_for_last_operation():  FuncExit
+[8.955]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[9.018]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8000000 
+[9.018]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[9.018]  Socket_Write():  Tx: $OK#9a#00
+[9.018]  Socket_Read():  Rx: $vFlashWrite:8000bb0:Ò[⁄
+[9.018]  Socket_Write():  Tx: +
+[9.018]  stm32_f2_program_flash_memory():  FuncEntry
+[9.018]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[9.018]  flash_f2_wait_for_last_operation():  FuncEntry
+[9.018]  flash_f2_get_busy_status():  FuncEntry
+[9.018]  flash_f2_get_busy_status():  FuncExit
+[9.018]  flash_f2_wait_for_last_operation():  FuncExit
+[9.049]  flash_f2_wait_for_last_operation():  FuncEntry
+[9.049]  flash_f2_get_busy_status():  FuncEntry
+[9.049]  flash_f2_get_busy_status():  FuncExit
+[9.049]  flash_f2_wait_for_last_operation():  FuncExit
+[9.064]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[9.064]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[9.064]  flash_f2_wait_for_last_operation():  FuncEntry
+[9.064]  flash_f2_get_busy_status():  FuncEntry
+[9.080]  flash_f2_get_busy_status():  FuncExit
+[9.080]  flash_f2_wait_for_last_operation():  FuncExit
+[9.080]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[9.080]  flash_f2_wait_for_last_operation():  FuncEntry
+[9.080]  flash_f2_get_busy_status():  FuncEntry
+[9.080]  flash_f2_get_busy_status():  FuncExit
+[9.080]  flash_f2_wait_for_last_operation():  FuncExit
+[9.080]  flash_f2_wait_for_last_operation():  FuncEntry
+[9.080]  flash_f2_get_busy_status():  FuncEntry
+[9.096]  flash_f2_get_busy_status():  FuncExit
+[9.096]  flash_f2_wait_for_last_operation():  FuncExit
+[9.127]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000bb0
+[9.142]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000bf0
+[9.159]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000c30
+[9.175]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000c70
+[9.206]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000cb0
+[9.221]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000cf0
+[9.237]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000d30
+[9.253]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000d70
+[9.284]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000db0
+[9.299]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000df0
+[9.315]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000e30
+[9.331]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000e70
+[9.346]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000eb0
+[9.377]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000ef0
+[9.393]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000f30
+[9.409]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000f70
+[9.424]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000fb0
+[9.440]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8000ff0
+[9.471]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001030
+[9.487]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001070
+[9.502]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80010b0
+[9.518]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80010f0
+[9.549]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001130
+[9.565]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001170
+[9.580]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80011b0
+[9.596]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80011f0
+[9.611]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001230
+[9.643]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001270
+[9.658]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80012b0
+[9.674]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80012f0
+[9.689]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001330
+[9.721]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001370
+[9.736]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80013b0
+[9.752]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80013f0
+[9.767]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001430
+[9.783]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001470
+[9.815]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80014b0
+[9.831]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80014f0
+[9.846]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001530
+[9.862]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001570
+[9.878]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80015b0
+[9.909]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80015f0
+[9.924]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001630
+[9.940]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001670
+[9.956]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80016b0
+[9.987]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80016f0
+[10.002]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[10.002]  flash_f2_wait_for_last_operation():  FuncEntry
+[10.002]  flash_f2_get_busy_status():  FuncEntry
+[10.018]  flash_f2_get_busy_status():  FuncExit
+[10.018]  flash_f2_wait_for_last_operation():  FuncExit
+[10.034]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[10.096]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8000bb0 
+[10.096]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[10.096]  Socket_Write():  Tx: $OK#9a#00
+[10.096]  Socket_Read():  Rx: $vFlashWrite:8001760:TøÍUîÍïÍ
+[10.096]  Socket_Write():  Tx: +
+[10.096]  stm32_f2_program_flash_memory():  FuncEntry
+[10.096]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[10.096]  flash_f2_wait_for_last_operation():  FuncEntry
+[10.096]  flash_f2_get_busy_status():  FuncEntry
+[10.112]  flash_f2_get_busy_status():  FuncExit
+[10.112]  flash_f2_wait_for_last_operation():  FuncExit
+[10.143]  flash_f2_wait_for_last_operation():  FuncEntry
+[10.143]  flash_f2_get_busy_status():  FuncEntry
+[10.143]  flash_f2_get_busy_status():  FuncExit
+[10.143]  flash_f2_wait_for_last_operation():  FuncExit
+[10.158]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[10.158]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[10.158]  flash_f2_wait_for_last_operation():  FuncEntry
+[10.158]  flash_f2_get_busy_status():  FuncEntry
+[10.158]  flash_f2_get_busy_status():  FuncExit
+[10.158]  flash_f2_wait_for_last_operation():  FuncExit
+[10.174]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[10.174]  flash_f2_wait_for_last_operation():  FuncEntry
+[10.174]  flash_f2_get_busy_status():  FuncEntry
+[10.174]  flash_f2_get_busy_status():  FuncExit
+[10.174]  flash_f2_wait_for_last_operation():  FuncExit
+[10.174]  flash_f2_wait_for_last_operation():  FuncEntry
+[10.174]  flash_f2_get_busy_status():  FuncEntry
+[10.174]  flash_f2_get_busy_status():  FuncExit
+[10.174]  flash_f2_wait_for_last_operation():  FuncExit
+[10.205]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001760
+[10.237]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80017a0
+[10.253]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80017e0
+[10.269]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001820
+[10.284]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001860
+[10.300]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80018a0
+[10.331]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80018e0
+[10.347]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001920
+[10.362]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001960
+[10.378]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80019a0
+[10.409]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80019e0
+[10.425]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001a20
+[10.440]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001a60
+[10.456]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001aa0
+[10.471]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001ae0
+[10.503]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001b20
+[10.518]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001b60
+[10.534]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001ba0
+[10.549]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001be0
+[10.565]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001c20
+[10.596]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001c60
+[10.612]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001ca0
+[10.627]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001ce0
+[10.643]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001d20
+[10.674]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001d60
+[10.690]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001da0
+[10.705]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001de0
+[10.721]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001e20
+[10.737]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001e60
+[10.768]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001ea0
+[10.783]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001ee0
+[10.799]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001f20
+[10.815]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001f60
+[10.846]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001fa0
+[10.861]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8001fe0
+[10.877]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002020
+[10.893]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002060
+[10.908]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80020a0
+[10.939]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80020e0
+[10.955]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002120
+[10.971]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002160
+[10.986]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80021a0
+[11.002]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80021e0
+[11.033]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002220
+[11.049]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002260
+[11.064]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80022a0
+[11.080]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80022e0
+[11.111]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[11.111]  flash_f2_wait_for_last_operation():  FuncEntry
+[11.111]  flash_f2_get_busy_status():  FuncEntry
+[11.111]  flash_f2_get_busy_status():  FuncExit
+[11.111]  flash_f2_wait_for_last_operation():  FuncExit
+[11.127]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[11.205]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8001760 
+[11.205]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[11.205]  Socket_Write():  Tx: $OK#9a#00
+[11.205]  Socket_Read():  Rx: $vFlashWrite:8002330:;h`;hÒ;`{hÒ{`:h@Ú∞c¬Ú
+[11.205]  Socket_Write():  Tx: +
+[11.205]  stm32_f2_program_flash_memory():  FuncEntry
+[11.205]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[11.205]  flash_f2_wait_for_last_operation():  FuncEntry
+[11.205]  flash_f2_get_busy_status():  FuncEntry
+[11.205]  flash_f2_get_busy_status():  FuncExit
+[11.205]  flash_f2_wait_for_last_operation():  FuncExit
+[11.236]  flash_f2_wait_for_last_operation():  FuncEntry
+[11.236]  flash_f2_get_busy_status():  FuncEntry
+[11.236]  flash_f2_get_busy_status():  FuncExit
+[11.236]  flash_f2_wait_for_last_operation():  FuncExit
+[11.251]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[11.251]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[11.251]  flash_f2_wait_for_last_operation():  FuncEntry
+[11.251]  flash_f2_get_busy_status():  FuncEntry
+[11.251]  flash_f2_get_busy_status():  FuncExit
+[11.251]  flash_f2_wait_for_last_operation():  FuncExit
+[11.267]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[11.267]  flash_f2_wait_for_last_operation():  FuncEntry
+[11.267]  flash_f2_get_busy_status():  FuncEntry
+[11.267]  flash_f2_get_busy_status():  FuncExit
+[11.267]  flash_f2_wait_for_last_operation():  FuncExit
+[11.267]  flash_f2_wait_for_last_operation():  FuncEntry
+[11.267]  flash_f2_get_busy_status():  FuncEntry
+[11.267]  flash_f2_get_busy_status():  FuncExit
+[11.267]  flash_f2_wait_for_last_operation():  FuncExit
+[11.314]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002330
+[11.329]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002370
+[11.346]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80023b0
+[11.362]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80023f0
+[11.377]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002430
+[11.408]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002470
+[11.424]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80024b0
+[11.440]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80024f0
+[11.455]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002530
+[11.471]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002570
+[11.502]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80025b0
+[11.518]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80025f0
+[11.533]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002630
+[11.549]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002670
+[11.580]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80026b0
+[11.596]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80026f0
+[11.611]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002730
+[11.627]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002770
+[11.642]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80027b0
+[11.674]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80027f0
+[11.689]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002830
+[11.705]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002870
+[11.720]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80028b0
+[11.736]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80028f0
+[11.767]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002930
+[11.783]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002970
+[11.798]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80029b0
+[11.814]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80029f0
+[11.845]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002a30
+[11.861]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002a70
+[11.876]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002ab0
+[11.892]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002af0
+[11.908]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002b30
+[11.939]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002b70
+[11.954]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002bb0
+[11.970]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002bf0
+[11.986]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002c30
+[12.017]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002c70
+[12.032]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002cb0
+[12.048]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002cf0
+[12.064]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002d30
+[12.079]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002d70
+[12.110]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002db0
+[12.126]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002df0
+[12.142]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002e30
+[12.157]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002e70
+[12.173]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002eb0
+[12.204]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[12.204]  flash_f2_wait_for_last_operation():  FuncEntry
+[12.204]  flash_f2_get_busy_status():  FuncEntry
+[12.220]  flash_f2_get_busy_status():  FuncExit
+[12.220]  flash_f2_wait_for_last_operation():  FuncExit
+[12.235]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[12.298]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8002330 
+[12.298]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[12.298]  Socket_Write():  Tx: $OK#9a#00
+[12.298]  Socket_Read():  Rx: $vFlashWrite:8002f10::jFOÍÉõOÍÉö;hhOÍÉ≤˚ÛÛ˚a˙iHÚS≈ÚÎ£˚OÍSOÍ{b{jOÍOd˚Û˙i”ªa{hõâõ≤õ≤≤
+[12.298]  Socket_Write():  Tx: +
+[12.298]  stm32_f2_program_flash_memory():  FuncEntry
+[12.298]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[12.298]  flash_f2_wait_for_last_operation():  FuncEntry
+[12.298]  flash_f2_get_busy_status():  FuncEntry
+[12.313]  flash_f2_get_busy_status():  FuncExit
+[12.313]  flash_f2_wait_for_last_operation():  FuncExit
+[12.329]  flash_f2_wait_for_last_operation():  FuncEntry
+[12.329]  flash_f2_get_busy_status():  FuncEntry
+[12.344]  flash_f2_get_busy_status():  FuncExit
+[12.344]  flash_f2_wait_for_last_operation():  FuncExit
+[12.360]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[12.360]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[12.360]  flash_f2_wait_for_last_operation():  FuncEntry
+[12.360]  flash_f2_get_busy_status():  FuncEntry
+[12.360]  flash_f2_get_busy_status():  FuncExit
+[12.360]  flash_f2_wait_for_last_operation():  FuncExit
+[12.360]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[12.360]  flash_f2_wait_for_last_operation():  FuncEntry
+[12.360]  flash_f2_get_busy_status():  FuncEntry
+[12.376]  flash_f2_get_busy_status():  FuncExit
+[12.376]  flash_f2_wait_for_last_operation():  FuncExit
+[12.376]  flash_f2_wait_for_last_operation():  FuncEntry
+[12.376]  flash_f2_get_busy_status():  FuncEntry
+[12.376]  flash_f2_get_busy_status():  FuncExit
+[12.376]  flash_f2_wait_for_last_operation():  FuncExit
+[12.407]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002f10
+[12.422]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002f50
+[12.455]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002f90
+[12.470]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8002fd0
+[12.486]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003010
+[12.501]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003050
+[12.517]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003090
+[12.548]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80030d0
+[12.564]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003110
+[12.579]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003150
+[12.595]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003190
+[12.626]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80031d0
+[12.642]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003210
+[12.657]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003250
+[12.673]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003290
+[12.689]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80032d0
+[12.720]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003310
+[12.735]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003350
+[12.751]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003390
+[12.767]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80033d0
+[12.782]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003410
+[12.814]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003450
+[12.830]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003490
+[12.846]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80034d0
+[12.861]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003510
+[12.877]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003550
+[12.908]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003590
+[12.924]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80035d0
+[12.939]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003610
+[12.955]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003650
+[12.986]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003690
+[13.002]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80036d0
+[13.017]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003710
+[13.033]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003750
+[13.048]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003790
+[13.080]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80037d0
+[13.095]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003810
+[13.111]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003850
+[13.126]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003890
+[13.158]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80038d0
+[13.173]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003910
+[13.189]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003950
+[13.204]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003990
+[13.220]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80039d0
+[13.251]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003a10
+[13.267]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003a50
+[13.282]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003a90
+[13.298]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[13.298]  flash_f2_wait_for_last_operation():  FuncEntry
+[13.298]  flash_f2_get_busy_status():  FuncEntry
+[13.314]  flash_f2_get_busy_status():  FuncExit
+[13.314]  flash_f2_wait_for_last_operation():  FuncExit
+[13.329]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[13.392]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8002f10 
+[13.392]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[13.392]  Socket_Write():  Tx: $OK#9a#00
+[13.392]  Socket_Read():  Rx: $vFlashWrite:8003ae0:OBˆqC¿ˆ
+[13.392]  Socket_Write():  Tx: +
+[13.392]  stm32_f2_program_flash_memory():  FuncEntry
+[13.392]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[13.392]  flash_f2_wait_for_last_operation():  FuncEntry
+[13.392]  flash_f2_get_busy_status():  FuncEntry
+[13.407]  flash_f2_get_busy_status():  FuncExit
+[13.407]  flash_f2_wait_for_last_operation():  FuncExit
+[13.438]  flash_f2_wait_for_last_operation():  FuncEntry
+[13.438]  flash_f2_get_busy_status():  FuncEntry
+[13.438]  flash_f2_get_busy_status():  FuncExit
+[13.438]  flash_f2_wait_for_last_operation():  FuncExit
+[13.454]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[13.454]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[13.454]  flash_f2_wait_for_last_operation():  FuncEntry
+[13.454]  flash_f2_get_busy_status():  FuncEntry
+[13.454]  flash_f2_get_busy_status():  FuncExit
+[13.454]  flash_f2_wait_for_last_operation():  FuncExit
+[13.470]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[13.470]  flash_f2_wait_for_last_operation():  FuncEntry
+[13.470]  flash_f2_get_busy_status():  FuncEntry
+[13.470]  flash_f2_get_busy_status():  FuncExit
+[13.470]  flash_f2_wait_for_last_operation():  FuncExit
+[13.470]  flash_f2_wait_for_last_operation():  FuncEntry
+[13.470]  flash_f2_get_busy_status():  FuncEntry
+[13.470]  flash_f2_get_busy_status():  FuncExit
+[13.470]  flash_f2_wait_for_last_operation():  FuncExit
+[13.501]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003ae0
+[13.533]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003b20
+[13.549]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003b60
+[13.564]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003ba0
+[13.580]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003be0
+[13.595]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003c20
+[13.627]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003c60
+[13.642]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003ca0
+[13.658]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003ce0
+[13.673]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003d20
+[13.705]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003d60
+[13.720]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003da0
+[13.736]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003de0
+[13.751]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003e20
+[13.767]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003e60
+[13.798]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003ea0
+[13.814]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003ee0
+[13.829]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003f20
+[13.845]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003f60
+[13.876]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003fa0
+[13.892]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8003fe0
+[13.907]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004020
+[13.923]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004060
+[13.939]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80040a0
+[13.970]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80040e0
+[13.985]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004120
+[14.001]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004160
+[14.017]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80041a0
+[14.032]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80041e0
+[14.063]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004220
+[14.079]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004260
+[14.095]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80042a0
+[14.110]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80042e0
+[14.141]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004320
+[14.157]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004360
+[14.173]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80043a0
+[14.188]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80043e0
+[14.204]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004420
+[14.235]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004460
+[14.251]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80044a0
+[14.266]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80044e0
+[14.282]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004520
+[14.313]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004560
+[14.329]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80045a0
+[14.344]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80045e0
+[14.360]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004620
+[14.391]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[14.391]  flash_f2_wait_for_last_operation():  FuncEntry
+[14.391]  flash_f2_get_busy_status():  FuncEntry
+[14.391]  flash_f2_get_busy_status():  FuncExit
+[14.391]  flash_f2_wait_for_last_operation():  FuncExit
+[14.422]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[14.485]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8003ae0 
+[14.485]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[14.485]  Socket_Write():  Tx: $OK#9a#00
+[14.485]  Socket_Read():  Rx: $vFlashWrite:8004690:ÒΩFÄºpG
+[14.485]  Socket_Write():  Tx: +
+[14.485]  stm32_f2_program_flash_memory():  FuncEntry
+[14.485]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[14.485]  flash_f2_wait_for_last_operation():  FuncEntry
+[14.485]  flash_f2_get_busy_status():  FuncEntry
+[14.500]  flash_f2_get_busy_status():  FuncExit
+[14.500]  flash_f2_wait_for_last_operation():  FuncExit
+[14.516]  flash_f2_wait_for_last_operation():  FuncEntry
+[14.516]  flash_f2_get_busy_status():  FuncEntry
+[14.531]  flash_f2_get_busy_status():  FuncExit
+[14.531]  flash_f2_wait_for_last_operation():  FuncExit
+[14.531]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[14.531]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[14.531]  flash_f2_wait_for_last_operation():  FuncEntry
+[14.531]  flash_f2_get_busy_status():  FuncEntry
+[14.547]  flash_f2_get_busy_status():  FuncExit
+[14.547]  flash_f2_wait_for_last_operation():  FuncExit
+[14.547]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[14.547]  flash_f2_wait_for_last_operation():  FuncEntry
+[14.547]  flash_f2_get_busy_status():  FuncEntry
+[14.563]  flash_f2_get_busy_status():  FuncExit
+[14.563]  flash_f2_wait_for_last_operation():  FuncExit
+[14.563]  flash_f2_wait_for_last_operation():  FuncEntry
+[14.563]  flash_f2_get_busy_status():  FuncEntry
+[14.563]  flash_f2_get_busy_status():  FuncExit
+[14.563]  flash_f2_wait_for_last_operation():  FuncExit
+[14.594]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004690
+[14.609]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80046d0
+[14.626]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004710
+[14.657]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004750
+[14.673]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004790
+[14.688]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80047d0
+[14.704]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004810
+[14.735]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004850
+[14.751]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004890
+[14.766]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80048d0
+[14.782]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004910
+[14.798]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004950
+[14.830]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004990
+[14.845]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80049d0
+[14.861]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004a10
+[14.877]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004a50
+[14.892]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004a90
+[14.923]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004ad0
+[14.939]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004b10
+[14.955]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004b50
+[14.970]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004b90
+[14.986]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004bd0
+[15.017]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004c10
+[15.033]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004c50
+[15.048]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004c90
+[15.064]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004cd0
+[15.095]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004d10
+[15.111]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004d50
+[15.126]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004d90
+[15.142]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004dd0
+[15.157]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004e10
+[15.189]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004e50
+[15.204]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004e90
+[15.220]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004ed0
+[15.235]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004f10
+[15.267]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004f50
+[15.282]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004f90
+[15.298]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8004fd0
+[15.313]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005010
+[15.329]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005050
+[15.360]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005090
+[15.376]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80050d0
+[15.391]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005110
+[15.407]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005150
+[15.438]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005190
+[15.454]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80051d0
+[15.469]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005210
+[15.485]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[15.485]  flash_f2_wait_for_last_operation():  FuncEntry
+[15.485]  flash_f2_get_busy_status():  FuncEntry
+[15.501]  flash_f2_get_busy_status():  FuncExit
+[15.501]  flash_f2_wait_for_last_operation():  FuncExit
+[15.516]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[15.579]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8004690 
+[15.579]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[15.579]  Socket_Write():  Tx: $OK#9a#00
+[15.579]  Socket_Read():  Rx: $vFlashWrite:8005260:
+[15.579]  Socket_Write():  Tx: +
+[15.579]  stm32_f2_program_flash_memory():  FuncEntry
+[15.579]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[15.579]  flash_f2_wait_for_last_operation():  FuncEntry
+[15.579]  flash_f2_get_busy_status():  FuncEntry
+[15.594]  flash_f2_get_busy_status():  FuncExit
+[15.594]  flash_f2_wait_for_last_operation():  FuncExit
+[15.610]  flash_f2_wait_for_last_operation():  FuncEntry
+[15.610]  flash_f2_get_busy_status():  FuncEntry
+[15.625]  flash_f2_get_busy_status():  FuncExit
+[15.625]  flash_f2_wait_for_last_operation():  FuncExit
+[15.641]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[15.641]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[15.641]  flash_f2_wait_for_last_operation():  FuncEntry
+[15.641]  flash_f2_get_busy_status():  FuncEntry
+[15.641]  flash_f2_get_busy_status():  FuncExit
+[15.641]  flash_f2_wait_for_last_operation():  FuncExit
+[15.641]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[15.641]  flash_f2_wait_for_last_operation():  FuncEntry
+[15.641]  flash_f2_get_busy_status():  FuncEntry
+[15.657]  flash_f2_get_busy_status():  FuncExit
+[15.657]  flash_f2_wait_for_last_operation():  FuncExit
+[15.657]  flash_f2_wait_for_last_operation():  FuncEntry
+[15.657]  flash_f2_get_busy_status():  FuncEntry
+[15.657]  flash_f2_get_busy_status():  FuncExit
+[15.657]  flash_f2_wait_for_last_operation():  FuncExit
+[15.688]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005260
+[15.719]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80052a0
+[15.736]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80052e0
+[15.751]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005320
+[15.767]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005360
+[15.782]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80053a0
+[15.814]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80053e0
+[15.829]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005420
+[15.845]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005460
+[15.860]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80054a0
+[15.876]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80054e0
+[15.907]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005520
+[15.923]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005560
+[15.938]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80055a0
+[15.954]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80055e0
+[15.985]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005620
+[16.001]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005660
+[16.016]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80056a0
+[16.032]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80056e0
+[16.048]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005720
+[16.079]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005760
+[16.094]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80057a0
+[16.110]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80057e0
+[16.126]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005820
+[16.141]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005860
+[16.172]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80058a0
+[16.188]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80058e0
+[16.204]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005920
+[16.219]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005960
+[16.250]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80059a0
+[16.266]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80059e0
+[16.282]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005a20
+[16.297]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005a60
+[16.313]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005aa0
+[16.344]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005ae0
+[16.360]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005b20
+[16.375]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005b60
+[16.391]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005ba0
+[16.422]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005be0
+[16.438]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005c20
+[16.453]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005c60
+[16.469]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005ca0
+[16.484]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005ce0
+[16.516]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005d20
+[16.531]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005d60
+[16.547]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005da0
+[16.578]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[16.578]  flash_f2_wait_for_last_operation():  FuncEntry
+[16.578]  flash_f2_get_busy_status():  FuncEntry
+[16.578]  flash_f2_get_busy_status():  FuncExit
+[16.578]  flash_f2_wait_for_last_operation():  FuncExit
+[16.594]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[16.656]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8005260 
+[16.656]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[16.656]  Socket_Write():  Tx: $OK#9a#00
+[16.656]  Socket_Read():  Rx: $vFlashWrite:8005e00:—O
+[16.656]  Socket_Write():  Tx: +
+[16.656]  stm32_f2_program_flash_memory():  FuncEntry
+[16.656]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[16.656]  flash_f2_wait_for_last_operation():  FuncEntry
+[16.656]  flash_f2_get_busy_status():  FuncEntry
+[16.672]  flash_f2_get_busy_status():  FuncExit
+[16.672]  flash_f2_wait_for_last_operation():  FuncExit
+[16.687]  flash_f2_wait_for_last_operation():  FuncEntry
+[16.687]  flash_f2_get_busy_status():  FuncEntry
+[16.703]  flash_f2_get_busy_status():  FuncExit
+[16.703]  flash_f2_wait_for_last_operation():  FuncExit
+[16.718]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[16.718]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[16.718]  flash_f2_wait_for_last_operation():  FuncEntry
+[16.718]  flash_f2_get_busy_status():  FuncEntry
+[16.718]  flash_f2_get_busy_status():  FuncExit
+[16.718]  flash_f2_wait_for_last_operation():  FuncExit
+[16.718]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[16.718]  flash_f2_wait_for_last_operation():  FuncEntry
+[16.718]  flash_f2_get_busy_status():  FuncEntry
+[16.734]  flash_f2_get_busy_status():  FuncExit
+[16.734]  flash_f2_wait_for_last_operation():  FuncExit
+[16.734]  flash_f2_wait_for_last_operation():  FuncEntry
+[16.734]  flash_f2_get_busy_status():  FuncEntry
+[16.734]  flash_f2_get_busy_status():  FuncExit
+[16.734]  flash_f2_wait_for_last_operation():  FuncExit
+[16.765]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005e00
+[16.781]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005e40
+[16.813]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005e80
+[16.829]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005ec0
+[16.844]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005f00
+[16.860]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005f40
+[16.875]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005f80
+[16.907]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8005fc0
+[16.922]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006000
+[16.938]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006040
+[16.953]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006080
+[16.985]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80060c0
+[17.000]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006100
+[17.016]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006140
+[17.031]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006180
+[17.047]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80061c0
+[17.078]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006200
+[17.094]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006240
+[17.109]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006280
+[17.125]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80062c0
+[17.156]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006300
+[17.172]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006340
+[17.187]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006380
+[17.203]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80063c0
+[17.219]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006400
+[17.250]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006440
+[17.265]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006480
+[17.281]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80064c0
+[17.297]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006500
+[17.312]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006540
+[17.343]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006580
+[17.359]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80065c0
+[17.375]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006600
+[17.390]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006640
+[17.421]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006680
+[17.437]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80066c0
+[17.453]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006700
+[17.468]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006740
+[17.484]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006780
+[17.515]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80067c0
+[17.531]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006800
+[17.546]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006840
+[17.562]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006880
+[17.593]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80068c0
+[17.609]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006900
+[17.624]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006940
+[17.640]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006980
+[17.655]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[17.655]  flash_f2_wait_for_last_operation():  FuncEntry
+[17.655]  flash_f2_get_busy_status():  FuncEntry
+[17.655]  flash_f2_get_busy_status():  FuncExit
+[17.655]  flash_f2_wait_for_last_operation():  FuncExit
+[17.687]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[17.749]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8005e00 
+[17.749]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[17.749]  Socket_Write():  Tx: $OK#9a#00
+[17.749]  Socket_Read():  Rx: $vFlashWrite:80069c0:Ò˚`˚h1+Ãø
+[17.749]  Socket_Write():  Tx: +
+[17.749]  stm32_f2_program_flash_memory():  FuncEntry
+[17.749]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[17.749]  flash_f2_wait_for_last_operation():  FuncEntry
+[17.749]  flash_f2_get_busy_status():  FuncEntry
+[17.749]  flash_f2_get_busy_status():  FuncExit
+[17.749]  flash_f2_wait_for_last_operation():  FuncExit
+[17.780]  flash_f2_wait_for_last_operation():  FuncEntry
+[17.780]  flash_f2_get_busy_status():  FuncEntry
+[17.780]  flash_f2_get_busy_status():  FuncExit
+[17.780]  flash_f2_wait_for_last_operation():  FuncExit
+[17.796]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[17.796]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[17.796]  flash_f2_wait_for_last_operation():  FuncEntry
+[17.796]  flash_f2_get_busy_status():  FuncEntry
+[17.811]  flash_f2_get_busy_status():  FuncExit
+[17.811]  flash_f2_wait_for_last_operation():  FuncExit
+[17.811]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[17.811]  flash_f2_wait_for_last_operation():  FuncEntry
+[17.811]  flash_f2_get_busy_status():  FuncEntry
+[17.811]  flash_f2_get_busy_status():  FuncExit
+[17.811]  flash_f2_wait_for_last_operation():  FuncExit
+[17.811]  flash_f2_wait_for_last_operation():  FuncEntry
+[17.811]  flash_f2_get_busy_status():  FuncEntry
+[17.827]  flash_f2_get_busy_status():  FuncExit
+[17.827]  flash_f2_wait_for_last_operation():  FuncExit
+[17.858]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80069c0
+[17.874]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006a00
+[17.890]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006a40
+[17.906]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006a80
+[17.937]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006ac0
+[17.953]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006b00
+[17.968]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006b40
+[17.984]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006b80
+[18.015]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006bc0
+[18.031]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006c00
+[18.046]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006c40
+[18.062]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006c80
+[18.078]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006cc0
+[18.109]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006d00
+[18.124]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006d40
+[18.140]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006d80
+[18.156]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006dc0
+[18.187]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006e00
+[18.202]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006e40
+[18.218]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006e80
+[18.234]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006ec0
+[18.249]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006f00
+[18.280]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006f40
+[18.296]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006f80
+[18.312]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8006fc0
+[18.327]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007000
+[18.343]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007040
+[18.374]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007080
+[18.390]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80070c0
+[18.405]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007100
+[18.421]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007140
+[18.452]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007180
+[18.468]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80071c0
+[18.483]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007200
+[18.499]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007240
+[18.514]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007280
+[18.546]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80072c0
+[18.561]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007300
+[18.577]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007340
+[18.592]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007380
+[18.624]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80073c0
+[18.639]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007400
+[18.655]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007440
+[18.670]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007480
+[18.686]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80074c0
+[18.717]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007500
+[18.733]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[18.733]  flash_f2_wait_for_last_operation():  FuncEntry
+[18.733]  flash_f2_get_busy_status():  FuncEntry
+[18.748]  flash_f2_get_busy_status():  FuncExit
+[18.748]  flash_f2_wait_for_last_operation():  FuncExit
+[18.764]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[18.826]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x80069c0 
+[18.826]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[18.826]  Socket_Write():  Tx: $OK#9a#00
+[18.826]  Socket_Read():  Rx: $vFlashWrite:8007570:
+[18.826]  Socket_Write():  Tx: +
+[18.826]  stm32_f2_program_flash_memory():  FuncEntry
+[18.826]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[18.826]  flash_f2_wait_for_last_operation():  FuncEntry
+[18.826]  flash_f2_get_busy_status():  FuncEntry
+[18.842]  flash_f2_get_busy_status():  FuncExit
+[18.842]  flash_f2_wait_for_last_operation():  FuncExit
+[18.873]  flash_f2_wait_for_last_operation():  FuncEntry
+[18.873]  flash_f2_get_busy_status():  FuncEntry
+[18.873]  flash_f2_get_busy_status():  FuncExit
+[18.873]  flash_f2_wait_for_last_operation():  FuncExit
+[18.889]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[18.889]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[18.889]  flash_f2_wait_for_last_operation():  FuncEntry
+[18.889]  flash_f2_get_busy_status():  FuncEntry
+[18.889]  flash_f2_get_busy_status():  FuncExit
+[18.889]  flash_f2_wait_for_last_operation():  FuncExit
+[18.904]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[18.904]  flash_f2_wait_for_last_operation():  FuncEntry
+[18.904]  flash_f2_get_busy_status():  FuncEntry
+[18.904]  flash_f2_get_busy_status():  FuncExit
+[18.904]  flash_f2_wait_for_last_operation():  FuncExit
+[18.904]  flash_f2_wait_for_last_operation():  FuncEntry
+[18.904]  flash_f2_get_busy_status():  FuncEntry
+[18.904]  flash_f2_get_busy_status():  FuncExit
+[18.904]  flash_f2_wait_for_last_operation():  FuncExit
+[18.936]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007570
+[18.967]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80075b0
+[18.983]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80075f0
+[18.999]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007630
+[19.015]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007670
+[19.030]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80076b0
+[19.061]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80076f0
+[19.077]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007730
+[19.093]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007770
+[19.108]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80077b0
+[19.124]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80077f0
+[19.155]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007830
+[19.171]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007870
+[19.186]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80078b0
+[19.202]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80078f0
+[19.233]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007930
+[19.249]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007970
+[19.264]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80079b0
+[19.280]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80079f0
+[19.295]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007a30
+[19.327]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007a70
+[19.342]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007ab0
+[19.358]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007af0
+[19.373]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007b30
+[19.389]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007b70
+[19.420]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007bb0
+[19.436]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007bf0
+[19.451]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007c30
+[19.467]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007c70
+[19.498]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007cb0
+[19.514]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007cf0
+[19.529]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007d30
+[19.545]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007d70
+[19.561]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007db0
+[19.592]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007df0
+[19.607]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007e30
+[19.623]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007e70
+[19.639]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007eb0
+[19.670]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007ef0
+[19.685]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007f30
+[19.701]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007f70
+[19.717]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007fb0
+[19.732]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8007ff0
+[19.763]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008030
+[19.779]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008070
+[19.795]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80080b0
+[19.810]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80080f0
+[19.841]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[19.841]  flash_f2_wait_for_last_operation():  FuncEntry
+[19.841]  flash_f2_get_busy_status():  FuncEntry
+[19.841]  flash_f2_get_busy_status():  FuncExit
+[19.841]  flash_f2_wait_for_last_operation():  FuncExit
+[19.858]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[19.936]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8007570 
+[19.936]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[19.936]  Socket_Write():  Tx: $OK#9a#00
+[19.936]  Socket_Read():  Rx: $vFlashWrite:8008140:˚hO
+[19.936]  Socket_Write():  Tx: +
+[19.936]  stm32_f2_program_flash_memory():  FuncEntry
+[19.936]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[19.936]  flash_f2_wait_for_last_operation():  FuncEntry
+[19.936]  flash_f2_get_busy_status():  FuncEntry
+[19.936]  flash_f2_get_busy_status():  FuncExit
+[19.936]  flash_f2_wait_for_last_operation():  FuncExit
+[19.967]  flash_f2_wait_for_last_operation():  FuncEntry
+[19.967]  flash_f2_get_busy_status():  FuncEntry
+[19.967]  flash_f2_get_busy_status():  FuncExit
+[19.967]  flash_f2_wait_for_last_operation():  FuncExit
+[19.983]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[19.983]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[19.983]  flash_f2_wait_for_last_operation():  FuncEntry
+[19.983]  flash_f2_get_busy_status():  FuncEntry
+[19.983]  flash_f2_get_busy_status():  FuncExit
+[19.983]  flash_f2_wait_for_last_operation():  FuncExit
+[19.998]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[19.998]  flash_f2_wait_for_last_operation():  FuncEntry
+[19.998]  flash_f2_get_busy_status():  FuncEntry
+[19.998]  flash_f2_get_busy_status():  FuncExit
+[19.998]  flash_f2_wait_for_last_operation():  FuncExit
+[19.998]  flash_f2_wait_for_last_operation():  FuncEntry
+[19.998]  flash_f2_get_busy_status():  FuncEntry
+[19.998]  flash_f2_get_busy_status():  FuncExit
+[19.998]  flash_f2_wait_for_last_operation():  FuncExit
+[20.030]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008140
+[20.062]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008180
+[20.077]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80081c0
+[20.093]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008200
+[20.109]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008240
+[20.124]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008280
+[20.155]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80082c0
+[20.171]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008300
+[20.187]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008340
+[20.202]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008380
+[20.233]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80083c0
+[20.249]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008400
+[20.265]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008440
+[20.280]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008480
+[20.296]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80084c0
+[20.327]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008500
+[20.343]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008540
+[20.358]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008580
+[20.374]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80085c0
+[20.405]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008600
+[20.421]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008640
+[20.436]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008680
+[20.452]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80086c0
+[20.467]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008700
+[20.499]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008740
+[20.514]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008780
+[20.530]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80087c0
+[20.545]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008800
+[20.561]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008840
+[20.592]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008880
+[20.608]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80088c0
+[20.623]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008900
+[20.639]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008940
+[20.670]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008980
+[20.686]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80089c0
+[20.701]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008a00
+[20.717]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008a40
+[20.733]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008a80
+[20.764]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008ac0
+[20.779]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008b00
+[20.795]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008b40
+[20.811]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008b80
+[20.842]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008bc0
+[20.857]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008c00
+[20.873]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008c40
+[20.889]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008c80
+[20.920]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[20.920]  flash_f2_wait_for_last_operation():  FuncEntry
+[20.920]  flash_f2_get_busy_status():  FuncEntry
+[20.920]  flash_f2_get_busy_status():  FuncExit
+[20.920]  flash_f2_wait_for_last_operation():  FuncExit
+[20.951]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[21.013]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8008140 
+[21.013]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[21.013]  Socket_Write():  Tx: $OK#9a#00
+[21.013]  Socket_Read():  Rx: $vFlashWrite:8008cf0:˚{zhÒOÍÉ”[h˙{OÍÇzhR¯!zhRm±˚ÚÚí≤Zc˚{zhÒOÍÉ”[h˙{OÍÇÒzhR¯!zhRm±˚ÚÚí≤öc˚{zhÒOÍÉ”[h˙{OÍÇÒzhR¯!zhRm±˚ÚÚí≤⁄c˚{zhÒOÍÉ”[h˙{OÍÇÒzhR¯!zhRm±˚ÚÚí≤d˚{Ò˚s{hì¯@0˙{öB,ø
+[21.013]  Socket_Write():  Tx: +
+[21.013]  stm32_f2_program_flash_memory():  FuncEntry
+[21.013]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[21.013]  flash_f2_wait_for_last_operation():  FuncEntry
+[21.013]  flash_f2_get_busy_status():  FuncEntry
+[21.013]  flash_f2_get_busy_status():  FuncExit
+[21.013]  flash_f2_wait_for_last_operation():  FuncExit
+[21.045]  flash_f2_wait_for_last_operation():  FuncEntry
+[21.045]  flash_f2_get_busy_status():  FuncEntry
+[21.045]  flash_f2_get_busy_status():  FuncExit
+[21.045]  flash_f2_wait_for_last_operation():  FuncExit
+[21.060]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[21.060]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[21.060]  flash_f2_wait_for_last_operation():  FuncEntry
+[21.060]  flash_f2_get_busy_status():  FuncEntry
+[21.060]  flash_f2_get_busy_status():  FuncExit
+[21.060]  flash_f2_wait_for_last_operation():  FuncExit
+[21.076]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[21.076]  flash_f2_wait_for_last_operation():  FuncEntry
+[21.076]  flash_f2_get_busy_status():  FuncEntry
+[21.076]  flash_f2_get_busy_status():  FuncExit
+[21.076]  flash_f2_wait_for_last_operation():  FuncExit
+[21.076]  flash_f2_wait_for_last_operation():  FuncEntry
+[21.076]  flash_f2_get_busy_status():  FuncEntry
+[21.091]  flash_f2_get_busy_status():  FuncExit
+[21.091]  flash_f2_wait_for_last_operation():  FuncExit
+[21.123]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008cf0
+[21.138]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008d30
+[21.155]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008d70
+[21.170]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008db0
+[21.186]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008df0
+[21.217]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008e30
+[21.233]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008e70
+[21.248]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008eb0
+[21.264]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008ef0
+[21.295]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008f30
+[21.311]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008f70
+[21.326]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008fb0
+[21.342]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8008ff0
+[21.358]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009030
+[21.389]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009070
+[21.404]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80090b0
+[21.420]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80090f0
+[21.436]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009130
+[21.467]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009170
+[21.482]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80091b0
+[21.498]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80091f0
+[21.514]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009230
+[21.529]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009270
+[21.560]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80092b0
+[21.576]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80092f0
+[21.592]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009330
+[21.607]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009370
+[21.623]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80093b0
+[21.654]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80093f0
+[21.670]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009430
+[21.685]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009470
+[21.701]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80094b0
+[21.732]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80094f0
+[21.748]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009530
+[21.763]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009570
+[21.779]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80095b0
+[21.794]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80095f0
+[21.826]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009630
+[21.841]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009670
+[21.857]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80096b0
+[21.873]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80096f0
+[21.889]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009730
+[21.920]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009770
+[21.936]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80097b0
+[21.951]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80097f0
+[21.967]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009830
+[21.998]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[21.998]  flash_f2_wait_for_last_operation():  FuncEntry
+[21.998]  flash_f2_get_busy_status():  FuncEntry
+[21.998]  flash_f2_get_busy_status():  FuncExit
+[21.998]  flash_f2_wait_for_last_operation():  FuncExit
+[22.029]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[22.092]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8008cf0 
+[22.092]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[22.092]  Socket_Write():  Tx: $OK#9a#00
+[22.092]  Socket_Read():  Rx: $vFlashWrite:8009890:êAƒÚ
+[22.092]  Socket_Write():  Tx: +
+[22.092]  stm32_f2_program_flash_memory():  FuncEntry
+[22.092]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[22.092]  flash_f2_wait_for_last_operation():  FuncEntry
+[22.092]  flash_f2_get_busy_status():  FuncEntry
+[22.092]  flash_f2_get_busy_status():  FuncExit
+[22.092]  flash_f2_wait_for_last_operation():  FuncExit
+[22.123]  flash_f2_wait_for_last_operation():  FuncEntry
+[22.123]  flash_f2_get_busy_status():  FuncEntry
+[22.123]  flash_f2_get_busy_status():  FuncExit
+[22.123]  flash_f2_wait_for_last_operation():  FuncExit
+[22.139]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[22.139]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[22.139]  flash_f2_wait_for_last_operation():  FuncEntry
+[22.139]  flash_f2_get_busy_status():  FuncEntry
+[22.154]  flash_f2_get_busy_status():  FuncExit
+[22.154]  flash_f2_wait_for_last_operation():  FuncExit
+[22.154]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[22.154]  flash_f2_wait_for_last_operation():  FuncEntry
+[22.154]  flash_f2_get_busy_status():  FuncEntry
+[22.154]  flash_f2_get_busy_status():  FuncExit
+[22.154]  flash_f2_wait_for_last_operation():  FuncExit
+[22.154]  flash_f2_wait_for_last_operation():  FuncEntry
+[22.154]  flash_f2_get_busy_status():  FuncEntry
+[22.170]  flash_f2_get_busy_status():  FuncExit
+[22.170]  flash_f2_wait_for_last_operation():  FuncExit
+[22.201]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009890
+[22.217]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80098d0
+[22.233]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009910
+[22.249]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009950
+[22.280]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009990
+[22.296]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 80099d0
+[22.311]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009a10
+[22.327]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009a50
+[22.358]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009a90
+[22.374]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009ad0
+[22.389]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009b10
+[22.405]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009b50
+[22.420]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009b90
+[22.452]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009bd0
+[22.467]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009c10
+[22.483]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009c50
+[22.498]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009c90
+[22.530]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009cd0
+[22.545]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009d10
+[22.561]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009d50
+[22.576]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009d90
+[22.592]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009dd0
+[22.623]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009e10
+[22.639]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009e50
+[22.654]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009e90
+[22.670]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009ed0
+[22.701]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009f10
+[22.717]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009f50
+[22.732]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009f90
+[22.748]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 8009fd0
+[22.764]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a010
+[22.795]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a050
+[22.810]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a090
+[22.826]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a0d0
+[22.842]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a110
+[22.857]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a150
+[22.888]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a190
+[22.904]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a1d0
+[22.920]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a210
+[22.935]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a250
+[22.966]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a290
+[22.982]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a2d0
+[22.998]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a310
+[23.013]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a350
+[23.029]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a390
+[23.060]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a3d0
+[23.091]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[23.091]  flash_f2_wait_for_last_operation():  FuncEntry
+[23.091]  flash_f2_get_busy_status():  FuncEntry
+[23.091]  flash_f2_get_busy_status():  FuncExit
+[23.091]  flash_f2_wait_for_last_operation():  FuncExit
+[23.107]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[23.169]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x8009890 
+[23.169]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[23.169]  Socket_Write():  Tx: $OK#9a#00
+[23.169]  Socket_Read():  Rx: $vFlashWrite:800a440:ù¿ˆ
+[23.169]  Socket_Write():  Tx: +
+[23.169]  stm32_f2_program_flash_memory():  FuncEntry
+[23.169]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[23.169]  flash_f2_wait_for_last_operation():  FuncEntry
+[23.169]  flash_f2_get_busy_status():  FuncEntry
+[23.185]  flash_f2_get_busy_status():  FuncExit
+[23.185]  flash_f2_wait_for_last_operation():  FuncExit
+[23.216]  flash_f2_wait_for_last_operation():  FuncEntry
+[23.216]  flash_f2_get_busy_status():  FuncEntry
+[23.216]  flash_f2_get_busy_status():  FuncExit
+[23.216]  flash_f2_wait_for_last_operation():  FuncExit
+[23.232]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[23.232]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[23.232]  flash_f2_wait_for_last_operation():  FuncEntry
+[23.232]  flash_f2_get_busy_status():  FuncEntry
+[23.232]  flash_f2_get_busy_status():  FuncExit
+[23.232]  flash_f2_wait_for_last_operation():  FuncExit
+[23.247]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[23.247]  flash_f2_wait_for_last_operation():  FuncEntry
+[23.247]  flash_f2_get_busy_status():  FuncEntry
+[23.247]  flash_f2_get_busy_status():  FuncExit
+[23.247]  flash_f2_wait_for_last_operation():  FuncExit
+[23.247]  flash_f2_wait_for_last_operation():  FuncEntry
+[23.247]  flash_f2_get_busy_status():  FuncEntry
+[23.247]  flash_f2_get_busy_status():  FuncExit
+[23.247]  flash_f2_wait_for_last_operation():  FuncExit
+[23.278]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a440
+[23.311]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a480
+[23.326]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a4c0
+[23.342]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a500
+[23.357]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a540
+[23.373]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a580
+[23.404]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a5c0
+[23.420]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a600
+[23.435]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a640
+[23.451]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a680
+[23.482]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a6c0
+[23.498]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a700
+[23.513]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a740
+[23.529]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a780
+[23.545]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a7c0
+[23.576]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a800
+[23.591]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a840
+[23.607]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a880
+[23.623]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a8c0
+[23.638]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a900
+[23.669]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a940
+[23.685]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a980
+[23.701]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800a9c0
+[23.716]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aa00
+[23.747]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aa40
+[23.763]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aa80
+[23.779]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aac0
+[23.794]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ab00
+[23.810]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ab40
+[23.841]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ab80
+[23.857]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800abc0
+[23.872]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ac00
+[23.888]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ac40
+[23.919]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ac80
+[23.935]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800acc0
+[23.950]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ad00
+[23.966]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ad40
+[23.981]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ad80
+[24.013]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800adc0
+[24.028]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ae00
+[24.059]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[24.059]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.059]  flash_f2_get_busy_status():  FuncEntry
+[24.059]  flash_f2_get_busy_status():  FuncExit
+[24.059]  flash_f2_wait_for_last_operation():  FuncExit
+[24.075]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[24.137]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x800a440 
+[24.137]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[24.137]  Socket_Write():  Tx: $OK#9a#00
+[24.137]  Socket_Read():  Rx: $vFlashWrite:800ae70:
+[24.137]  Socket_Write():  Tx: +
+[24.137]  stm32_f2_program_flash_memory():  FuncEntry
+[24.137]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[24.137]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.137]  flash_f2_get_busy_status():  FuncEntry
+[24.137]  flash_f2_get_busy_status():  FuncExit
+[24.137]  flash_f2_wait_for_last_operation():  FuncExit
+[24.169]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.169]  flash_f2_get_busy_status():  FuncEntry
+[24.169]  flash_f2_get_busy_status():  FuncExit
+[24.169]  flash_f2_wait_for_last_operation():  FuncExit
+[24.184]  stm32_f2_program_flash_memory_debug_write_byte():  FuncEntry
+[24.184]  unlock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[24.184]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.184]  flash_f2_get_busy_status():  FuncEntry
+[24.200]  flash_f2_get_busy_status():  FuncExit
+[24.200]  flash_f2_wait_for_last_operation():  FuncExit
+[24.200]  unlock_flash_f2_prg_and_erase_ctrler():  STM32 device: flash controller is unlocked
+[24.200]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.200]  flash_f2_get_busy_status():  FuncEntry
+[24.200]  flash_f2_get_busy_status():  FuncExit
+[24.200]  flash_f2_wait_for_last_operation():  FuncExit
+[24.200]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.200]  flash_f2_get_busy_status():  FuncEntry
+[24.215]  flash_f2_get_busy_status():  FuncExit
+[24.215]  flash_f2_wait_for_last_operation():  FuncExit
+[24.247]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800ae70
+[24.262]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aeb0
+[24.278]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aef0
+[24.293]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800af30
+[24.326]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800af70
+[24.341]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800afb0
+[24.357]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800aff0
+[24.372]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b030
+[24.388]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b070
+[24.419]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b0b0
+[24.435]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b0f0
+[24.450]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b130
+[24.466]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b170
+[24.497]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b1b0
+[24.513]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b1f0
+[24.528]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b230
+[24.544]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b270
+[24.560]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b2b0
+[24.591]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b2f0
+[24.606]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b330
+[24.622]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b370
+[24.638]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b3b0
+[24.653]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b3f0
+[24.684]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b430
+[24.700]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b470
+[24.716]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: programmed flash memory at address 800b4b0
+[24.747]  lock_flash_f2_prg_and_erase_ctrler():  FuncEntry
+[24.747]  flash_f2_wait_for_last_operation():  FuncEntry
+[24.747]  flash_f2_get_busy_status():  FuncEntry
+[24.747]  flash_f2_get_busy_status():  FuncExit
+[24.747]  flash_f2_wait_for_last_operation():  FuncExit
+[24.778]  lock_flash_f2_prg_and_erase_ctrler():  FuncExit
+[24.809]  stm32_f2_program_flash_memory_debug_write_byte():  STM32 device: flash programming successful 0x800ae70 
+[24.809]  stm32_f2_program_flash_memory_debug_write_byte():  FuncExit
+[24.809]  Socket_Write():  Tx: $OK#9a#00
+[24.809]  Socket_Read():  Rx: $vFlashDone#ea
+[24.809]  Socket_Write():  Tx: +
+[24.997]  STM32_AppReset():  NVIC_DFSR_REG	= 0x00000009
+[25.013]  STM32_AppReset():  NVIC_CFGFSR_REG	= 0x00000000
+[25.013]  Socket_Write():  Tx: $OK#9a#00
+[25.013]  Socket_Read():  Rx: $Pf=11230008#82
+[25.013]  Socket_Write():  Tx: +
+[25.013]  Socket_Write():  Tx: $OK#9a
+[25.075]  Socket_Read():  Rx: $qfThreadInfo#bb
+[25.075]  Socket_Write():  Tx: +
+[25.075]  Socket_Write():  Tx: $l#6c
+[25.075]  Socket_Read():  Rx: $m8002310,4#2b
+[25.075]  Socket_Write():  Tx: +
+[25.075]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8002310 
+[25.075]  Socket_Write():  Tx: $80b582b0#fb
+[25.185]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[25.185]  Socket_Read():  Rx: $m80045ba,2#8f
+[25.185]  Socket_Write():  Tx: +
+[25.185]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045ba 
+[25.185]  Socket_Write():  Tx: $44f2#00
+[25.185]  Socket_Read():  Rx: $m80045bc,2#91
+[25.185]  Socket_Write():  Tx: +
+[25.185]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045bc 
+[25.200]  Socket_Write():  Tx: $1163#cb
+[25.200]  Socket_Read():  Rx: $m80045be,2#93
+[25.200]  Socket_Write():  Tx: +
+[25.200]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045be 
+[25.200]  Socket_Write():  Tx: $c0f6#2f
+[25.200]  Socket_Read():  Rx: $m80045c0,2#5f
+[25.200]  Socket_Write():  Tx: +
+[25.200]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045c0 
+[25.200]  Socket_Write():  Tx: $0003#c3
+[25.200]  Socket_Read():  Rx: $m80045ba,2#8f
+[25.200]  Socket_Write():  Tx: +
+[25.200]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045ba 
+[25.217]  Socket_Write():  Tx: $44f2#00
+[25.217]  Socket_Read():  Rx: $m80045bc,2#91
+[25.217]  Socket_Write():  Tx: +
+[25.217]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045bc 
+[25.217]  Socket_Write():  Tx: $1163#cb
+[25.217]  Socket_Read():  Rx: $m80045be,2#93
+[25.217]  Socket_Write():  Tx: +
+[25.217]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045be 
+[25.217]  Socket_Write():  Tx: $c0f6#2f
+[25.217]  Socket_Read():  Rx: $m80045c0,2#5f
+[25.217]  Socket_Write():  Tx: +
+[25.217]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045c0 
+[25.232]  Socket_Write():  Tx: $0003#c3
+[25.232]  Socket_Read():  Rx: $m80045ba,2#8f
+[25.232]  Socket_Write():  Tx: +
+[25.232]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80045ba 
+[25.232]  Socket_Write():  Tx: $44f2#00
+[40.194]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[45.155]  Socket_Read():  Rx: $Z1,80045ba,2#d9
+[45.155]  Socket_Write():  Tx: +
+[45.155]  Socket_Write():  Tx: $OK#9a
+[45.155]  Socket_Read():  Rx: $vCont?#49
+[45.155]  Socket_Write():  Tx: +
+[45.155]  Socket_Write():  Tx: $#00
+[45.155]  Socket_Read():  Rx: $Hc0#db
+[45.155]  Socket_Write():  Tx: +
+[45.155]  Socket_Write():  Tx: $#00
+[45.155]  Socket_Read():  Rx: $c#63
+[45.155]  Socket_Write():  Tx: +
+[45.155]  handle_packet():  TraceCaptureStart and SWV event set to APP_TRUE 
+[45.280]  Run_Server():  TraceCaptureStart and SWV event set to APP_FALSE 
+[45.296]  STM32_GetHaltReason():  NVIC_DFSR_REG = 0x00000002 
+[45.296]  HandleStopReply():  ST_LINK Halt Reason break point hit 
+ 
+[45.296]  Socket_Write():  Tx: $T05#b9
+[45.312]  Socket_Read():  Rx: $g#67
+[45.312]  Socket_Write():  Tx: +
+[45.312]  Socket_Write():  Tx: $3c14002008544007007a030ab5450008000000000000000000000000d0bf01200000000000000000000000000000000000000000d0bf012083230008bb4500080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000021#dd
+[45.312]  Socket_Read():  Rx: $z1,80045ba,2#f9
+[45.312]  Socket_Write():  Tx: +
+[45.312]  Socket_Write():  Tx: $OK#9a
+[45.312]  Socket_Read():  Rx: $m80045ba,4#91
+[45.312]  Socket_Write():  Tx: +
+[45.312]  handle_packet():  Reading 0x4 bytes of memory from addr 0x80045ba 
+[45.327]  Socket_Write():  Tx: $44f21163#cb
+[45.327]  Socket_Read():  Rx: $qfThreadInfo#bb
+[45.327]  Socket_Write():  Tx: +
+[45.327]  Socket_Write():  Tx: $l#6c
+[46.840]  Socket_Read():  Rx: $c#63
+[46.840]  Socket_Write():  Tx: +
+[46.840]  handle_packet():  TraceCaptureStart and SWV event set to APP_TRUE 
+[46.965]  STM32_GetStatus():  ST_LINK device status: RUN_MODE
+[53.954]  Socket_Read():  Rx: 
+[53.954]  parse_for_packet():  Received Ctrl-C from the client 
+[53.954]  Run_Server():  TraceCaptureStart and SWV event set to APP_FALSE 
+[53.970]  Socket_Write():  Tx: $S02#b5
+[53.970]  Socket_Read():  Rx: $g#67
+[53.970]  Socket_Write():  Tx: +
+[53.970]  Socket_Write():  Tx: $e83e002000000040c91b0000c91b00000000000030ad000800000000d4be012000000000000000000000000000000000000040c2d4be01202b590008477a00080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000021#e0
+[53.985]  Socket_Read():  Rx: $m8007a46,4#67
+[53.985]  Socket_Write():  Tx: +
+[53.985]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8007a46 
+[53.985]  Socket_Write():  Tx: $1846bd46#03
+[54.001]  Socket_Read():  Rx: $m80063b6,2#64
+[54.001]  Socket_Write():  Tx: +
+[54.001]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b6 
+[54.001]  Socket_Write():  Tx: $41f2#fd
+[54.001]  Socket_Read():  Rx: $m80063b8,2#66
+[54.001]  Socket_Write():  Tx: +
+[54.001]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b8 
+[54.001]  Socket_Write():  Tx: $e423#fe
+[54.001]  Socket_Read():  Rx: $m80063ba,2#8f
+[54.001]  Socket_Write():  Tx: +
+[54.001]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063ba 
+[54.016]  Socket_Write():  Tx: $c2f2#2d
+[54.016]  Socket_Read():  Rx: $m80063bc,2#91
+[54.016]  Socket_Write():  Tx: +
+[54.016]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063bc 
+[54.016]  Socket_Write():  Tx: $0003#c3
+[54.016]  Socket_Read():  Rx: $m80063be,2#93
+[54.016]  Socket_Write():  Tx: +
+[54.016]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063be 
+[54.032]  Socket_Write():  Tx: $1b68#01
+[54.032]  Socket_Read():  Rx: $m80063c0,2#5f
+[54.032]  Socket_Write():  Tx: +
+[54.032]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063c0 
+[54.032]  Socket_Write():  Tx: $03f0#f9
+[54.032]  Socket_Read():  Rx: $m80063b6,2#64
+[54.032]  Socket_Write():  Tx: +
+[54.032]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b6 
+[54.032]  Socket_Write():  Tx: $41f2#fd
+[54.032]  Socket_Read():  Rx: $m80063b8,2#66
+[54.032]  Socket_Write():  Tx: +
+[54.032]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b8 
+[54.048]  Socket_Write():  Tx: $e423#fe
+[54.048]  Socket_Read():  Rx: $m80063ba,2#8f
+[54.048]  Socket_Write():  Tx: +
+[54.048]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063ba 
+[54.048]  Socket_Write():  Tx: $c2f2#2d
+[54.048]  Socket_Read():  Rx: $m80063bc,2#91
+[54.048]  Socket_Write():  Tx: +
+[54.048]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063bc 
+[54.063]  Socket_Write():  Tx: $0003#c3
+[54.063]  Socket_Read():  Rx: $m80063be,2#93
+[54.063]  Socket_Write():  Tx: +
+[54.063]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063be 
+[54.063]  Socket_Write():  Tx: $1b68#01
+[54.063]  Socket_Read():  Rx: $m80063c0,2#5f
+[54.063]  Socket_Write():  Tx: +
+[54.063]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063c0 
+[54.063]  Socket_Write():  Tx: $03f0#f9
+[54.063]  Socket_Read():  Rx: $m800662a,2#62
+[54.063]  Socket_Write():  Tx: +
+[54.063]  handle_packet():  Reading 0x2 bytes of memory from addr 0x800662a 
+[54.079]  Socket_Write():  Tx: $bb68#32
+[54.094]  Socket_Read():  Rx: $Z1,800662a,2#ac
+[54.094]  Socket_Write():  Tx: +
+[54.094]  Socket_Write():  Tx: $OK#9a
+[54.094]  Socket_Read():  Rx: $c#63
+[54.094]  Socket_Write():  Tx: +
+[54.094]  handle_packet():  TraceCaptureStart and SWV event set to APP_TRUE 
+[54.219]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[54.219]  Run_Server():  TraceCaptureStart and SWV event set to APP_FALSE 
+[54.235]  STM32_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[54.235]  HandleStopReply():  ST_LINK Halt Reason break point hit 
+ 
+[54.235]  Socket_Write():  Tx: $T05#b9
+[54.235]  Socket_Read():  Rx: $g#67
+[54.235]  Socket_Write():  Tx: +
+[54.250]  Socket_Write():  Tx: $24c146c0000000807f00000024c146c0a963000830ad000800000000a0be0120000000000000000000000000000000009d34e2ff98be0120276600082b6600080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000061#59
+[54.250]  Socket_Read():  Rx: $z1,800662a,2#cc
+[54.250]  Socket_Write():  Tx: +
+[54.250]  Socket_Write():  Tx: $OK#9a
+[54.250]  Socket_Read():  Rx: $m800662a,4#64
+[54.250]  Socket_Write():  Tx: +
+[54.250]  handle_packet():  Reading 0x4 bytes of memory from addr 0x800662a 
+[54.266]  Socket_Write():  Tx: $bb689968#12
+[54.266]  Socket_Read():  Rx: $m2001be80,40#ef
+[54.266]  Socket_Write():  Tx: +
+[54.266]  handle_packet():  Reading 0x40 bytes of memory from addr 0x2001be80 
+[54.266]  Socket_Write():  Tx: $90be01201d9f0008000000000000f40198be012034140020281400207c39002068bf012078bf012090bf01200030002055170008f1130008ff7f3b3d73630008#05
+[54.282]  Socket_Read():  Rx: $m2001bec0,40#1a
+[54.282]  Socket_Write():  Tx: +
+[54.282]  handle_packet():  Reading 0x40 bytes of memory from addr 0x2001bec0 
+[54.282]  Socket_Write():  Tx: $90bf012000002041fcbe01200030002024c146c04d8f84c2f0be0120a9630008f0be0120c75e0008000020410008024000080240003000200000024000b888bf#68
+[54.297]  Socket_Read():  Rx: $qfThreadInfo#bb
+[54.297]  Socket_Write():  Tx: +
+[54.297]  Socket_Write():  Tx: $l#6c
+[54.313]  Socket_Read():  Rx: $m8005ec6,4#98
+[54.313]  Socket_Write():  Tx: +
+[54.313]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8005ec6 
+[54.313]  Socket_Write():  Tx: $7b6bbb67#62
+[54.313]  Socket_Read():  Rx: $m2001bfc0,40#1b
+[54.313]  Socket_Write():  Tx: +
+[54.313]  handle_packet():  Reading 0x40 bytes of memory from addr 0x2001bfc0 
+[54.328]  Socket_Write():  Tx: $0030002000000000d0bf01200346000800000000003000200000000000000000e8bf012083230008b00600201cb5000800000000ffffffff00000000ffffffff#8b
+[54.328]  Socket_Read():  Rx: $m8004602,4#31
+[54.328]  Socket_Write():  Tx: +
+[54.328]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8004602 
+[54.344]  Socket_Write():  Tx: $4ff0ff33#62
+[56.856]  Socket_Read():  Rx: $m80063b6,2#64
+[56.856]  Socket_Write():  Tx: +
+[56.856]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b6 
+[56.856]  Socket_Write():  Tx: $41f2#fd
+[56.856]  Socket_Read():  Rx: $m80063b8,2#66
+[56.856]  Socket_Write():  Tx: +
+[56.856]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b8 
+[56.871]  Socket_Write():  Tx: $e423#fe
+[56.871]  Socket_Read():  Rx: $m80063ba,2#8f
+[56.871]  Socket_Write():  Tx: +
+[56.871]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063ba 
+[56.871]  Socket_Write():  Tx: $c2f2#2d
+[56.871]  Socket_Read():  Rx: $m80063bc,2#91
+[56.871]  Socket_Write():  Tx: +
+[56.871]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063bc 
+[56.871]  Socket_Write():  Tx: $0003#c3
+[56.871]  Socket_Read():  Rx: $m80063be,2#93
+[56.871]  Socket_Write():  Tx: +
+[56.871]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063be 
+[56.887]  Socket_Write():  Tx: $1b68#01
+[56.887]  Socket_Read():  Rx: $m80063c0,2#5f
+[56.887]  Socket_Write():  Tx: +
+[56.887]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063c0 
+[56.887]  Socket_Write():  Tx: $03f0#f9
+[56.887]  Socket_Read():  Rx: $m80063b6,2#64
+[56.887]  Socket_Write():  Tx: +
+[56.887]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b6 
+[56.887]  Socket_Write():  Tx: $41f2#fd
+[56.887]  Socket_Read():  Rx: $m80063b8,2#66
+[56.887]  Socket_Write():  Tx: +
+[56.887]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063b8 
+[56.902]  Socket_Write():  Tx: $e423#fe
+[56.902]  Socket_Read():  Rx: $m80063ba,2#8f
+[56.902]  Socket_Write():  Tx: +
+[56.902]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063ba 
+[56.902]  Socket_Write():  Tx: $c2f2#2d
+[56.902]  Socket_Read():  Rx: $m80063bc,2#91
+[56.902]  Socket_Write():  Tx: +
+[56.902]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063bc 
+[56.918]  Socket_Write():  Tx: $0003#c3
+[56.918]  Socket_Read():  Rx: $m80063be,2#93
+[56.918]  Socket_Write():  Tx: +
+[56.918]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063be 
+[56.918]  Socket_Write():  Tx: $1b68#01
+[56.918]  Socket_Read():  Rx: $m80063c0,2#5f
+[56.918]  Socket_Write():  Tx: +
+[56.918]  handle_packet():  Reading 0x2 bytes of memory from addr 0x80063c0 
+[56.918]  Socket_Write():  Tx: $03f0#f9
+[56.918]  Socket_Read():  Rx: $m800670c,2#63
+[56.918]  Socket_Write():  Tx: +
+[56.918]  handle_packet():  Reading 0x2 bytes of memory from addr 0x800670c 
+[56.934]  Socket_Write():  Tx: $41f2#fd
+[62.784]  Socket_Read():  Rx: $c#63
+[62.784]  Socket_Write():  Tx: +
+[62.784]  handle_packet():  TraceCaptureStart and SWV event set to APP_TRUE 
+[62.908]  STM32_GetStatus():  ST_LINK device status: RUN_MODE
+[76.153]  Socket_Read():  Rx: 
+[76.153]  parse_for_packet():  Received Ctrl-C from the client 
+[76.153]  Run_Server():  TraceCaptureStart and SWV event set to APP_FALSE 
+[76.168]  Socket_Write():  Tx: $S02#b5
+[76.168]  Socket_Read():  Rx: $g#67
+[76.168]  Socket_Write():  Tx: +
+[76.168]  Socket_Write():  Tx: $fdcff700ffff9f007b0000001a000000fe4f753effff793e00000000c0be012000000000000000000000000000000000ff7f0200c0be01204f6100089d1d00080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000001#46
+[76.168]  Socket_Read():  Rx: $m8001d9c,4#96
+[76.168]  Socket_Write():  Tx: +
+[76.168]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8001d9c 
+[76.184]  Socket_Write():  Tx: $01fa03f1#22
+[76.200]  Socket_Read():  Rx: $m8001d34,2#5f
+[76.200]  Socket_Write():  Tx: +
+[76.200]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d34 
+[76.200]  Socket_Write():  Tx: $4200#c6
+[76.200]  Socket_Read():  Rx: $m8001d36,2#61
+[76.200]  Socket_Write():  Tx: +
+[76.200]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d36 
+[76.200]  Socket_Write():  Tx: $1fbf#5f
+[76.200]  Socket_Read():  Rx: $m8001d38,2#63
+[76.200]  Socket_Write():  Tx: +
+[76.200]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d38 
+[76.215]  Socket_Write():  Tx: $5fea#61
+[76.215]  Socket_Read():  Rx: $m8001d3a,2#8c
+[76.215]  Socket_Write():  Tx: +
+[76.215]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d3a 
+[76.215]  Socket_Write():  Tx: $4103#c8
+[76.215]  Socket_Read():  Rx: $m8001d3c,2#8e
+[76.215]  Socket_Write():  Tx: +
+[76.215]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d3c 
+[76.231]  Socket_Write():  Tx: $92ea#31
+[76.231]  Socket_Read():  Rx: $m8001d3e,2#90
+[76.231]  Socket_Write():  Tx: +
+[76.231]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d3e 
+[76.231]  Socket_Write():  Tx: $030f#f9
+[76.231]  Socket_Read():  Rx: $m8001d40,2#5c
+[76.231]  Socket_Write():  Tx: +
+[76.231]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d40 
+[76.231]  Socket_Write():  Tx: $7fea#63
+[76.231]  Socket_Read():  Rx: $m8001d42,2#5e
+[76.231]  Socket_Write():  Tx: +
+[76.231]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d42 
+[76.246]  Socket_Write():  Tx: $226c#fd
+[76.246]  Socket_Read():  Rx: $m8001d44,2#60
+[76.246]  Socket_Write():  Tx: +
+[76.246]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d44 
+[76.246]  Socket_Write():  Tx: $7fea#63
+[76.246]  Socket_Read():  Rx: $m8001d46,2#62
+[76.246]  Socket_Write():  Tx: +
+[76.246]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d46 
+[76.246]  Socket_Write():  Tx: $236c#fe
+[76.246]  Socket_Read():  Rx: $m8001d48,2#64
+[76.246]  Socket_Write():  Tx: +
+[76.246]  handle_packet():  Reading 0x2 bytes of memory from addr 0x8001d48 
+[76.262]  Socket_Write():  Tx: $6ad0#2b
+[76.262]  Socket_Read():  Rx: $Z1,800670c,2#ad
+[76.262]  Socket_Write():  Tx: +
+[76.262]  Socket_Write():  Tx: $OK#9a
+[76.262]  Socket_Read():  Rx: $c#63
+[76.262]  Socket_Write():  Tx: +
+[76.262]  handle_packet():  TraceCaptureStart and SWV event set to APP_TRUE 
+[76.387]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[76.387]  Run_Server():  TraceCaptureStart and SWV event set to APP_FALSE 
+[76.402]  STM32_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[76.402]  HandleStopReply():  ST_LINK Halt Reason break point hit 
+ 
+[76.402]  Socket_Write():  Tx: $T05#b9
+[76.402]  Socket_Read():  Rx: $g#67
+[76.402]  Socket_Write():  Tx: +
+[76.418]  Socket_Write():  Tx: $00000000000000800000000068bf0120a963000830ad000800000000a0be012000000000000000000000000000000000ffffffff98be01208b6900080d6700080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000081#a7
+[76.418]  Socket_Read():  Rx: $z1,800670c,2#cd
+[76.418]  Socket_Write():  Tx: +
+[76.418]  Socket_Write():  Tx: $OK#9a
+[76.418]  Socket_Read():  Rx: $m800670c,4#65
+[76.418]  Socket_Write():  Tx: +
+[76.418]  handle_packet():  Reading 0x4 bytes of memory from addr 0x800670c 
+[76.434]  Socket_Write():  Tx: $41f27430#cb
+[76.434]  Socket_Read():  Rx: $m2001be80,40#ef
+[76.434]  Socket_Write():  Tx: +
+[76.434]  handle_packet():  Reading 0x40 bytes of memory from addr 0x2001be80 
+[76.434]  Socket_Write():  Tx: $ff2f72bf4413002000000000a9630008a0be012007670008c0be0120f9ffffff68bf012078bf012090bf01200030002055170008ffff793eff2f72bf28bd3d3e#df
+[76.434]  Socket_Read():  Rx: $m2001bec0,40#1a
+[76.434]  Socket_Write():  Tx: +
+[76.434]  handle_packet():  Reading 0x40 bytes of memory from addr 0x2001bec0 
+[76.449]  Socket_Write():  Tx: $0000000000000000527a81bdf61c1a3f8896383fe8e27cc2f0be0120a9630008f0be0120c75e00080000204100080240000802400030002000000240ff2f72bf#19
+[76.465]  Socket_Read():  Rx: $qfThreadInfo#bb
+[76.465]  Socket_Write():  Tx: +
+[76.465]  Socket_Write():  Tx: $l#6c
+[76.480]  Socket_Read():  Rx: $m8005ec6,4#98
+[76.480]  Socket_Write():  Tx: +
+[76.480]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8005ec6 
+[76.480]  Socket_Write():  Tx: $7b6bbb67#62
+[76.480]  Socket_Read():  Rx: $m2001bfc0,40#1b
+[76.480]  Socket_Write():  Tx: +
+[76.480]  handle_packet():  Reading 0x40 bytes of memory from addr 0x2001bfc0 
+[76.496]  Socket_Write():  Tx: $0030002000000000d0bf01200346000800000000003000200000000000000000e8bf012083230008b00600201cb5000800000000ffffffff00000000ffffffff#8b
+[76.496]  Socket_Read():  Rx: $m8004602,4#31
+[76.496]  Socket_Write():  Tx: +
+[76.496]  handle_packet():  Reading 0x4 bytes of memory from addr 0x8004602 
+[76.512]  Socket_Write():  Tx: $4ff0ff33#62
+[91.472]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[106.542]  STM32_GetStatus():  ST_LINK device status: HALT_MODE
+[107.805]  Socket_Read():  Rx: $k#6b
+[107.805]  Socket_Write():  Tx: +
+[108.455]  STM32_AppReset():  NVIC_DFSR_REG	= 0x00000009
+[108.471]  STM32_AppReset():  NVIC_CFGFSR_REG	= 0x00000000
+[108.518]  Socket_WaitForNewConnection():  Waiting for client to connect on port 61234 ...

@@ -6,17 +6,22 @@
  */
 
 #include "../inc/PID.h"
+#include "math.h"
 
 /**
  * FIXME Documentation.
  */
-PID::PID(float pGain, float iGain, float dGain, float initialOutput) {
+PID::PID(float pGain, float iGain, float dGain, float initialOutput, float iLimit) {
 	this->pGain = pGain;
 	this->iGain = iGain;
 	this->dGain = dGain;
+	this->iLimit = fabs(iLimit);
 	this->integral = 0;
 	this->lastInput = 0;
 	this->initialOutput = initialOutput;
+	this->p = 0;
+	this->i = 0;
+	this->d = 0;
 }
 
 PID::~PID() {
@@ -43,42 +48,57 @@ PID::~PID() {
  *
  */
 float PID::getOutput(float input, float dt){
-	static float p = 0;
-	static float i = 0;
-	static float d = 0;
-
 	this->integral = this->integral + input*dt;
 
-	p = this->pGain * input;
-	i = this->iGain*this->integral;
+	this->p = this->pGain * input;
+	this->i = this->iGain*this->integral;
+	// Limit I term:
+	if(this->i > this->iLimit){
+		this->i = this->iLimit;
+	}
+	if(this->i < -this->iLimit){
+			this->i = -this->iLimit;
+		}
 	// TODO Add smoothing to derivative computing?
-	d = this->dGain*(input - this->lastInput)/dt;
+	this->d = this->dGain*(input - this->lastInput)/dt;
 
 	this->lastInput = input;
 
-	return this->initialOutput + p + i + d;
+	return this->initialOutput + this->p + this->i + this->d;
 }
 
 /**
  * \ brief Sets the P gain to the specified value.
  * \param p - The new P gain.
  */
-void PID::setP(float p){
-	this->pGain = p;
+void PID::setP(float pg){
+	this->pGain = pg;
 }
 
 /**
  * \ brief Sets the I gain to the specified value.
  * \param i - The new I gain.
  */
-void PID::setI(float i){
-	this->iGain = i;
+void PID::setI(float ig){
+	this->iGain = ig;
 }
 
 /**
  * \ brief Sets the D gain to the specified value.
  * \param d - The new D gain.
  */
-void PID::setD(float d){
-	this->dGain = d;
+void PID::setD(float dg){
+	this->dGain = dg;
+}
+
+float PID::getP(){
+	return this->p;
+}
+
+float PID::getI(){
+	return this->i;
+}
+
+float PID::getD(){
+	return this->d;
 }

@@ -8,19 +8,26 @@
 
 class PID {
 public:
-	PID(float pGain, float iGain, float dGain, float initialOutput);
+	PID(float pGain, float iGain, float dGain, float initialOutput, float iLimit);
 	~PID();
 	float getOutput(float input, float dt);
 	void setP(float p);
 	void setI(float i);
 	void setD(float d);
+	float getP();
+	float getI();
+	float getD();
 private:
 	float pGain;
 	float iGain;
 	float dGain;
+	float iLimit;
 	float integral;
 	float lastInput;
 	float initialOutput;
+	float p;
+	float i;
+	float d;
 };
 
 #endif /* PID_H_ */
