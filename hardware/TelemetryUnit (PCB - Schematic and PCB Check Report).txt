@@ -1,0 +1,17 @@
+Schematic and PCB Check Report
+------------------------------
+
+Report File    : D:\AKAMAV\neuerAutopilot\BUS\Platinen\TelemetryUnit (PCB - Schematic and PCB Check Report).txt
+Report Written : Wednesday, October 19, 2011
+Project Path   : D:\AKAMAV\neuerAutopilot\BUS\Platinen\TelemetryUnit.prj
+Design Path    : D:\AKAMAV\neuerAutopilot\BUS\Platinen\TelemetryUnit.pcb
+Design Title   : 
+Created        : 19.10.2011 01:21:18
+Last Saved     : 19.10.2011 01:23:02
+Editing Time   : 3 min
+Units          : mm (precision 2)
+
+Checking integrity of Schematic and Pcb designs in project "TelemetryUnit".
+
+
+End Of Report.
