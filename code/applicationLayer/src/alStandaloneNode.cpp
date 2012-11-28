@@ -76,9 +76,11 @@ void alStandaloneNode::runloop(){
 	bool test = false;
 	struct mpu6050Output imuData;
 	struct attitudeEuler euler;
+	struct attitudeEuler eulerLowPass;
 	struct attitudeEuler eulerDesired;
 	clMPU6050::initStructure(&imuData);
 	alMAVLink::initStructure(&euler);
+	alMAVLink::initStructure(&eulerLowPass);
 	alMAVLink::initStructure(&eulerDesired);
 	float rcInputs[8] = {0};
 	float motorOutputs[8] = {-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0,};
@@ -111,7 +113,7 @@ void alStandaloneNode::runloop(){
 			// Get IMU data:
 			this->imu->getRawMeasurements(&imuData);
 			// Compute attitude:
-			this->estimateAttitude(&imuData, timestep, &euler, &bias);
+			this->estimateAttitude(&imuData, timestep, &euler, &eulerLowPass, &bias);
 			// Get desired euler angles from RC inputs:
 			// Roll attitude from aileron command:
 			eulerDesired.euler[0] = 30 * rcInputs[1];
@@ -121,7 +123,7 @@ void alStandaloneNode::runloop(){
 			eulerDesired.euler[2] = 30 * rcInputs[3];
 
 			// Calculate control reaction:
-			this->calculateControlOutput(&euler, &eulerDesired, &controlOutput, timestep);
+			this->calculateControlOutput(&euler, &eulerLowPass, &eulerDesired, &controlOutput, timestep);
 			// Get desired throttle directly fromRC input:
 			controlOutput.throttle = rcInputs[0];
 			// Apply control output to the 4 motors:
@@ -141,7 +143,7 @@ void alStandaloneNode::runloop(){
 		//Send data to the GCS.
 		if(RFTimer->getTime() >= 50){
 			RFTimer->restart();
-			this->mavlinkXBee->sendAttitude(&euler);
+			//this->mavlinkXBee->sendAttitude(&euler);
 			/*				this->mavlinkXBee->sendFloatCommands(rcInputs, 0);
 				this->mavlinkXBee->sendFloat(imuData.rawAcc[0], 1);
 				this->mavlinkXBee->sendFloat(imuData.rawAcc[1], 2);
@@ -150,16 +152,21 @@ void alStandaloneNode::runloop(){
 				this->mavlinkXBee->sendFloat(imuData.rawGyro[1], 5);
 				this->mavlinkXBee->sendFloat(imuData.rawGyro[2], 6);
 			 */
+			//this->mavlinkXBee->sendFloat(euler.bodyRotationRate[0], "rollRt");
+			//this->mavlinkXBee->sendFloat(eulerLowPass.bodyRotationRate[0], "rollRtLp");
+			this->mavlinkXBee->sendFloat(eulerDesired.bodyRotationRate[0], "rollRtD");
+			this->mavlinkXBee->sendFloat(euler.euler[0], "roll");
 			// Send control output.
-			this->mavlinkXBee->sendFloat(controlOutput.nick, "nickC");
-			//this->mavlinkXBee->sendFloat(controlOutput.roll, "rollC");
+			//this->mavlinkXBee->sendFloat(controlOutput.nick, "nickC");
+			this->mavlinkXBee->sendFloat(controlOutput.roll, "rollC");
 			//this->mavlinkXBee->sendFloat(controlOutput.yaw, "yawC");
 			this->mavlinkXBee->sendFloat(controlOutput.throttle, "throttleC");
-			//this->mavlinkXBee->sendFloat(eulerDesired.euler[0], "roll_des");
-			this->mavlinkXBee->sendFloat(eulerDesired.euler[1], "pitch_des");
+			this->mavlinkXBee->sendFloat(eulerDesired.euler[0], "roll_des");
+			//this->mavlinkXBee->sendFloat(eulerDesired.euler[1], "pitch_des");
 			//this->mavlinkXBee->sendFloat(eulerDesired.euler[2], "yaw_des");
-			this->mavlinkXBee->sendFloat(motorOutputs[0], "mot_front");
-			this->mavlinkXBee->sendFloat(motorOutputs[2], "mot_rear");
+			this->mavlinkXBee->sendFloat(motorOutputs[1], "mot_left");
+			this->mavlinkXBee->sendFloat(motorOutputs[3], "mot_right");
+
 		}
 
 		// Make LED blink:
@@ -179,13 +186,17 @@ void alStandaloneNode::runloop(){
  * \param[in] timestep - time [ms] between this call and the last call of this method, e.g.
  * needed to do integrations.
  * param[out] euler - Pointer to a structure the method writes the estimated attitude to.
+ * param[out] eulerLowPass - Pointer to a structure the method writes the low pass filtered estimated attitude to.
  */
-void alStandaloneNode::estimateAttitude(mpu6050Output* measurements, float timestep, attitudeEuler* euler, float* bias){
+void alStandaloneNode::estimateAttitude(mpu6050Output* measurements, float timestep, attitudeEuler* euler, attitudeEuler* eulerLowPass, float* bias){
 
-	// Copy raw rotation rates.
-	euler->bodyRotationRate[0] = measurements->rawGyro[0];
-	euler->bodyRotationRate[1] = measurements->rawGyro[1];
-	euler->bodyRotationRate[2] = measurements->rawGyro[2];
+	for(int i=0; i<3; i++){
+		// Copy raw rotation rates.
+		euler->bodyRotationRate[i] = measurements->rawGyro[i];
+		// Apply low-pass filter to body rotation rates:
+		float lowPassConstant = 0.05;
+		eulerLowPass->bodyRotationRate[i] = eulerLowPass->bodyRotationRate[i] + lowPassConstant * (euler->bodyRotationRate[i] - eulerLowPass->bodyRotationRate[i]);
+	}
 
 	// Integrate body rotation rates.
 	euler->euler[0] += euler->bodyRotationRate[0] * (timestep/1000);
@@ -222,32 +233,41 @@ void alStandaloneNode::estimateAttitude(mpu6050Output* measurements, float times
 /**
  * \brief This method calculates the control output based on the current actual attitude and the desired attitude.
  */
-void alStandaloneNode::calculateControlOutput(attitudeEuler* attitude, attitudeEuler* desiredAttitude, controlOutputQuadrocopter* controlOutputs, float dt){
-	static PID rollPID(0.0, 0.0, 0, 0.0, 10);
-	static PID pitchPID(1.0, 0.0, 0.0, 0.0, 10);
-	static PID yawPID(0.0, 0., 0.0, 0.0, 10);
+void alStandaloneNode::calculateControlOutput(attitudeEuler* attitude, attitudeEuler* attitudeLowPass, attitudeEuler* desiredAttitude, controlOutputQuadrocopter* controlOutputs, float dt){
+	/** Since we use a cascade - shaped controller, we've got the inner and the outer loop to control. Both ones, the inner as well
+	 * as the outer loop consist of a PID controller. The inner, faster one is the "rotation rate" controller whereas the outer one
+	 * controls the angles.
+	 */
 
-	static PID rollRatePID(0.0, 0.0, 0.0, 0.0, 1);
+	static PID rollRatePID(0.0009, 0.000005, 0.0, 0.0, 0.2);
 	static PID pitchRatePID(0.0005, 0, 0, 0.0, 1);
 	static PID yawRatePID(0.0, 0., 0.0, 0.0, 1);
+
+	static PID rollPID(- 0.000, 0.0, 0, 0.0, 10);
+	static PID pitchPID(1.0, 0.0, 0.0, 0.0, 10);
+	static PID yawPID(0.0, 0., 0.0, 0.0, 10);
 
 	// Calculate attitude errors:
 	float pitchError= attitude->euler[1] - desiredAttitude->euler[1];
 	float rollError = attitude->euler[0] - desiredAttitude->euler[0];
 	float yawError = attitude->euler[2] - desiredAttitude->euler[2];
 
-	float commandedPitchRotationRate = pitchPID.getOutput (pitchError, dt);
-	float commandedRollRotationRate = rollPID.getOutput(rollError, dt);
-	float commandedYawRotationRate = yawPID.getOutput(yawError, dt);
+	desiredAttitude->bodyRotationRate[1] = pitchPID.getOutput(pitchError, pitchError, pitchError, dt);
+	desiredAttitude->bodyRotationRate[0] = rollPID.getOutput(rollError, rollError, rollError, dt);
+	desiredAttitude->bodyRotationRate[2] = yawPID.getOutput(yawError, yawError,yawError, dt);
 
 	// Calculate rotation rate errors:
-	float pitchRateError = attitude->bodyRotationRate[1] - commandedPitchRotationRate;
-	float rollrateError = attitude->bodyRotationRate[0] - commandedRollRotationRate;
-	float yawRateError = attitude->bodyRotationRate[2] - commandedYawRotationRate;
+	float pitchRateError = attitude->bodyRotationRate[1] - desiredAttitude->bodyRotationRate[1];
+	float rollrateError = attitude->bodyRotationRate[0] - desiredAttitude->bodyRotationRate[0];
+	float yawRateError = attitude->bodyRotationRate[2] - desiredAttitude->bodyRotationRate[2];
 
-	controlOutputs->nick = pitchRatePID.getOutput(pitchRateError, dt);
-	controlOutputs->roll= rollRatePID.getOutput(rollrateError, dt);
-	controlOutputs->yaw = yawRatePID.getOutput(yawRateError, dt);
+	float pitchRateErrorLP = attitudeLowPass->bodyRotationRate[1] - desiredAttitude->bodyRotationRate[1];
+	float rollrateErrorLP = attitudeLowPass->bodyRotationRate[0] - desiredAttitude->bodyRotationRate[0];
+	float yawRateErrorLP = attitudeLowPass->bodyRotationRate[2] - desiredAttitude->bodyRotationRate[2];
+
+	controlOutputs->nick = pitchRatePID.getOutput(pitchRateError, pitchRateError, pitchRateErrorLP, dt);
+	controlOutputs->roll= rollRatePID.getOutput(rollrateError, rollrateError, rollrateErrorLP, dt);
+	controlOutputs->yaw = yawRatePID.getOutput(yawRateError, yawRateError, yawRateErrorLP, dt);
 }
 
 /**
@@ -268,8 +288,8 @@ void alStandaloneNode::output2MotorCommands(controlOutputQuadrocopter* controlOu
 	motorOutputs[0] += controlOutputs->nick;
 	motorOutputs[2] -= controlOutputs->nick;
 	// Roll:
-	//motorOutputs[1] += controlOutputs->roll;
-	//motorOutputs[3] -= controlOutputs->roll;
+	motorOutputs[1] += controlOutputs->roll;
+	motorOutputs[3] -= controlOutputs->roll;
 	// Turn yaw command into differential throttle commands:
 	// Front and rear:
 	//motorOutputs[0] += controlOutputs->yaw;

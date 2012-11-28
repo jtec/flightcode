@@ -1,6 +1,6 @@
 /*
  * \file PID.cpp
- * \brief This is a simple Single Input Single Output discrete PID filter.
+ * \brief A simple Single Input Single Output discrete PID filter.
  * \author jan
  *
  */
@@ -16,8 +16,6 @@ PID::PID(float pGain, float iGain, float dGain, float initialOutput, float iLimi
 	this->iGain = iGain;
 	this->dGain = dGain;
 	this->iLimit = fabs(iLimit);
-	this->integral = 0;
-	this->lastInput = 0;
 	this->initialOutput = initialOutput;
 	this->p = 0;
 	this->i = 0;
@@ -47,23 +45,21 @@ PID::~PID() {
  * of the integral and derivative terms.
  *
  */
-float PID::getOutput(float input, float dt){
-	this->integral = this->integral + input*dt;
+float PID::getOutput(float inputP, float inputI, float inputD, float dt){
+	static float lastInputD;
 
-	this->p = this->pGain * input;
-	this->i = this->iGain*this->integral;
+	this->p = this->pGain * inputP;
+	this->i += this->iGain*inputI*dt;
 	// Limit I term:
 	if(this->i > this->iLimit){
 		this->i = this->iLimit;
 	}
 	if(this->i < -this->iLimit){
-			this->i = -this->iLimit;
-		}
+		this->i = -this->iLimit;
+	}
 	// TODO Add smoothing to derivative computing?
-	this->d = this->dGain*(input - this->lastInput)/dt;
-
-	this->lastInput = input;
-
+	this->d = this->dGain*(inputD - lastInputD)/dt;
+	lastInputD = inputD;
 	return this->initialOutput + this->p + this->i + this->d;
 }
 

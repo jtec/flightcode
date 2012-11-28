@@ -40,8 +40,8 @@ public :
 	~alStandaloneNode();
 	void runloop();
 private:
-	void estimateAttitude(mpu6050Output* measurements, float timestep, attitudeEuler* euler, float* bias);
-	void calculateControlOutput(attitudeEuler* attitude, attitudeEuler* desiredAttitude, controlOutputQuadrocopter* output, float dt);
+	void estimateAttitude(mpu6050Output* measurements, float timestep, attitudeEuler* euler, attitudeEuler* eulerLowPAss, float* bias);
+	void calculateControlOutput(attitudeEuler* attitude, attitudeEuler* attitudeLowPass, attitudeEuler* desiredAttitude, controlOutputQuadrocopter* controlOutputs, float dt);
 	void output2MotorCommands(controlOutputQuadrocopter* controlOutputs, float* motorOutputs);
 	float rad2deg(float rad);
 	alBus* bus;
