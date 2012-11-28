@@ -1,0 +1,19 @@
++3.3V
+3-Pin-2.54mm-stripe||#DIL=3||@=||@=||@=||@=||@=
+5-Pin-BoardToBoardConnector||#DIL=5||@=||@=||@=||@=||@=
+8-Pin-BoardToBoardConnector||#DIL=8||@=||@=||@=||@=||@=
+14-pin-singleRow-2.54mm||#DIL=14||@=||@=||@=||@=||@=
+25-pin-stripe||#DIL=25||@=||@=||@=||@=||@=
+28-pin-doubleRow-2.54mm||#DIL=28||@=||@=||@=||@=||@=
+AKER - C7S-8.000-12-3030-X||#OSC_SMD_4PIN=4||@=||@=||@=||@=||@=
+Capacitor_SMD_0603||#SM0603=2||@=||@=||@=||@=||@=||@=
+LED_1206_OSRAM||#SMD=2||@=||@=||@=||@=||@=
+Molex_SMD_7pin||#SMD=7||@=||@=||@=||@=||@=
+Molex_SMD_8pin||#SMD=8||@=||@=||@=||@=||@=
+MountingHole_M2||#DIL=1||@=||@=||@=||@=||@=
+MountingHole_M3||#DIL=1||@=||@=||@=||@=||@=
+PrototypingArea||#DIL=270||@=||@=||@=||@=||@=
+Resistor_SMD_0603||#SM0603=2||@=||@=||@=||@=||@=||@=
+SNHVD230D/231D||#SOIC-8=8||@=||@=||@=||@=||@=
+TI_REG-104||#SOT223-5=6||@=||@=||@=||@=||@=
+VoltageSupplyInputSolderPads||#PADS=2||@=||@=||@=||@=||@=
