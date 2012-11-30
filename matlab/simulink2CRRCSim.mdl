@@ -1,12 +1,12 @@
 Model {
   Name			  "simulink2CRRCSim"
-  Version		  7.9
+  Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.186"
+    ComputedModelVersion    "1.187"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -19,25 +19,23 @@ Model {
   DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
-  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   Created		  "Sat Oct 20 19:53:13 2012"
   Creator		  "jan"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "jan"
+  LastModifiedBy	  "j.bolting"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Oct 20 22:04:53 2012"
-  RTWModifiedTimeStamp	  272667652
-  ModelVersionFormat	  "1.%<AutoIncrement:186>"
+  LastModifiedDate	  "Fri Nov 30 16:19:50 2012"
+  RTWModifiedTimeStamp	  276193157
+  ModelVersionFormat	  "1.%<AutoIncrement:187>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
-  LibraryLinkDisplay	  "disabled"
+  LibraryLinkDisplay	  "none"
   WideLines		  off
   ShowLineDimensions	  on
   ShowPortDataTypes	  on
-  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -62,25 +60,6 @@ Model {
   AccelTemplateMakefile	  "accel_default_tmf"
   AccelMakeCommand	  "make_rtw"
   TryForcingSFcnDF	  off
-  Object {
-    $PropName		    "DataLoggingOverride"
-    $ObjectID		    1
-    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "simulink2CRRCSim"
-    signals_		    []
-    overrideMode_	    [0.0]
-    Array {
-      Type		      "Cell"
-      Dimension		      1
-      Cell		      "simulink2CRRCSim"
-      PropName		      "logAsSpecifiedByModels_"
-    }
-    Array {
-      Type		      "Cell"
-      Dimension		      0
-      PropName		      "logAsSpecifiedByModelsSSIDs_"
-    }
-  }
   RecordCoverage	  off
   CovPath		  "/"
   CovSaveName		  "covdata"
@@ -123,14 +102,14 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      2
-      Version		      "1.12.0"
+      $ObjectID		      1
+      Version		      "1.10.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  3
-	  Version		  "1.12.0"
+	  $ObjectID		  2
+	  Version		  "1.10.0"
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
@@ -148,7 +127,6 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
-	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -164,8 +142,8 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  4
-	  Version		  "1.12.0"
+	  $ObjectID		  3
+	  Version		  "1.10.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -177,7 +155,6 @@ Model {
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
 	  SaveFormat		  "Array"
-	  SignalLoggingSaveFormat "ModelDataLogs"
 	  SaveOutput		  on
 	  SaveState		  off
 	  SignalLogging		  on
@@ -196,8 +173,8 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  5
-	  Version		  "1.12.0"
+	  $ObjectID		  4
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -216,7 +193,6 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
-	  UseFloatMulNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -249,11 +225,10 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  6
-	  Version		  "1.12.0"
+	  $ObjectID		  5
+	  Version		  "1.10.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -308,7 +283,6 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
-	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
@@ -325,7 +299,6 @@ Model {
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
-	  SimStateOlderReleaseMsg "error"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -337,11 +310,10 @@ Model {
 	  SFInvalidInputDataAccessInChartInitDiag "warning"
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
-	  SFUnconditionalTransitionShadowingDiag "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  7
-	  Version		  "1.12.0"
+	  $ObjectID		  6
+	  Version		  "1.10.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -377,8 +349,8 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  8
-	  Version		  "1.12.0"
+	  $ObjectID		  7
+	  Version		  "1.10.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -392,8 +364,8 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  9
-	  Version		  "1.12.0"
+	  $ObjectID		  8
+	  Version		  "1.10.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -407,8 +379,8 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  10
-	  Version		  "1.12.0"
+	  $ObjectID		  9
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -452,9 +424,7 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  GenerateWebview	  off
-	  GenerateCodeMetricsReport off
-	  GenerateCodeReplacementReport	off
+	  GenerateSLWebview	  off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -462,8 +432,8 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      11
-	      Version		      "1.12.0"
+	      $ObjectID		      10
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		21
@@ -527,8 +497,8 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      12
-	      Version		      "1.12.0"
+	      $ObjectID		      11
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -553,10 +523,10 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      CodeReplacementLibrary  "ANSI_C"
+	      TargetFunctionLibrary   "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      CodeExecutionProfiling  off
+	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -566,7 +536,6 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns on
@@ -591,7 +560,6 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
-	      GRTInterface	      off
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -603,7 +571,6 @@ Model {
 	      RTWCAPISignals	      off
 	      RTWCAPIParams	      off
 	      RTWCAPIStates	      off
-	      RTWCAPIRootIO	      off
 	      GenerateASAP2	      off
 	    }
 	    PropName		    "Components"
@@ -613,15 +580,14 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 280, 135, 1160, 765 ] 
+      ConfigPrmDlgPosition    " [ 280, 135, 1160, 765 ] "
     }
     PropName		    "ConfigurationSets"
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    2
+    $ObjectID		    1
   }
-  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -657,7 +623,6 @@ Model {
     Block {
       BlockType		      Concatenate
       NumInputs		      "2"
-      Mode		      "Vector"
       ConcatenateDimension    "1"
     }
     Block {
@@ -669,7 +634,6 @@ Model {
     Block {
       BlockType		      Inport
       Port		      "1"
-      OutputFunctionCall      off
       OutMin		      "[]"
       OutMax		      "[]"
       OutDataTypeStr	      "Inherit: auto"
@@ -702,7 +666,7 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
-      BlockType		      S-Function
+      BlockType		      "S-Function"
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
@@ -719,7 +683,6 @@ Model {
       YMax		      "5"
       SaveToWorkspace	      off
       SaveName		      "ScopeData"
-      DataFormat	      "Array"
       LimitDataPoints	      on
       MaxDataPoints	      "5000"
       Decimation	      "1"
@@ -758,7 +721,6 @@ Model {
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
-      SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
     }
@@ -793,7 +755,6 @@ Model {
       SID		      "25"
       Ports		      [3, 3]
       Position		      [215, 91, 355, 179]
-      ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -805,12 +766,10 @@ Model {
       Opaque		      off
       RequestExecContextInheritance off
       MaskHideContents	      off
-      SFBlockType	      "MATLAB Function"
       MaskType		      "Stateflow"
       MaskDescription	      "Embedded MATLAB block"
       MaskSelfModifiable      on
-      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
-      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'CRRCSimMixer']);"
+      MaskDisplay	      "disp('CRRCSimMixer');"
       MaskIconFrame	      on
       MaskIconOpaque	      off
       MaskIconRotate	      "none"
@@ -844,7 +803,6 @@ Model {
 	  Name			  "pitch"
 	  SID			  "25::23"
 	  Position		  [20, 136, 40, 154]
-	  ZOrder		  9
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -853,7 +811,6 @@ Model {
 	  Name			  "throttle"
 	  SID			  "25::24"
 	  Position		  [20, 171, 40, 189]
-	  ZOrder		  10
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
@@ -863,17 +820,15 @@ Model {
 	  SID			  "25::20"
 	  Ports			  [1, 1]
 	  Position		  [270, 210, 320, 250]
-	  ZOrder		  6
 	  Outputs		  "1"
 	}
 	Block {
-	  BlockType		  S-Function
+	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "25::19"
 	  Tag			  "Stateflow S-Function simulink2CRRCSim 1"
 	  Ports			  [3, 4]
 	  Position		  [180, 102, 230, 203]
-	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[3 4]"
 	  EnableBusSupport	  on
@@ -901,7 +856,6 @@ Model {
 	  Name			  " Terminator "
 	  SID			  "25::22"
 	  Position		  [460, 221, 480, 239]
-	  ZOrder		  8
 	}
 	Block {
 	  BlockType		  Outport
@@ -915,7 +869,6 @@ Model {
 	  Name			  "channel1"
 	  SID			  "25::25"
 	  Position		  [460, 136, 480, 154]
-	  ZOrder		  11
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -924,7 +877,6 @@ Model {
 	  Name			  "channel2"
 	  SID			  "25::26"
 	  Position		  [460, 171, 480, 189]
-	  ZOrder		  12
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
@@ -990,8 +942,7 @@ Model {
       SID		      "22"
       Ports		      [0, 4]
       Position		      [20, 88, 90, 157]
-      ZOrder		      -1
-      LibraryVersion	      "1.72"
+      LibraryVersion	      "1.70"
       SourceBlock	      "aerolibanimutils/Pilot Joystick"
       SourceType	      "PilotJoystick"
       JoystickID	      "Joystick1"
@@ -1004,7 +955,6 @@ Model {
       SID		      "7"
       Ports		      [1]
       Position		      [865, 229, 895, 261]
-      ZOrder		      -16
       Floating		      off
       Location		      [188, 49, 931, 867]
       Open		      off
@@ -1013,17 +963,6 @@ Model {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
       YMin		      "0"
       YMax		      "70000"
       SaveName		      "ScopeData1"
@@ -1036,7 +975,6 @@ Model {
       SID		      "13"
       Ports		      [1]
       Position		      [660, 229, 690, 261]
-      ZOrder		      -16
       Floating		      off
       Location		      [188, 49, 931, 867]
       Open		      off
@@ -1046,17 +984,6 @@ Model {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
@@ -1066,7 +993,6 @@ Model {
       SID		      "24"
       Ports		      [1]
       Position		      [150, 34, 180, 66]
-      ZOrder		      -16
       Floating		      off
       Location		      [188, 49, 931, 867]
       Open		      off
@@ -1076,17 +1002,6 @@ Model {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
       SaveName		      "ScopeData2"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
@@ -1097,24 +1012,15 @@ Model {
       SID		      "18"
       Ports		      [9, 1]
       Position		      [475, 126, 490, 424]
-      ZOrder		      -22
       NumInputs		      "9"
-    }
-    Block {
-      BlockType		      ZeroOrderHold
-      Name		      "make 100 Hz"
-      SID		      "8"
-      Position		      [580, 335, 615, 365]
-      ZOrder		      -19
-      SampleTime	      "0.01"
+      Mode		      "Vector"
     }
     Block {
       BlockType		      SubSystem
-      Name		      "make MNAV packet"
+      Name		      "create MNAV packet"
       SID		      "12"
       Ports		      [1, 1]
       Position		      [705, 327, 775, 373]
-      ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1126,19 +1032,17 @@ Model {
       Opaque		      off
       RequestExecContextInheritance off
       MaskHideContents	      off
-      SFBlockType	      "MATLAB Function"
       MaskType		      "Stateflow"
       MaskDescription	      "Embedded MATLAB block"
       MaskSelfModifiable      on
-      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
-      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'makeMNAV']);"
+      MaskDisplay	      "disp('makeMNAV');"
       MaskIconFrame	      on
       MaskIconOpaque	      off
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "normalized"
       System {
-	Name			"make MNAV packet"
+	Name			"create MNAV packet"
 	Location		[257, 457, 812, 717]
 	Open			off
 	ModelBrowserVisibility	off
@@ -1166,17 +1070,15 @@ Model {
 	  SID			  "12::20"
 	  Ports			  [1, 1]
 	  Position		  [270, 160, 320, 200]
-	  ZOrder		  6
 	  Outputs		  "1"
 	}
 	Block {
-	  BlockType		  S-Function
+	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "12::19"
 	  Tag			  "Stateflow S-Function simulink2CRRCSim 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  EnableBusSupport	  on
@@ -1192,7 +1094,6 @@ Model {
 	  Name			  " Terminator "
 	  SID			  "12::22"
 	  Position		  [460, 171, 480, 189]
-	  ZOrder		  8
 	}
 	Block {
 	  BlockType		  Outport
@@ -1230,13 +1131,19 @@ Model {
       }
     }
     Block {
+      BlockType		      ZeroOrderHold
+      Name		      "make 100 Hz"
+      SID		      "8"
+      Position		      [580, 335, 615, 365]
+      SampleTime	      "0.01"
+    }
+    Block {
       BlockType		      Reference
       Name		      "send to CRRCsim"
       SID		      "3"
       Ports		      [1]
       Position		      [925, 325, 1030, 375]
-      ZOrder		      -9
-      LibraryVersion	      "1.105"
+      LibraryVersion	      "1.103"
       SourceBlock	      "dspnetwork/UDP Send"
       SourceType	      "UDP Send"
       remoteURL		      "'127.0.0.1'"
@@ -1253,7 +1160,6 @@ Model {
       SID		      "21"
       Ports		      [0, 1]
       Position		      [40, 375, 70, 405]
-      ZOrder		      -21
       Amplitude		      "0"
       SampleTime	      "0"
     }
@@ -1262,7 +1168,7 @@ Model {
       SrcPort		      1
       Points		      [20, 0]
       Branch {
-	DstBlock		"make MNAV packet"
+	DstBlock		"create MNAV packet"
 	DstPort			1
       }
       Branch {
@@ -1279,7 +1185,7 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "make MNAV packet"
+      SrcBlock		      "create MNAV packet"
       SrcPort		      1
       Points		      [50, 0]
       Branch {
@@ -1392,7 +1298,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Jan 26 2012, 02:07:42
+#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
 #
 #
 
@@ -1404,9 +1310,7 @@ Stateflow {
     created		    "20-Oct-2012 20:21:10"
     isLibrary		    0
     firstTarget		    20
-    debug {
-    }
-    sfVersion		    76014001.00040001
+    sfVersion		    75014000.000003
   }
   chart {
     id			    2
@@ -1419,8 +1323,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -1616,7 +1518,7 @@ Stateflow {
   }
   chart {
     id			    13
-    name		    "make MNAV packet"
+    name		    "create MNAV packet"
     windowPosition	    [317.039 353.766 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
@@ -1736,7 +1638,7 @@ Stateflow {
   }
   instance {
     id			    19
-    name		    "make MNAV packet"
+    name		    "create MNAV packet"
     machine		    1
     chart		    13
   }
