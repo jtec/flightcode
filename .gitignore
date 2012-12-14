@@ -1,2 +1,3 @@
-/bin
-/code/applicationLayer/src/main.cpp
+# Do not track intermediate compiler files.
+*.lst
+*.o
