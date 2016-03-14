@@ -7,7 +7,7 @@
  *        and their string identifiers (are used by QGroundControl to make parameter ids human readable)
  *
  * TODO Make parameters removable?
- * TODO Is there a more efficient way to map string IDs to values than by string comparison (hash coputation for a map takes time too)?
+ * TODO Is there a more efficient way to map string IDs to values than by string comparison (hash computation for a map takes time too)?
  */
 
 #include "../inc/ParameterManager.h"
